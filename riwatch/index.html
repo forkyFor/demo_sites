@@ -526,6 +526,118 @@
       margin-top: 1rem;
     }
 
+    /* ── PRODUCTS ── */
+    .products {
+      background: var(--white);
+      padding: 6rem 5%;
+    }
+
+    .products-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      flex-wrap: wrap; gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .product-card {
+      background: var(--light);
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex; flex-direction: column;
+      transition: all .25s;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: transparent;
+    }
+
+    .product-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      background: var(--lime); color: var(--dark);
+      font-size: .7rem; font-weight: 800;
+      padding: .2rem .6rem; border-radius: 999px;
+      text-transform: uppercase; letter-spacing: .5px;
+    }
+
+    .product-icon {
+      width: 56px; height: 56px;
+      background: var(--blue-light);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .product-card h3 {
+      font-size: 1rem; font-weight: 700;
+      color: var(--dark); margin-bottom: .5rem;
+      line-height: 1.35;
+    }
+
+    .product-card p {
+      font-size: .875rem; color: var(--muted);
+      line-height: 1.65; flex: 1;
+    }
+
+    .product-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 1.5rem; padding-top: 1.25rem;
+      border-top: 1px solid #e5e7eb;
+      gap: .75rem;
+    }
+
+    .product-price {
+      font-size: 1.3rem; font-weight: 900; color: var(--dark); line-height: 1;
+    }
+    .product-price small {
+      font-size: .7rem; color: var(--muted); font-weight: 500; display: block; margin-top: 2px;
+    }
+
+    .btn-buy {
+      background: var(--blue); color: var(--white);
+      padding: .55rem 1.1rem; border-radius: 8px;
+      font-size: .85rem; font-weight: 700;
+      text-decoration: none;
+      transition: background .2s, transform .15s;
+      white-space: nowrap;
+    }
+    .btn-buy:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+    .products-trust {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      background: var(--light);
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius);
+      padding: 2rem 2.5rem;
+    }
+
+    .trust-item {
+      display: flex; align-items: center; gap: .85rem;
+    }
+
+    .trust-item-icon {
+      font-size: 1.5rem; flex-shrink: 0;
+    }
+
+    .trust-item h4 {
+      font-size: .875rem; font-weight: 700; color: var(--dark);
+    }
+    .trust-item p {
+      font-size: .78rem; color: var(--muted); margin-top: .1rem;
+    }
+
     /* ── REVIEWS ── */
     .reviews {
       background: var(--light);
@@ -783,6 +895,7 @@
   <nav>
     <a href="#" class="nav-logo">ri<span>watch</span></a>
     <ul class="nav-links">
+      <li><a href="#prodotti">Prodotti</a></li>
       <li><a href="#servizi">Servizi</a></li>
       <li><a href="#piattaforma">Piattaforma</a></li>
       <li><a href="#formazione">Formazione</a></li>
@@ -1086,6 +1199,114 @@
             </div>
           </div>
           <a href="#contatti" class="btn-primary" style="margin-top:1.25rem; width:100%; justify-content:center; font-size:.9rem;">Richiedi informazioni →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="prodotti">
+    <div class="products-header">
+      <div>
+        <div class="section-label">Shop</div>
+        <h2 class="section-title">Prodotti certificati<br/>per il trasporto professionale</h2>
+      </div>
+      <p class="section-sub">Dispositivi e accessori omologati per la gestione del tachigrafo digitale, conformi alla normativa europea.</p>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product-icon">🔑</div>
+        <h3>VDO DLK Pro License Card (DTCO 4.0/4.1)</h3>
+        <p>Abilita la compatibilità con i tachigrafi intelligenti di nuova generazione. Garantisce la conformità al Pacchetto Mobilità I dell'UE.</p>
+        <div class="product-footer">
+          <div class="product-price">€120 <small>+ IVA</small></div>
+          <a href="https://www.riwatch.it/prodotti/" class="btn-buy" target="_blank">Acquista →</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="product-badge">Servizio</span>
+        <div class="product-icon">🖥️</div>
+        <h3>Rigenerazione Display Cluster Iveco Stralis</h3>
+        <p>Servizio di riparazione e ripristino del display cluster. Reso garantito in 14 giorni lavorativi.</p>
+        <div class="product-footer">
+          <div class="product-price">€250 <small>+ IVA</small></div>
+          <a href="https://www.riwatch.it/prodotti/" class="btn-buy" target="_blank">Acquista →</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon">💾</div>
+        <h3>DLK Pro Download Key S</h3>
+        <p>Trasferimento dati via USB con scheda SD integrata. Compatibilità universale con tutti i principali tachigrafi digitali.</p>
+        <div class="product-footer">
+          <div class="product-price">€300 <small>+ IVA</small></div>
+          <a href="https://www.riwatch.it/prodotti/" class="btn-buy" target="_blank">Acquista →</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="product-badge">Promo</span>
+        <div class="product-icon">🧻</div>
+        <h3>Rotoli Carta Termica Tekson</h3>
+        <p>Carta termica per tachigrafi di qualità superiore. Confezione da 20 rotoli a prezzo promozionale.</p>
+        <div class="product-footer">
+          <div class="product-price">€7,58 <small>+ IVA / cad.</small></div>
+          <a href="https://www.riwatch.it/prodotti/" class="btn-buy" target="_blank">Acquista →</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon">⏱️</div>
+        <h3>Tachigrafo Analogico Kienzle 1324 Ricondizionato</h3>
+        <p>Dispositivo analogico con dischi diagramma 125mm, capacità 24h. Garanzia 6 mesi inclusa. Programma di permuta disponibile.</p>
+        <div class="product-footer">
+          <div class="product-price">€195 <small>+ IVA</small></div>
+          <a href="https://www.riwatch.it/prodotti/" class="btn-buy" target="_blank">Acquista →</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon">📲</div>
+        <h3>VDO DLK Smart Download Key</h3>
+        <p>1,2TB di capacità, 4GB di memoria, 29 lingue. Connettività USB e Bluetooth. Compatibile con DTCO 4.1 e versioni precedenti.</p>
+        <div class="product-footer">
+          <div class="product-price">€370 <small>+ IVA</small></div>
+          <a href="https://www.riwatch.it/prodotti/" class="btn-buy" target="_blank">Acquista →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="products-trust">
+      <div class="trust-item">
+        <span class="trust-item-icon">✅</span>
+        <div>
+          <h4>Prodotti certificati</h4>
+          <p>Conformi alle normative europee vigenti</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-item-icon">🔧</span>
+        <div>
+          <h4>Supporto tecnico qualificato</h4>
+          <p>Assistenza da esperti del settore</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-item-icon">⚡</span>
+        <div>
+          <h4>Spedizione rapida</h4>
+          <p>Consegna veloce su tutto il territorio nazionale</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <span class="trust-item-icon">🏆</span>
+        <div>
+          <h4>Garanzia di qualità</h4>
+          <p>Tutti i prodotti testati e garantiti</p>
         </div>
       </div>
     </div>
