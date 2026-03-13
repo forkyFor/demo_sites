@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gruppo Trio S.p.A. — Costruiamo il Futuro, Insieme.</title>
+  <meta name="description" content="Soluzioni avanzate nell'edilizia civile, infrastrutture stradali e settore inerti. Dal 1980 nel Salento." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:      #2563eb;
+      --blue-d:    #1d4ed8;
+      --blue-l:    #3b82f6;
+      --blue-pale: #eff6ff;
+      --dark:      #1e293b;
+      --mid:       #334155;
+      --muted:     #64748b;
+      --light:     #f8fafc;
+      --white:     #ffffff;
+      --border:    #e2e8f0;
+      --footer:    #2d3748;
+      --sans:      'Inter', sans-serif;
+      --radius:    12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--dark);
+      background: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      height: 64px;
+      display: flex; align-items: center;
+      padding: 0 6%;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 32px; width: auto;
+      object-fit: contain;
+    }
+
+    .nav-logo-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--blue);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex; gap: 32px; list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--mid);
+      text-decoration: none;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+    }
+
+    /* ── PAGES ── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #1e40af 0%, #2563eb 45%, #3b82f6 100%);
+      min-height: 520px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 80px 6%;
+    }
+
+    .hero-inner { max-width: 720px; }
+
+    .hero h1 {
+      font-size: clamp(36px, 5.5vw, 60px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.85);
+      font-weight: 400;
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-btns {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    }
+
+    .btn-solid {
+      background: var(--blue-d);
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-size: 14px; font-weight: 600;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-solid:hover { background: #1e3a8a; transform: translateY(-1px); }
+
+    .btn-outline-white {
+      background: transparent;
+      color: rgba(255,255,255,0.9);
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 14px; font-weight: 600;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.5);
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline-white:hover { border-color: #fff; color: #fff; }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 6%; }
+
+    .section-center { text-align: center; }
+
+    .section-label {
+      display: block;
+      width: 56px; height: 3px;
+      background: var(--blue);
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    .section-label.center { margin: 0 auto 32px; }
+
+    h2.section-h {
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    h2.section-h.blue { color: var(--blue); }
+
+    p.section-sub {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 640px;
+      line-height: 1.75;
+    }
+
+    p.section-sub.center { margin: 0 auto; }
+
+    /* ── ECCELLENZA (home) ── */
+    .eccellenza {
+      background: var(--white);
+      text-align: center;
+      padding: 72px 6%;
+    }
+
+    /* ── NUMERI ── */
+    .numeri {
+      background: var(--light);
+      padding: 80px 6%;
+    }
+
+    .numeri h2 {
+      text-align: center;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 48px;
+    }
+
+    .numeri-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .num-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      text-align: left;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    .num-card .val {
+      font-size: 56px;
+      font-weight: 800;
+      color: var(--blue);
+      line-height: 1;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .num-card .lbl {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── CHI SIAMO ── */
+    .chi-siamo { background: var(--white); }
+
+    .chi-intro {
+      margin-bottom: 20px;
+    }
+
+    .chi-intro p.section-sub {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .chi-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0 48px;
+      position: relative;
+    }
+
+    .chi-divider::before {
+      content: '';
+      position: absolute;
+      left: 0; top: -1px;
+      width: 56px; height: 3px;
+      background: var(--blue);
+      border-radius: 2px;
+    }
+
+    .chi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .chi-grid h3 {
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 700;
+      color: var(--blue);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .chi-grid p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .metodo-box {
+      background: var(--light);
+      border-left: 4px solid var(--blue);
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin-top: 24px;
+    }
+
+    .metodo-box strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .metodo-box p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .chi-img {
+      background: var(--light);
+      border-radius: var(--radius);
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .chi-img svg { width: 60%; opacity: 0.4; }
+
+    /* ── SERVIZI ── */
+    .servizi { background: var(--white); }
+
+    .servizi-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 24px 0 36px;
+      position: relative;
+    }
+
+    .servizi-divider::before {
+      content: '';
+      position: absolute;
+      left: 0; top: -1px;
+      width: 80px; height: 3px;
+      background: var(--blue);
+      border-radius: 2px;
+    }
+
+    .filter-tabs {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .filter-tab {
+      padding: 9px 20px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      color: var(--mid);
+    }
+
+    .filter-tab.active,
+    .filter-tab:hover {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+
+    .servizi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(37,99,235,0.1);
+      transform: translateY(-2px);
+    }
+
+    .service-card[data-cat] { display: flex; flex-direction: column; }
+
+    .service-card-tag {
+      background: var(--light);
+      padding: 10px 16px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service-card-body {
+      padding: 20px;
+      flex: 1;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+
+    .service-card-body h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    .service-card-body p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .service-card-btn {
+      display: block;
+      text-align: center;
+      border: 1.5px solid var(--blue);
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      margin: 0 16px 16px;
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+      background: transparent;
+      font-family: var(--sans);
+    }
+
+    .service-card-btn:hover { background: var(--blue); color: #fff; }
+
+    /* ── SOSTENIBILITÀ ── */
+    .sost { background: var(--white); }
+
+    .sost-intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    .sost-intro-grid h3 {
+      font-size: clamp(22px, 2.5vw, 30px);
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .sost-intro-grid p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .sost-photo {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #d97706 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+
+    /* sunset/industrial SVG */
+    .sost-photo svg { width: 90%; position: absolute; bottom: 0; }
+
+    .sost-cava {
+      background: var(--light);
+      padding: 80px 6%;
+    }
+
+    .sost-cava-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .sost-cava-photo {
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 40%, #f59e0b 100%);
+      position: relative;
+    }
+
+    .sost-cava-text h3 {
+      font-size: clamp(22px, 2.5vw, 28px);
+      font-weight: 700;
+      color: var(--blue);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .sost-cava-text p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    .check-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 12px;
+      margin-top: 20px;
+    }
+
+    .check-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    .check-list li::before {
+      content: '✓';
+      color: var(--blue);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .check-list li strong { color: var(--dark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--footer);
+      padding: 56px 6% 28px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 24px;
+    }
+
+    .footer-brand {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .footer-brand img {
+      height: 28px; width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-brand-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .footer-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+    .footer-col a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: rgba(255,255,255,0.9); }
+
+    .footer-col span {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; flex-wrap: wrap; gap: 8px;
+    }
+
+    .footer-bottom a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { gap: 20px; }
+      .chi-grid, .sost-intro-grid, .sost-cava-grid { grid-template-columns: 1fr; gap: 36px; }
+      .servizi-grid { grid-template-columns: repeat(2, 1fr); }
+      .numeri-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+      section { padding: 56px 4%; }
+      .servizi-grid { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo" onclick="showPage('home')">
+    <img src="logo.png" alt="Gruppo Trio" />
+    <span class="nav-logo-name">Gruppo Trio</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a href="#" onclick="showPage('azienda')" id="nav-azienda">Azienda</a></li>
+    <li><a href="#" onclick="showPage('servizi')" id="nav-servizi">Soluzioni e Servizi</a></li>
+    <li><a href="#" onclick="showPage('sost')" id="nav-sost">Sostenibilità</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════ HOME ══════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-inner">
+      <h1>Costruiamo il Futuro, Insieme.</h1>
+      <p>Soluzioni avanzate nell'edilizia civile, infrastrutture stradali e settore inerti. Esperienza, qualità e sostenibilità al servizio del tuo progetto.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-solid" onclick="showPage('servizi')">Scopri i nostri Servizi</a>
+        <a href="#" class="btn-outline-white" onclick="showPage('azienda')">Chi Siamo</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Eccellenza -->
+  <section class="eccellenza">
+    <h2 class="section-h">Eccellenza Operativa a 360°</h2>
+    <p class="section-sub center" style="margin-top:12px">Dal settore dell'estrazione inerti, alla produzione di calcestruzzo, fino alle grandi costruzioni civili ed industriali. Il Gruppo Trio accompagna il cliente in ogni fase del progetto.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;max-width:900px;margin-left:auto;margin-right:auto">
+      <div style="text-align:left;padding:28px;border:1px solid var(--border);border-radius:var(--radius)">
+        <div style="font-size:28px;margin-bottom:10px">⛏️</div>
+        <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Inerti &amp; Materiali</h3>
+        <p style="font-size:13px;color:var(--muted);line-height:1.65">Estrazione e lavorazione di inerti di alta qualità per ogni esigenza di cantiere.</p>
+      </div>
+      <div style="text-align:left;padding:28px;border:1px solid var(--border);border-radius:var(--radius)">
+        <div style="font-size:28px;margin-bottom:10px">🏗️</div>
+        <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Costruzioni Civili</h3>
+        <p style="font-size:13px;color:var(--muted);line-height:1.65">Grandi opere edili, industriali e infrastrutturali con tecnologia all'avanguardia.</p>
+      </div>
+      <div style="text-align:left;padding:28px;border:1px solid var(--border);border-radius:var(--radius)">
+        <div style="font-size:28px;margin-bottom:10px">🚛</div>
+        <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Logistica Integrata</h3>
+        <p style="font-size:13px;color:var(--muted);line-height:1.65">Trasporto, pompaggio e consegna diretta in cantiere in tutto il Salento.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Numeri -->
+  <div class="numeri">
+    <h2>Ingegneria dei Numeri</h2>
+    <div class="numeri-grid">
+      <div class="num-card">
+        <span class="val">40+</span>
+        <span class="lbl">Anni di Esperienza</span>
+      </div>
+      <div class="num-card">
+        <span class="val">3</span>
+        <span class="lbl">Divisioni Principali</span>
+      </div>
+      <div class="num-card">
+        <span class="val">100%</span>
+        <span class="lbl">Controllo Filiera</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sostenibilità teaser -->
+  <section style="background:var(--white);padding:80px 6%">
+    <div class="sost-intro-grid">
+      <div>
+        <h3 style="font-size:clamp(22px,2.5vw,32px);font-weight:700;color:var(--dark);line-height:1.25;margin-bottom:16px">Il nostro impegno per l'ambiente</h3>
+        <p style="font-size:15px;color:var(--mid);line-height:1.8;margin-bottom:24px">La sostenibilità è al centro della nostra filosofia industriale. Riduciamo l'impatto ambientale ottimizzando il riutilizzo dei materiali di scarto, investendo in soluzioni a bassa emissione.</p>
+        <a href="#" class="btn-solid" onclick="showPage('sost')">Approfondisci Sostenibilità</a>
+      </div>
+      <div class="sost-photo">
+        <!-- Sunset/power lines illustration -->
+        <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0">
+          <defs>
+            <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0c1445"/>
+              <stop offset="50%" stop-color="#1e3a8a"/>
+              <stop offset="80%" stop-color="#d97706"/>
+              <stop offset="100%" stop-color="#92400e"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="250" fill="url(#skyG)"/>
+          <!-- sun -->
+          <circle cx="200" cy="195" r="22" fill="#fbbf24" opacity="0.9"/>
+          <circle cx="200" cy="195" r="35" fill="#f59e0b" opacity="0.3"/>
+          <!-- ground -->
+          <rect x="0" y="215" width="400" height="35" fill="#0c1445"/>
+          <!-- power lines left -->
+          <line x1="60" y1="60" x2="60" y2="220" stroke="#334155" stroke-width="3"/>
+          <line x1="40" y1="90" x2="80" y2="90" stroke="#334155" stroke-width="2"/>
+          <line x1="45" y1="110" x2="75" y2="110" stroke="#334155" stroke-width="1.5"/>
+          <!-- power lines center -->
+          <line x1="200" y1="50" x2="200" y2="215" stroke="#334155" stroke-width="3"/>
+          <line x1="178" y1="80" x2="222" y2="80" stroke="#334155" stroke-width="2"/>
+          <line x1="183" y1="100" x2="217" y2="100" stroke="#334155" stroke-width="1.5"/>
+          <!-- power lines right -->
+          <line x1="330" y1="65" x2="330" y2="220" stroke="#334155" stroke-width="3"/>
+          <line x1="310" y1="95" x2="350" y2="95" stroke="#334155" stroke-width="2"/>
+          <line x1="315" y1="115" x2="345" y2="115" stroke="#334155" stroke-width="1.5"/>
+          <!-- wires -->
+          <path d="M40 92 Q150 110 178 82" stroke="#475569" stroke-width="1" fill="none"/>
+          <path d="M178 82 Q289 110 310 97" stroke="#475569" stroke-width="1" fill="none"/>
+          <path d="M45 112 Q150 130 183 102" stroke="#475569" stroke-width="1" fill="none"/>
+          <path d="M183 102 Q289 130 315 117" stroke="#475569" stroke-width="1" fill="none"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ══════════════════ AZIENDA ══════════════════ -->
+<div class="page" id="page-azienda">
+  <section class="chi-siamo">
+    <div class="chi-intro">
+      <h2 class="section-h">Chi Siamo</h2>
+      <p class="section-sub" style="margin-top:10px">Dal 1980, il nostro gruppo rappresenta un punto di riferimento solido e affidabile nel settore industriale e delle costruzioni, coniugando tradizione lavorativa ed innovazione tecnologica.</p>
+    </div>
+    <div class="chi-divider"></div>
+
+    <div class="chi-grid">
+      <div>
+        <h3>La Nostra Visione<br />Industriale</h3>
+        <p>Nati come piccola impresa estrattiva, abbiamo stratificato competenze e macchinari fino ad espandere le nostre divisioni ai settori della produzione di manufatti in cemento e delle grandi opere edili civili, industriali e stradali.</p>
+        <p>Oggi offriamo al settore delle costruzioni non solo materie prime eccellenti, estratte e lavorate con macchinari all'avanguardia, ma l'intera catena del valore: dalla logistica, all'ingegneria, allo sviluppo immobiliare chiavi in mano.</p>
+        <div class="metodo-box">
+          <strong>Il Metodo Trio</strong>
+          <p>Integriamo efficienza produttiva estesa, controllo totale della filiera e macchinari ad altissima operatività. Questa è la nostra formula per una redditività garantita del cantiere.</p>
+        </div>
+      </div>
+      <div>
+        <div class="chi-img">
+          <!-- Industrial plant illustration -->
+          <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+            <rect width="300" height="220" fill="#f8fafc"/>
+            <rect x="20" y="120" width="260" height="80" fill="#e2e8f0"/>
+            <rect x="40" y="80" width="50" height="120" fill="#cbd5e1"/>
+            <rect x="50" y="50" width="16" height="35" fill="#94a3b8"/>
+            <rect x="68" y="62" width="14" height="25" fill="#94a3b8"/>
+            <rect x="110" y="60" width="80" height="140" fill="#bfdbfe"/>
+            <rect x="125" y="38" width="20" height="28" fill="#93c5fd"/>
+            <rect x="150" y="44" width="18" height="22" fill="#93c5fd"/>
+            <rect x="118" y="78" width="14" height="10" rx="1" fill="#2563eb" opacity="0.5"/>
+            <rect x="138" y="78" width="14" height="10" rx="1" fill="#2563eb" opacity="0.4"/>
+            <rect x="158" y="78" width="14" height="10" rx="1" fill="#2563eb" opacity="0.6"/>
+            <rect x="118" y="96" width="14" height="10" rx="1" fill="#2563eb" opacity="0.3"/>
+            <rect x="138" y="96" width="14" height="10" rx="1" fill="#2563eb" opacity="0.5"/>
+            <rect x="210" y="95" width="60" height="105" fill="#dbeafe"/>
+            <rect x="220" y="75" width="16" height="24" fill="#bfdbfe"/>
+            <rect x="240" y="82" width="14" height="20" fill="#bfdbfe"/>
+            <rect x="218" y="110" width="12" height="9" rx="1" fill="#2563eb" opacity="0.4"/>
+            <rect x="236" y="110" width="12" height="9" rx="1" fill="#2563eb" opacity="0.5"/>
+            <!-- ground shadow -->
+            <ellipse cx="150" cy="200" rx="120" ry="6" fill="#cbd5e1" opacity="0.5"/>
+          </svg>
+        </div>
+
+        <!-- Timeline -->
+        <div style="margin-top:32px;display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;gap:16px;align-items:flex-start">
+            <div style="width:40px;height:40px;background:var(--blue-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:700;color:var(--blue)">1980</div>
+            <div><strong style="font-size:13px;color:var(--dark)">Fondazione</strong><p style="font-size:13px;color:var(--muted);margin-top:3px">Primo impianto di estrazione aggregati e betonaggio nel Leccese.</p></div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start">
+            <div style="width:40px;height:40px;background:var(--blue-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:700;color:var(--blue)">2005</div>
+            <div><strong style="font-size:13px;color:var(--dark)">Espansione Lequile</strong><p style="font-size:13px;color:var(--muted);margin-top:3px">Apertura del secondo impianto nella zona industriale di Lequile (LE).</p></div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start">
+            <div style="width:40px;height:40px;background:var(--blue-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:700;color:var(--blue)">2012</div>
+            <div><strong style="font-size:13px;color:var(--dark)">Torchialoro</strong><p style="font-size:13px;color:var(--muted);margin-top:3px">Terzo stabilimento per coprire il Salento meridionale e le aree costiere.</p></div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start">
+            <div style="width:40px;height:40px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:700;color:#fff">2021</div>
+            <div><strong style="font-size:13px;color:var(--dark)">Boncore Nardò</strong><p style="font-size:13px;color:var(--muted);margin-top:3px">Quarto impianto — il più recente — estende la rete fino al brindisino.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Numeri su Azienda -->
+  <div class="numeri">
+    <h2>Ingegneria dei Numeri</h2>
+    <div class="numeri-grid">
+      <div class="num-card"><span class="val">40+</span><span class="lbl">Anni di Esperienza</span></div>
+      <div class="num-card"><span class="val">3</span><span class="lbl">Divisioni Principali</span></div>
+      <div class="num-card"><span class="val">100%</span><span class="lbl">Controllo Filiera</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ SERVIZI ══════════════════ -->
+<div class="page" id="page-servizi">
+  <section class="servizi">
+    <h2 class="section-h">Soluzioni e Servizi</h2>
+    <p class="section-sub" style="margin-top:10px">Un portafoglio completo di servizi integrati, pensati per garantire la massima efficienza, velocità e sicurezza in ogni tipologia di cantiere.</p>
+    <div class="servizi-divider"></div>
+
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="filterServices('all', this)">Tutti i Servizi</button>
+      <button class="filter-tab" onclick="filterServices('inerti', this)">Inerti &amp; Materiali</button>
+      <button class="filter-tab" onclick="filterServices('costruzioni', this)">Costruzioni</button>
+      <button class="filter-tab" onclick="filterServices('logistica', this)">Logistica</button>
+    </div>
+
+    <div class="servizi-grid" id="servizi-grid">
+
+      <div class="service-card" data-cat="inerti">
+        <div class="service-card-tag">Servizio Corporate</div>
+        <div class="service-card-body">
+          <h4>Settore Inerti</h4>
+          <p>Include la produzione di diverse granulometrie: sabbia (0–4 mm), risetta (4–8 mm), graniglia (8–13 mm), breccia (15–30 mm), pietrisco (40–70 mm), pietra vagliata (7–20 cm) e stabilizzato.</p>
+        </div>
+        <button class="service-card-btn">Dettagli Servizio</button>
+      </div>
+
+      <div class="service-card" data-cat="logistica">
+        <div class="service-card-tag">Servizio Corporate</div>
+        <div class="service-card-body">
+          <h4>Carico e Trasporto Inerti</h4>
+          <p>Carico effettuato tramite motopala; l'azienda offre anche il servizio di trasporto diretto su richiesta del cliente su tutto il territorio salentino.</p>
+        </div>
+        <button class="service-card-btn">Dettagli Servizio</button>
+      </div>
+
+      <div class="service-card" data-cat="costruzioni">
+        <div class="service-card-tag">Servizio Corporate</div>
+        <div class="service-card-body">
+          <h4>Produzione Calcestruzzo</h4>
+          <p>Considerato un settore di produzione secondario interno al gruppo. Calcestruzzo preconfezionato prodotto nei quattro impianti, disponibile nelle principali classi di resistenza.</p>
+        </div>
+        <button class="service-card-btn">Dettagli Servizio</button>
+      </div>
+
+      <div class="service-card" data-cat="logistica">
+        <div class="service-card-tag">Servizio Corporate</div>
+        <div class="service-card-body">
+          <h4>Trasporto e Pompaggio Calcestruzzo</h4>
+          <p>Utilizzo di betoniere, pompe (da 32, 36 o 47 metri) o beton pompe (per forniture &lt; 10 m³ o spazi ristretti). Ogni pompa include un operatore qualificato.</p>
+        </div>
+        <button class="service-card-btn">Dettagli Servizio</button>
+      </div>
+
+      <div class="service-card" data-cat="costruzioni">
+        <div class="service-card-tag">Servizio Corporate</div>
+        <div class="service-card-body">
+          <h4>Produzione Manufatti in Cemento</h4>
+          <p>Disponibili in misure dai 10 ai 35 cm, in versioni portanti o leggere. Produzione interna per blocchi, cordoli, pozzetti e manufatti su specifica del cliente.</p>
+        </div>
+        <button class="service-card-btn">Dettagli Servizio</button>
+      </div>
+
+      <div class="service-card" data-cat="logistica">
+        <div class="service-card-tag">Servizio Corporate</div>
+        <div class="service-card-body">
+          <h4>Trasporto Manufatti con Gru</h4>
+          <p>Camion con gru (fino a 10–20 balle) o solo trasporto per carichi maggiori (fino a 35 balle senza gru). Consegna diretta e posizionamento in cantiere.</p>
+        </div>
+        <button class="service-card-btn">Dettagli Servizio</button>
+      </div>
+
+      <div class="service-card" data-cat="costruzioni">
+        <div class="service-card-tag">Servizio Corporate</div>
+        <div class="service-card-body">
+          <h4>Costruzioni Stradali e Civili</h4>
+          <p>Realizzazione di infrastrutture stradali, opere civili e industriali chiavi in mano. Progettazione, esecuzione e collaudo con macchinari ad alta operatività.</p>
+        </div>
+        <button class="service-card-btn">Dettagli Servizio</button>
+      </div>
+
+      <div class="service-card" data-cat="costruzioni">
+        <div class="service-card-tag">Servizio Corporate</div>
+        <div class="service-card-body">
+          <h4>Sviluppo Immobiliare</h4>
+          <p>Gestione completa del ciclo edilizio: dalla progettazione alla consegna dell'immobile. Edilizia civile e industriale con standard costruttivi elevati.</p>
+        </div>
+        <button class="service-card-btn">Dettagli Servizio</button>
+      </div>
+
+      <div class="service-card" data-cat="inerti">
+        <div class="service-card-tag">Servizio Corporate</div>
+        <div class="service-card-body">
+          <h4>Fornitura Aggregati per Calcestruzzo</h4>
+          <p>Inerti certificati per la produzione di calcestruzzo strutturale conforme alle norme EN 12620. Granulometrie selezionate e controllate in laboratorio.</p>
+        </div>
+        <button class="service-card-btn">Dettagli Servizio</button>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════ SOSTENIBILITÀ ══════════════════ -->
+<div class="page" id="page-sost">
+  <section class="sost">
+    <h2 class="section-h">Sostenibilità Industriale</h2>
+    <p class="section-sub" style="margin-top:10px">Le nostre estrazioni, lavorazioni e costruzioni avvengono nel totale rispetto dell'impatto ambientale e territoriale, investendo nel recupero del paesaggio e nell'abbattimento energetico.</p>
+    <div class="chi-divider" style="margin-top:24px"></div>
+  </section>
+
+  <div class="sost-cava" style="background:var(--light)">
+    <div style="max-width:1100px;margin:0 auto">
+      <div class="sost-cava-grid">
+        <div class="sost-cava-photo">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0">
+            <defs>
+              <linearGradient id="skyG2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0c1445"/>
+                <stop offset="55%" stop-color="#1e3a8a"/>
+                <stop offset="78%" stop-color="#d97706"/>
+                <stop offset="100%" stop-color="#92400e"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="300" fill="url(#skyG2)"/>
+            <circle cx="200" cy="230" r="28" fill="#fbbf24" opacity="0.95"/>
+            <circle cx="200" cy="230" r="45" fill="#f59e0b" opacity="0.25"/>
+            <rect x="0" y="255" width="400" height="45" fill="#0c1445"/>
+            <line x1="70" y1="70" x2="70" y2="260" stroke="#334155" stroke-width="3"/>
+            <line x1="48" y1="100" x2="92" y2="100" stroke="#334155" stroke-width="2.5"/>
+            <line x1="52" y1="125" x2="88" y2="125" stroke="#334155" stroke-width="2"/>
+            <line x1="200" y1="60" x2="200" y2="255" stroke="#334155" stroke-width="3"/>
+            <line x1="178" y1="90" x2="222" y2="90" stroke="#334155" stroke-width="2.5"/>
+            <line x1="182" y1="115" x2="218" y2="115" stroke="#334155" stroke-width="2"/>
+            <line x1="330" y1="75" x2="330" y2="260" stroke="#334155" stroke-width="3"/>
+            <line x1="308" y1="105" x2="352" y2="105" stroke="#334155" stroke-width="2.5"/>
+            <line x1="312" y1="130" x2="348" y2="130" stroke="#334155" stroke-width="2"/>
+            <path d="M48 102 Q150 118 178 92" stroke="#475569" stroke-width="1.2" fill="none"/>
+            <path d="M178 92 Q289 118 308 107" stroke="#475569" stroke-width="1.2" fill="none"/>
+            <path d="M52 127 Q150 143 182 117" stroke="#475569" stroke-width="1.2" fill="none"/>
+            <path d="M182 117 Q289 143 312 132" stroke="#475569" stroke-width="1.2" fill="none"/>
+          </svg>
+        </div>
+
+        <div class="sost-cava-text">
+          <h3>Cava a impatto mitigato</h3>
+          <p>Nei siti estrattivi implementiamo rigorosi processi per limitare la diffusione delle polveri e contenere il consumo idrico attraverso vasche di riciclo dedicate per il lavaggio macchinari.</p>
+          <p>Il rinverdimento progressivo delle aree di scavo esaurite permette il sereno ripristino morfologico a vantaggio delle comunità.</p>
+          <ul class="check-list">
+            <li><strong>Riciclo delle acque di lavorazione</strong> con impianti a circuito chiuso.</li>
+            <li><strong>Calcestruzzi Basso-Emissivi:</strong> formulazioni evolute con additivi green.</li>
+            <li><strong>Impianti fono-assorbenti</strong> per abbattimento inquinamento acustico logistico.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Impegno ambientale cards -->
+  <section style="background:var(--white);padding:80px 6%">
+    <h2 class="section-h" style="text-align:center;margin-bottom:12px">Il nostro impegno per l'ambiente</h2>
+    <p class="section-sub center" style="margin-bottom:48px">La sostenibilità è al centro della nostra filosofia industriale. Riduciamo l'impatto ambientale ottimizzando il riutilizzo dei materiali di scarto, investendo in soluzioni a bassa emissione.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto">
+      <div style="padding:28px;border:1px solid var(--border);border-radius:var(--radius);border-top:3px solid var(--blue)">
+        <div style="font-size:28px;margin-bottom:14px">🌱</div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:8px">Ripristino Paesaggistico</h4>
+        <p style="font-size:13px;color:var(--muted);line-height:1.65">Rinverdimento progressivo delle cave esaurite per restituire il territorio alle comunità locali.</p>
+      </div>
+      <div style="padding:28px;border:1px solid var(--border);border-radius:var(--radius);border-top:3px solid var(--blue)">
+        <div style="font-size:28px;margin-bottom:14px">💧</div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:8px">Gestione Idrica</h4>
+        <p style="font-size:13px;color:var(--muted);line-height:1.65">Vasche di riciclo acque di lavorazione e impianti a circuito chiuso per azzerare gli sprechi idrici.</p>
+      </div>
+      <div style="padding:28px;border:1px solid var(--border);border-radius:var(--radius);border-top:3px solid var(--blue)">
+        <div style="font-size:28px;margin-bottom:14px">🔇</div>
+        <h4 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:8px">Abbattimento Acustico</h4>
+        <p style="font-size:13px;color:var(--muted);line-height:1.65">Impianti fono-assorbenti per contenere l'inquinamento acustico nelle aree di lavorazione e logistica.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px">
+      <a href="#" class="btn-solid" onclick="showPage('sost')">Approfondisci Sostenibilità</a>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">
+        <img src="logo.png" alt="Gruppo Trio" />
+        <span class="footer-brand-name">Gruppo Trio</span>
+      </div>
+      <p class="footer-desc">Eccellenza industriale, affidabilità e concretezza. Forniamo soluzioni avanzate per costruzioni stradali, edilizia civile e produzione di materiali edili offrendo un servizio "chiavi in mano" con i più alti standard di sostenibilità.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigazione</h4>
+      <ul>
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('azienda')">Azienda</a></li>
+        <li><a onclick="showPage('servizi')">Soluzioni</a></li>
+        <li><a onclick="showPage('sost')">Sostenibilità</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contatti</h4>
+      <ul>
+        <li><span>Sede Operativa</span></li>
+        <li><span>info@gruppotrio.it</span></li>
+        <li><span>+39 0123 456789</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Gruppo Trio. Tutti i diritti riservati.</span>
+    <div style="display:flex;gap:20px">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.getElementById('nav-' + id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return false;
+  }
+
+  function filterServices(cat, btn) {
+    document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.service-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

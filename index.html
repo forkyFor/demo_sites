@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FluxSpire — Area Clienti</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cyan:      #4dd9e8;
+      --yellow:    #f0e040;
+      --dark:      #1b2028;
+      --dark2:     #242c34;
+      --dark3:     #2d3642;
+      --border:    rgba(77, 217, 232, 0.15);
+      --text:      #ffffff;
+      --muted:     #8a9ab0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── LOGIN SCREEN ── */
+    #login-screen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #login-screen::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(77,217,232,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    #login-screen::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: 10%;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(240,224,64,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .login-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      margin-bottom: 40px;
+    }
+
+    .login-logo img {
+      width: 40px; height: 40px;
+      object-fit: contain;
+    }
+
+    .login-wordmark {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+
+    .login-wordmark .flux { color: var(--cyan); }
+    .login-wordmark .spire { color: var(--yellow); }
+
+    .login-card {
+      background: var(--dark2);
+      border: 1px solid rgba(77,217,232,0.15);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 420px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .login-card h2 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .login-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-group input {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(77,217,232,0.2);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .form-group input:focus {
+      border-color: var(--cyan);
+    }
+
+    .login-btn {
+      width: 100%;
+      background: var(--cyan);
+      color: var(--dark);
+      border: none;
+      padding: 13px;
+      border-radius: 8px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      margin-top: 8px;
+    }
+
+    .login-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .login-error {
+      display: none;
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #f87171;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .login-error.show { display: block; }
+
+    .login-footer {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* ── DASHBOARD ── */
+    #dashboard { display: none; }
+
+    /* HEADER */
+    header {
+      background: var(--dark2);
+      padding: 0 6%;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon img {
+      width: 36px; height: 36px;
+      object-fit: contain;
+    }
+
+    .logo-wordmark {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+
+    .logo-wordmark .flux { color: var(--cyan); }
+    .logo-wordmark .spire { color: var(--yellow); }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .header-user {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .header-user-dot {
+      width: 8px; height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+    }
+
+    .header-user strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .logout-btn {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .logout-btn:hover {
+      color: var(--text);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 56px 6% 44px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -60px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(77,217,232,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .hero-eyebrow-line {
+      width: 28px; height: 2px;
+      background: var(--cyan);
+      border-radius: 1px;
+    }
+
+    .hero-eyebrow span {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--yellow);
+    }
+
+    .hero p {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 0;
+      width: fit-content;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--dark2);
+    }
+
+    .stat {
+      padding: 16px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      position: relative;
+    }
+
+    .stat + .stat::before {
+      content: '';
+      position: absolute; left: 0; top: 20%; height: 60%;
+      width: 1px;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .stat-num {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--cyan);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* MAIN */
+    .main { padding: 44px 6% 72px; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .section-title { font-size: 17px; font-weight: 700; }
+
+    .count-badge {
+      font-size: 11px;
+      background: rgba(240,224,64,0.1);
+      color: var(--yellow);
+      border: 1px solid rgba(240,224,64,0.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 22px;
+    }
+
+    /* CARD */
+    .card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      overflow: hidden;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--cyan);
+      box-shadow: 0 16px 48px rgba(77,217,232,0.12);
+    }
+
+    .card-preview {
+      height: 190px;
+      background: var(--dark3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-preview::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(77,217,232,0.04) 0%, transparent 60%);
+    }
+
+    .browser-mock {
+      width: 82%; height: 76%;
+      background: #0f1419;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .browser-bar {
+      height: 22px;
+      background: #1a2030;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      gap: 5px;
+      flex-shrink: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .dot { width: 7px; height: 7px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; }
+    .dot-y { background: #febc2e; }
+    .dot-g { background: #28c840; }
+
+    .browser-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      overflow: hidden;
+    }
+
+    .mock-nav  { height: 14px; border-radius: 3px; opacity: 0.9; }
+    .mock-hero { height: 30px; border-radius: 4px; margin-top: 2px; }
+    .mock-line { height: 5px; background: rgba(255,255,255,0.07); border-radius: 3px; }
+    .mock-line.w70 { width: 70%; }
+    .mock-line.w50 { width: 50%; }
+    .mock-line.w85 { width: 85%; }
+    .mock-cards { display: flex; gap: 5px; margin-top: 3px; }
+    .mock-card  { flex: 1; height: 22px; border-radius: 4px; }
+
+    .card-badge {
+      position: absolute; top: 12px; right: 12px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 20px;
+    }
+
+    .badge-demo {
+      background: rgba(77,217,232,0.12);
+      color: var(--cyan);
+      border: 1px solid rgba(77,217,232,0.25);
+    }
+
+    .badge-live {
+      background: rgba(74,222,128,0.12);
+      color: #4ade80;
+      border: 1px solid rgba(74,222,128,0.3);
+    }
+
+    .card-body {
+      padding: 22px 22px 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card-title { font-size: 20px; font-weight: 700; }
+
+    .card-description { font-size: 13px; color: var(--muted); font-weight: 300; line-height: 1.65; }
+
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+
+    .tag {
+      font-size: 11px; padding: 3px 10px; border-radius: 20px;
+      background: rgba(255,255,255,0.05); color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .card-footer {
+      padding: 14px 22px 18px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .card-cta {
+      font-size: 13px; font-weight: 700; color: var(--cyan);
+      display: flex; align-items: center; gap: 6px; letter-spacing: 0.3px;
+    }
+
+    .card-cta svg { transition: transform 0.2s ease; }
+    .card:hover .card-cta svg { transform: translateX(4px); }
+
+    .card-ref { font-size: 11px; color: var(--muted); opacity: 0.7; }
+
+    /* FOOTER */
+    footer {
+      padding: 24px 6%;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12px; color: var(--muted);
+    }
+
+    footer a { color: var(--cyan); text-decoration: none; }
+
+    .footer-logo {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 700;
+    }
+
+    .footer-logo .flux { color: var(--cyan); }
+    .footer-logo .spire { color: var(--yellow); }
+
+    @media (max-width: 640px) {
+      .login-card { padding: 28px 20px; }
+      .hero-stats { flex-direction: column; width: 100%; }
+      .stat + .stat::before { display: none; }
+      footer { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     LOGIN SCREEN
+═══════════════════════════════════════════ -->
+<div id="login-screen">
+  <a href="https://www.fluxspire.it" class="login-logo" target="_blank">
+    <img src="https://www.fluxspire.it/wp-content/uploads/2025/12/fluxspire_icon.png" alt="FluxSpire" />
+    <div class="login-wordmark">
+      <span class="flux">Flux</span><span class="spire">spire</span>
+    </div>
+  </a>
+
+  <div class="login-card">
+    <h2>Area Clienti</h2>
+    <p>Inserisci le tue credenziali per accedere ai progetti.</p>
+
+    <div class="login-error" id="login-error">Credenziali non valide. Riprova.</div>
+
+    <form id="login-form" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label>Utente</label>
+        <input type="text" id="username" placeholder="nome utente" autocomplete="username" required />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="••••••••" autocomplete="current-password" required />
+      </div>
+      <button type="submit" class="login-btn">Accedi</button>
+    </form>
+
+    <div class="login-footer">Uso interno riservato — Non condividere le credenziali</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     DASHBOARD
+═══════════════════════════════════════════ -->
+<div id="dashboard">
+
+  <header>
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <img src="https://www.fluxspire.it/wp-content/uploads/2025/12/fluxspire_icon.png" alt="FluxSpire" />
+      </div>
+      <div class="logo-wordmark">
+        <span class="flux">Flux</span><span class="spire">spire</span>
+      </div>
+    </a>
+    <div class="header-right">
+      <div class="header-user">
+        <div class="header-user-dot"></div>
+        Connesso come <strong id="display-username">&nbsp;</strong>
+      </div>
+      <button class="logout-btn" onclick="handleLogout()">Esci</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span>Panoramica Progetti</span>
+    </div>
+    <h1>Demo &amp; <em>Landing Pages</em></h1>
+    <p>Clicca su un progetto per visualizzare l'anteprima completa.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num" id="stat-total">—</span>
+        <span class="stat-label">Progetti visibili</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="stat-demo">—</span>
+        <span class="stat-label">In demo</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" id="stat-live">—</span>
+        <span class="stat-label">Live</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="main">
+    <div class="section-header">
+      <span class="section-title">I tuoi progetti</span>
+      <span class="count-badge" id="count-badge">—</span>
+    </div>
+    <div class="grid" id="projects-grid"></div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="https://www.fluxspire.it/wp-content/uploads/2025/12/fluxspire_icon.png" width="20" height="20" style="object-fit:contain" alt="" />
+      <span><span class="flux">Flux</span><span class="spire">spire</span></span>
+    </div>
+    <span>© 2026 — Uso interno riservato.</span>
+  </footer>
+
+</div>
+
+<script>
+  /* ─── UTENTI E PROGETTI ─────────────────────────────────────
+     Per aggiungere un progetto: aggiungi un oggetto a PROJECTS.
+     Per aggiungere un utente: aggiungi una entry a USERS
+       con projects: ['id1','id2'] oppure projects: 'all'
+  ─────────────────────────────────────────────────────────── */
+
+  const PROJECTS = [
+    {
+      id: 'riwatch',
+      title: 'Riwatch',
+      description: 'Redesign landing page per azienda di trasporto professionale. Sistema digitale per autisti, officine e fleet manager.',
+      tags: ['Trasporti', 'HTML / CSS', 'Landing Page'],
+      badge: 'demo',
+      href: 'riwatch/index.html',
+      ref: 'riwatch.it',
+      previewColor: '#0B51C2',
+    },
+    {
+      id: 'gruppotrio',
+      title: 'Gruppo Trio S.p.A.',
+      description: 'Redesign completo per azienda di produzione calcestruzzo e aggregati nel Salento. Dal 1976, 4 impianti nelle province di Lecce e Brindisi.',
+      tags: ['Edilizia', 'HTML / CSS', 'Landing Page'],
+      badge: 'demo',
+      href: 'gruppotrio/index.html',
+      ref: 'gruppotrio.it',
+      previewColor: '#2c37c7',
+    },
+    {
+      id: 'ddd',
+      title: 'DDD Reader',
+      description: 'Applicativo web per l\'analisi dei file tachigrafo digitale (.ddd). Caricamento, parsing e visualizzazione dati per il settore trasporti.',
+      tags: ['Tachigrafi', 'React', 'Web App'],
+      badge: 'live',
+      href: 'http://89.46.70.88',
+      ref: '89.46.70.88',
+      previewColor: '#1e40af',
+    },
+  ];
+
+  const USERS = {
+    'admin':   { password: 'fluxspire2026', projects: 'all',          label: 'Admin' },
+    'riwatch': { password: 'riwatch2026',   projects: ['riwatch'],     label: 'Riwatch' },
+    'trio':    { password: 'trio2026',      projects: ['gruppotrio'],  label: 'Gruppo Trio' },
+    'ddd':     { password: 'ddd2026',       projects: ['ddd'],         label: 'DDD Reader' },
+  };
+
+  /* ─── AUTH ──────────────────────────────────────────────── */
+
+  function handleLogin(e) {
+    e.preventDefault();
+    const user = document.getElementById('username').value.trim().toLowerCase();
+    const pass = document.getElementById('password').value;
+    const err  = document.getElementById('login-error');
+
+    if (USERS[user] && USERS[user].password === pass) {
+      err.classList.remove('show');
+      sessionStorage.setItem('fs_user', user);
+      showDashboard(user);
+    } else {
+      err.classList.add('show');
+      document.getElementById('password').value = '';
+    }
+  }
+
+  function handleLogout() {
+    sessionStorage.removeItem('fs_user');
+    document.getElementById('dashboard').style.display = 'none';
+    document.getElementById('login-screen').style.display = 'flex';
+    document.getElementById('username').value = '';
+    document.getElementById('password').value = '';
+  }
+
+  /* ─── DASHBOARD ─────────────────────────────────────────── */
+
+  function showDashboard(user) {
+    const cfg = USERS[user];
+    const visibleProjects = cfg.projects === 'all'
+      ? PROJECTS
+      : PROJECTS.filter(p => cfg.projects.includes(p.id));
+
+    // show / hide panels
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+
+    // header username
+    document.getElementById('display-username').textContent = cfg.label;
+
+    // stats
+    const demos = visibleProjects.filter(p => p.badge === 'demo').length;
+    const live  = visibleProjects.filter(p => p.badge === 'live').length;
+    document.getElementById('stat-total').textContent = visibleProjects.length;
+    document.getElementById('stat-demo').textContent  = demos;
+    document.getElementById('stat-live').textContent  = live;
+
+    const plural = visibleProjects.length === 1 ? '1 progetto' : visibleProjects.length + ' progetti';
+    document.getElementById('count-badge').textContent = plural;
+
+    // render cards
+    const grid = document.getElementById('projects-grid');
+    grid.innerHTML = visibleProjects.map(p => renderCard(p)).join('');
+  }
+
+  function renderCard(p) {
+    const isLive = p.badge === 'live';
+    const badgeClass = isLive ? 'badge-live' : 'badge-demo';
+    const badgeText  = isLive ? 'Live' : 'Demo';
+    const navColor   = p.previewColor;
+    const heroGrad   = `linear-gradient(135deg, ${p.previewColor}44, ${p.previewColor}11)`;
+    const cardColor  = `${p.previewColor}44`;
+    const cardBorder = `${p.previewColor}55`;
+
+    return `
+      <a href="${p.href}" class="card" target="_blank">
+        <div class="card-preview">
+          <div class="browser-mock">
+            <div class="browser-bar">
+              <div class="dot dot-r"></div>
+              <div class="dot dot-y"></div>
+              <div class="dot dot-g"></div>
+            </div>
+            <div class="browser-content">
+              <div class="mock-nav" style="background:${navColor}"></div>
+              <div class="mock-hero" style="background:${heroGrad}"></div>
+              <div class="mock-line w85" style="margin-top:4px"></div>
+              <div class="mock-line w70"></div>
+              <div class="mock-cards">
+                <div class="mock-card" style="background:${cardColor};border:1px solid ${cardBorder}"></div>
+                <div class="mock-card" style="background:${cardColor};border:1px solid ${cardBorder}"></div>
+                <div class="mock-card" style="background:${cardColor};border:1px solid ${cardBorder}"></div>
+              </div>
+            </div>
+          </div>
+          <span class="card-badge ${badgeClass}">${badgeText}</span>
+        </div>
+        <div class="card-body">
+          <div class="card-title">${p.title}</div>
+          <div class="card-description">${p.description}</div>
+          <div class="card-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+        </div>
+        <div class="card-footer">
+          <span class="card-cta">
+            ${isLive ? 'Apri applicativo' : 'Visualizza demo'}
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </span>
+          <span class="card-ref">${p.ref}</span>
+        </div>
+      </a>`;
+  }
+
+  /* ─── AUTO-LOGIN (sessione attiva) ──────────────────────── */
+  (function init() {
+    const saved = sessionStorage.getItem('fs_user');
+    if (saved && USERS[saved]) {
+      showDashboard(saved);
+    }
+  })();
+</script>
+
+</body>
+</html>

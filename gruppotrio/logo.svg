@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <clipPath id="circleClip">
+      <circle cx="105" cy="100" r="88"/>
+    </clipPath>
+  </defs>
+
+  <!-- Outer circle ring -->
+  <circle cx="105" cy="100" r="88" stroke="#1a4f8a" stroke-width="9" fill="white"/>
+
+  <!-- T — vertical bar -->
+  <rect x="34" y="52" width="18" height="110" fill="#1a4f8a"/>
+  <!-- T — horizontal bar (extends left outside circle) -->
+  <rect x="2" y="52" width="82" height="18" fill="#1a4f8a"/>
+
+  <!-- R — vertical bar -->
+  <rect x="76" y="52" width="18" height="110" fill="#1a4f8a"/>
+
+  <!-- R — rounded top (bump) -->
+  <!-- Outer arc of bump -->
+  <path d="M94 52 L94 104 Q94 130 118 130 L118 112 Q108 112 112 99 Q112 70 112 70 L112 52 Z" fill="#1a4f8a"/>
+  <!-- Inner cutout of bump -->
+  <path d="M112 66 L112 95 Q112 116 128 116 L128 100 Q120 100 130 88 Q130 66 112 66 Z" fill="white"/>
+
+  <!-- R — diagonal leg -->
+  <path d="M112 108 L144 162 L128 162 L96 108 Z" fill="#1a4f8a"/>
+  <!-- diagonal leg inner line -->
+  <path d="M120 108 L148 156 L142 162 L112 116 Z" fill="white"/>
+  <path d="M128 112 L154 156 L150 162 L124 120 Z" fill="white"/>
+
+  <!-- I (right column) with diagonal stripes -->
+  <!-- Outer I shape = like a D leaning right inside circle -->
+  <rect x="148" y="52" width="18" height="110" fill="#1a4f8a" clip-path="url(#circleClip)"/>
+  <!-- Diagonal stripes inside the I column -->
+  <line x1="148" y1="72" x2="166" y2="52" stroke="white" stroke-width="6"/>
+  <line x1="148" y1="96" x2="166" y2="76" stroke="white" stroke-width="6"/>
+  <line x1="148" y1="120" x2="166" y2="100" stroke="white" stroke-width="6"/>
+  <line x1="148" y1="144" x2="166" y2="124" stroke="white" stroke-width="6"/>
+  <line x1="148" y1="162" x2="166" y2="148" stroke="white" stroke-width="6"/>
+</svg>
