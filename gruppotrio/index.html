@@ -91,7 +91,8 @@
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(160deg, #1e40af 0%, #2563eb 45%, #3b82f6 100%);
+      background: linear-gradient(160deg, rgba(30,64,175,0.88) 0%, rgba(37,99,235,0.82) 45%, rgba(59,130,246,0.76) 100%),
+                  url('https://images.cdn-files-a.com/uploads/4182421/2000_5f9c558f00f06.jpg') center/cover no-repeat;
       min-height: 520px;
       display: flex; align-items: center; justify-content: center;
       text-align: center;
@@ -312,14 +313,12 @@
     }
 
     .chi-img {
-      background: var(--light);
       border-radius: var(--radius);
       aspect-ratio: 4/3;
       overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
     }
 
-    .chi-img svg { width: 60%; opacity: 0.4; }
+    .chi-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     /* ── SERVIZI ── */
     .servizi { background: var(--white); }
@@ -660,20 +659,29 @@
     <p class="section-sub center" style="margin-top:12px">Dal settore dell'estrazione inerti, alla produzione di calcestruzzo, fino alle grandi costruzioni civili ed industriali. Il Gruppo Trio accompagna il cliente in ogni fase del progetto.</p>
 
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;max-width:900px;margin-left:auto;margin-right:auto">
-      <div style="text-align:left;padding:28px;border:1px solid var(--border);border-radius:var(--radius)">
-        <div style="font-size:28px;margin-bottom:10px">⛏️</div>
-        <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Inerti &amp; Materiali</h3>
-        <p style="font-size:13px;color:var(--muted);line-height:1.65">Estrazione e lavorazione di inerti di alta qualità per ogni esigenza di cantiere.</p>
+      <div style="text-align:left;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55b34bdcd.jpg" alt="Inerti e Materiali" style="width:100%;height:160px;object-fit:cover;display:block" />
+        <div style="padding:24px">
+          <div style="font-size:24px;margin-bottom:10px">⛏️</div>
+          <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Inerti &amp; Materiali</h3>
+          <p style="font-size:13px;color:var(--muted);line-height:1.65">Estrazione e lavorazione di inerti di alta qualità per ogni esigenza di cantiere.</p>
+        </div>
       </div>
-      <div style="text-align:left;padding:28px;border:1px solid var(--border);border-radius:var(--radius)">
-        <div style="font-size:28px;margin-bottom:10px">🏗️</div>
-        <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Costruzioni Civili</h3>
-        <p style="font-size:13px;color:var(--muted);line-height:1.65">Grandi opere edili, industriali e infrastrutturali con tecnologia all'avanguardia.</p>
+      <div style="text-align:left;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55ce8ad6b.jpg" alt="Costruzioni Civili" style="width:100%;height:160px;object-fit:cover;display:block" />
+        <div style="padding:24px">
+          <div style="font-size:24px;margin-bottom:10px">🏗️</div>
+          <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Costruzioni Civili</h3>
+          <p style="font-size:13px;color:var(--muted);line-height:1.65">Grandi opere edili, industriali e infrastrutturali con tecnologia all'avanguardia.</p>
+        </div>
       </div>
-      <div style="text-align:left;padding:28px;border:1px solid var(--border);border-radius:var(--radius)">
-        <div style="font-size:28px;margin-bottom:10px">🚛</div>
-        <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Logistica Integrata</h3>
-        <p style="font-size:13px;color:var(--muted);line-height:1.65">Trasporto, pompaggio e consegna diretta in cantiere in tutto il Salento.</p>
+      <div style="text-align:left;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55d41dc6d.jpg" alt="Logistica Integrata" style="width:100%;height:160px;object-fit:cover;display:block" />
+        <div style="padding:24px">
+          <div style="font-size:24px;margin-bottom:10px">🚛</div>
+          <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Logistica Integrata</h3>
+          <p style="font-size:13px;color:var(--muted);line-height:1.65">Trasporto, pompaggio e consegna diretta in cantiere in tutto il Salento.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -705,41 +713,8 @@
         <p style="font-size:15px;color:var(--mid);line-height:1.8;margin-bottom:24px">La sostenibilità è al centro della nostra filosofia industriale. Riduciamo l'impatto ambientale ottimizzando il riutilizzo dei materiali di scarto, investendo in soluzioni a bassa emissione.</p>
         <a href="#" class="btn-solid" onclick="showPage('sost')">Approfondisci Sostenibilità</a>
       </div>
-      <div class="sost-photo">
-        <!-- Sunset/power lines illustration -->
-        <svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0">
-          <defs>
-            <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#0c1445"/>
-              <stop offset="50%" stop-color="#1e3a8a"/>
-              <stop offset="80%" stop-color="#d97706"/>
-              <stop offset="100%" stop-color="#92400e"/>
-            </linearGradient>
-          </defs>
-          <rect width="400" height="250" fill="url(#skyG)"/>
-          <!-- sun -->
-          <circle cx="200" cy="195" r="22" fill="#fbbf24" opacity="0.9"/>
-          <circle cx="200" cy="195" r="35" fill="#f59e0b" opacity="0.3"/>
-          <!-- ground -->
-          <rect x="0" y="215" width="400" height="35" fill="#0c1445"/>
-          <!-- power lines left -->
-          <line x1="60" y1="60" x2="60" y2="220" stroke="#334155" stroke-width="3"/>
-          <line x1="40" y1="90" x2="80" y2="90" stroke="#334155" stroke-width="2"/>
-          <line x1="45" y1="110" x2="75" y2="110" stroke="#334155" stroke-width="1.5"/>
-          <!-- power lines center -->
-          <line x1="200" y1="50" x2="200" y2="215" stroke="#334155" stroke-width="3"/>
-          <line x1="178" y1="80" x2="222" y2="80" stroke="#334155" stroke-width="2"/>
-          <line x1="183" y1="100" x2="217" y2="100" stroke="#334155" stroke-width="1.5"/>
-          <!-- power lines right -->
-          <line x1="330" y1="65" x2="330" y2="220" stroke="#334155" stroke-width="3"/>
-          <line x1="310" y1="95" x2="350" y2="95" stroke="#334155" stroke-width="2"/>
-          <line x1="315" y1="115" x2="345" y2="115" stroke="#334155" stroke-width="1.5"/>
-          <!-- wires -->
-          <path d="M40 92 Q150 110 178 82" stroke="#475569" stroke-width="1" fill="none"/>
-          <path d="M178 82 Q289 110 310 97" stroke="#475569" stroke-width="1" fill="none"/>
-          <path d="M45 112 Q150 130 183 102" stroke="#475569" stroke-width="1" fill="none"/>
-          <path d="M183 102 Q289 130 315 117" stroke="#475569" stroke-width="1" fill="none"/>
-        </svg>
+      <div class="sost-photo" style="background:none">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c56b22c172.jpg" alt="Impegno ambientale Gruppo Trio" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:var(--radius)" />
       </div>
     </div>
   </section>
@@ -767,29 +742,7 @@
       </div>
       <div>
         <div class="chi-img">
-          <!-- Industrial plant illustration -->
-          <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
-            <rect width="300" height="220" fill="#f8fafc"/>
-            <rect x="20" y="120" width="260" height="80" fill="#e2e8f0"/>
-            <rect x="40" y="80" width="50" height="120" fill="#cbd5e1"/>
-            <rect x="50" y="50" width="16" height="35" fill="#94a3b8"/>
-            <rect x="68" y="62" width="14" height="25" fill="#94a3b8"/>
-            <rect x="110" y="60" width="80" height="140" fill="#bfdbfe"/>
-            <rect x="125" y="38" width="20" height="28" fill="#93c5fd"/>
-            <rect x="150" y="44" width="18" height="22" fill="#93c5fd"/>
-            <rect x="118" y="78" width="14" height="10" rx="1" fill="#2563eb" opacity="0.5"/>
-            <rect x="138" y="78" width="14" height="10" rx="1" fill="#2563eb" opacity="0.4"/>
-            <rect x="158" y="78" width="14" height="10" rx="1" fill="#2563eb" opacity="0.6"/>
-            <rect x="118" y="96" width="14" height="10" rx="1" fill="#2563eb" opacity="0.3"/>
-            <rect x="138" y="96" width="14" height="10" rx="1" fill="#2563eb" opacity="0.5"/>
-            <rect x="210" y="95" width="60" height="105" fill="#dbeafe"/>
-            <rect x="220" y="75" width="16" height="24" fill="#bfdbfe"/>
-            <rect x="240" y="82" width="14" height="20" fill="#bfdbfe"/>
-            <rect x="218" y="110" width="12" height="9" rx="1" fill="#2563eb" opacity="0.4"/>
-            <rect x="236" y="110" width="12" height="9" rx="1" fill="#2563eb" opacity="0.5"/>
-            <!-- ground shadow -->
-            <ellipse cx="150" cy="200" rx="120" ry="6" fill="#cbd5e1" opacity="0.5"/>
-          </svg>
+          <img src="https://images.cdn-files-a.com/uploads/4182421/800_5f9c4c27bacfc_filter_61685505b6e7f.jpg" alt="Impianto Gruppo Trio" />
         </div>
 
         <!-- Timeline -->
@@ -814,6 +767,13 @@
       </div>
     </div>
   </section>
+
+  <!-- Galleria immagini -->
+  <div style="padding:0 6% 56px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+    <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5fa58fc2dd4d6.jpg" alt="Gruppo Trio cantiere" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius)" />
+    <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5fa58fe3f4151.jpg" alt="Gruppo Trio impianto" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius)" />
+    <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5fa58fe70a844.jpg" alt="Gruppo Trio lavorazione" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius)" />
+  </div>
 
   <!-- Numeri su Azienda -->
   <div class="numeri">
@@ -843,6 +803,7 @@
     <div class="servizi-grid" id="servizi-grid">
 
       <div class="service-card" data-cat="inerti">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55d5bffff.jpg" alt="Settore Inerti" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Settore Inerti</h4>
@@ -852,6 +813,7 @@
       </div>
 
       <div class="service-card" data-cat="logistica">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55fd3913a.jpg" alt="Carico e Trasporto Inerti" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Carico e Trasporto Inerti</h4>
@@ -861,15 +823,17 @@
       </div>
 
       <div class="service-card" data-cat="costruzioni">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55fee9424.jpg" alt="Produzione Calcestruzzo" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Produzione Calcestruzzo</h4>
-          <p>Considerato un settore di produzione secondario interno al gruppo. Calcestruzzo preconfezionato prodotto nei quattro impianti, disponibile nelle principali classi di resistenza.</p>
+          <p>Calcestruzzo preconfezionato prodotto nei quattro impianti del gruppo, disponibile nelle principali classi di resistenza. Un'offerta completa che garantisce qualità costante, tempi certi e piena tracciabilità del prodotto.</p>
         </div>
         <button class="service-card-btn">Dettagli Servizio</button>
       </div>
 
       <div class="service-card" data-cat="logistica">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c5609bb9f6.jpg" alt="Trasporto e Pompaggio Calcestruzzo" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Trasporto e Pompaggio Calcestruzzo</h4>
@@ -879,6 +843,7 @@
       </div>
 
       <div class="service-card" data-cat="costruzioni">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5fa58fea645e9.jpg" alt="Produzione Manufatti in Cemento" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Produzione Manufatti in Cemento</h4>
@@ -888,6 +853,7 @@
       </div>
 
       <div class="service-card" data-cat="logistica">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9d7685c3ec7.jpg" alt="Trasporto Manufatti con Gru" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Trasporto Manufatti con Gru</h4>
@@ -897,6 +863,7 @@
       </div>
 
       <div class="service-card" data-cat="costruzioni">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5fa58fed7852c.jpg" alt="Costruzioni Stradali e Civili" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Costruzioni Stradali e Civili</h4>
@@ -906,6 +873,7 @@
       </div>
 
       <div class="service-card" data-cat="costruzioni">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5fa58fed88f32.jpg" alt="Sviluppo Immobiliare" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Sviluppo Immobiliare</h4>
@@ -915,6 +883,7 @@
       </div>
 
       <div class="service-card" data-cat="inerti">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9d7f95b29d6.jpg" alt="Fornitura Aggregati per Calcestruzzo" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Fornitura Aggregati per Calcestruzzo</h4>
@@ -938,34 +907,8 @@
   <div class="sost-cava" style="background:var(--light)">
     <div style="max-width:1100px;margin:0 auto">
       <div class="sost-cava-grid">
-        <div class="sost-cava-photo">
-          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0">
-            <defs>
-              <linearGradient id="skyG2" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#0c1445"/>
-                <stop offset="55%" stop-color="#1e3a8a"/>
-                <stop offset="78%" stop-color="#d97706"/>
-                <stop offset="100%" stop-color="#92400e"/>
-              </linearGradient>
-            </defs>
-            <rect width="400" height="300" fill="url(#skyG2)"/>
-            <circle cx="200" cy="230" r="28" fill="#fbbf24" opacity="0.95"/>
-            <circle cx="200" cy="230" r="45" fill="#f59e0b" opacity="0.25"/>
-            <rect x="0" y="255" width="400" height="45" fill="#0c1445"/>
-            <line x1="70" y1="70" x2="70" y2="260" stroke="#334155" stroke-width="3"/>
-            <line x1="48" y1="100" x2="92" y2="100" stroke="#334155" stroke-width="2.5"/>
-            <line x1="52" y1="125" x2="88" y2="125" stroke="#334155" stroke-width="2"/>
-            <line x1="200" y1="60" x2="200" y2="255" stroke="#334155" stroke-width="3"/>
-            <line x1="178" y1="90" x2="222" y2="90" stroke="#334155" stroke-width="2.5"/>
-            <line x1="182" y1="115" x2="218" y2="115" stroke="#334155" stroke-width="2"/>
-            <line x1="330" y1="75" x2="330" y2="260" stroke="#334155" stroke-width="3"/>
-            <line x1="308" y1="105" x2="352" y2="105" stroke="#334155" stroke-width="2.5"/>
-            <line x1="312" y1="130" x2="348" y2="130" stroke="#334155" stroke-width="2"/>
-            <path d="M48 102 Q150 118 178 92" stroke="#475569" stroke-width="1.2" fill="none"/>
-            <path d="M178 92 Q289 118 308 107" stroke="#475569" stroke-width="1.2" fill="none"/>
-            <path d="M52 127 Q150 143 182 117" stroke="#475569" stroke-width="1.2" fill="none"/>
-            <path d="M182 117 Q289 143 312 132" stroke="#475569" stroke-width="1.2" fill="none"/>
-          </svg>
+        <div class="sost-cava-photo" style="background:none">
+          <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9d74590a4bd.jpg" alt="Cava a impatto mitigato" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:var(--radius)" />
         </div>
 
         <div class="sost-cava-text">
@@ -1008,6 +951,19 @@
     </div>
   </section>
 </div>
+
+<!-- ══════════════════ DOVE SIAMO ══════════════════ -->
+<section style="background:var(--light);padding:80px 6%">
+  <span class="section-label center"></span>
+  <h2 class="section-h" style="text-align:center;margin-bottom:8px">Dove Siamo</h2>
+  <p class="section-sub center" style="margin-bottom:40px">Sede operativa: Via Nazario Sauro, 51 — 73100 Lecce (LE)</p>
+  <div style="border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.1)">
+    <iframe
+      src="https://maps.google.com/maps?q=Via+Nazario+Sauro+51+Lecce+73100&t=&z=15&ie=UTF8&iwloc=&output=embed"
+      width="100%" height="420" style="border:0;display:block" allowfullscreen loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
 
 <!-- ══════════════════ FOOTER ══════════════════ -->
 <footer>
