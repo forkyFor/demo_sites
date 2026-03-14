@@ -614,6 +614,8 @@
     }
 
     @media (max-width: 640px) {
+      .hide-mobile { display: none !important; }
+      .grid-full-mobile { grid-template-columns: 1fr !important; }
       nav { padding: 0 4%; }
       .nav-links { display: none; }
       section { padding: 56px 4%; }
@@ -658,29 +660,35 @@
     <h2 class="section-h">Eccellenza Operativa a 360°</h2>
     <p class="section-sub center" style="margin-top:12px">Dal settore dell'estrazione inerti, alla produzione di calcestruzzo, fino alle grandi costruzioni civili ed industriali. Il Gruppo Trio accompagna il cliente in ogni fase del progetto.</p>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;max-width:900px;margin-left:auto;margin-right:auto">
-      <div style="text-align:left;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55b34bdcd.jpg" alt="Inerti e Materiali" style="width:100%;height:160px;object-fit:cover;display:block" />
-        <div style="padding:24px">
-          <div style="font-size:24px;margin-bottom:10px">⛏️</div>
-          <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Inerti &amp; Materiali</h3>
-          <p style="font-size:13px;color:var(--muted);line-height:1.65">Estrazione e lavorazione di inerti di alta qualità per ogni esigenza di cantiere.</p>
+    <div style="display:flex;flex-direction:column;gap:20px;margin-top:52px;max-width:960px;margin-left:auto;margin-right:auto">
+      <div style="display:flex;align-items:stretch;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55b34bdcd.jpg" alt="Inerti e Materiali" class="hide-mobile" style="width:240px;min-height:140px;object-fit:cover;flex-shrink:0" />
+        <div style="padding:28px 32px;display:flex;align-items:center;gap:20px">
+          <div style="font-size:28px;flex-shrink:0">⛏️</div>
+          <div>
+            <h3 style="font-size:17px;font-weight:700;color:var(--dark);margin-bottom:8px">Inerti &amp; Materiali</h3>
+            <p style="font-size:14px;color:var(--muted);line-height:1.65">Estrazione e lavorazione di inerti di alta qualità per ogni esigenza di cantiere. Sabbia, risetta, graniglia, breccia, pietrisco e stabilizzato disponibili in tutte le granulometrie.</p>
+          </div>
         </div>
       </div>
-      <div style="text-align:left;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55ce8ad6b.jpg" alt="Costruzioni Civili" style="width:100%;height:160px;object-fit:cover;display:block" />
-        <div style="padding:24px">
-          <div style="font-size:24px;margin-bottom:10px">🏗️</div>
-          <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Costruzioni Civili</h3>
-          <p style="font-size:13px;color:var(--muted);line-height:1.65">Grandi opere edili, industriali e infrastrutturali con tecnologia all'avanguardia.</p>
+      <div style="display:flex;align-items:stretch;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55ce8ad6b.jpg" alt="Costruzioni Civili" class="hide-mobile" style="width:240px;min-height:140px;object-fit:cover;flex-shrink:0" />
+        <div style="padding:28px 32px;display:flex;align-items:center;gap:20px">
+          <div style="font-size:28px;flex-shrink:0">🏗️</div>
+          <div>
+            <h3 style="font-size:17px;font-weight:700;color:var(--dark);margin-bottom:8px">Costruzioni Civili</h3>
+            <p style="font-size:14px;color:var(--muted);line-height:1.65">Grandi opere edili, industriali e infrastrutturali con tecnologia all'avanguardia. Dalla progettazione alla consegna chiavi in mano.</p>
+          </div>
         </div>
       </div>
-      <div style="text-align:left;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55d41dc6d.jpg" alt="Logistica Integrata" style="width:100%;height:160px;object-fit:cover;display:block" />
-        <div style="padding:24px">
-          <div style="font-size:24px;margin-bottom:10px">🚛</div>
-          <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Logistica Integrata</h3>
-          <p style="font-size:13px;color:var(--muted);line-height:1.65">Trasporto, pompaggio e consegna diretta in cantiere in tutto il Salento.</p>
+      <div style="display:flex;align-items:stretch;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55d41dc6d.jpg" alt="Logistica Integrata" class="hide-mobile" style="width:240px;min-height:140px;object-fit:cover;flex-shrink:0" />
+        <div style="padding:28px 32px;display:flex;align-items:center;gap:20px">
+          <div style="font-size:28px;flex-shrink:0">🚛</div>
+          <div>
+            <h3 style="font-size:17px;font-weight:700;color:var(--dark);margin-bottom:8px">Logistica Integrata</h3>
+            <p style="font-size:14px;color:var(--muted);line-height:1.65">Trasporto, pompaggio e consegna diretta in cantiere in tutto il Salento. Flotta propria di betoniere e pompe fino a 47 metri.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -867,7 +875,7 @@
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Costruzioni Stradali e Civili</h4>
-          <p>Realizzazione di infrastrutture stradali, opere civili e industriali chiavi in mano. Progettazione, esecuzione e collaudo con macchinari ad alta operatività.</p>
+          <p>Servizio completo per la realizzazione di infrastrutture stradali: dalla preparazione del terreno alla stesura dell'asfalto, con gestione di tutte le fasi operative per garantire qualità, sicurezza e durata nel tempo.</p>
         </div>
         <button class="service-card-btn">Dettagli Servizio</button>
       </div>
@@ -894,6 +902,35 @@
 
     </div>
   </section>
+</div>
+
+<!-- ══════════════════ INFRASTRUTTURE STRADALI (approfondimento) ══════════════════ -->
+<div style="background:var(--light);padding:80px 6%">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="grid-full-mobile" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+
+      <div class="hide-mobile" style="border-radius:var(--radius);overflow:hidden;aspect-ratio:16/10;position:relative">
+        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5fa58fed7852c.jpg" alt="Infrastrutture stradali Gruppo Trio" style="width:100%;height:100%;object-fit:cover;display:block" />
+      </div>
+
+      <div>
+        <span class="section-label"></span>
+        <h2 class="section-h" style="margin-bottom:16px">Infrastrutture Stradali</h2>
+        <p style="font-size:15px;color:var(--mid);line-height:1.85;margin-bottom:14px">Offriamo un servizio completo per la realizzazione di infrastrutture stradali, seguendo tutte le fasi operative necessarie per garantire qualità, sicurezza e durata nel tempo.</p>
+        <p style="font-size:15px;color:var(--mid);line-height:1.85;margin-bottom:14px">Le attività comprendono lo spianamento e la preparazione del terreno, la gestione degli inerti e dei materiali di fondazione, la fornitura e posa del calcestruzzo per le strutture portanti e la stesura dell'asfalto con tecnologie e macchinari professionali.</p>
+        <p style="font-size:15px;color:var(--mid);line-height:1.85;margin-bottom:28px">Quando necessario, l'intervento può includere anche la rimozione e il recupero dello strato di asfalto preesistente, al fine di ripristinare correttamente il piano stradale e garantire una nuova pavimentazione efficiente e duratura.</p>
+
+        <ul class="check-list">
+          <li><strong>Spianamento e preparazione del terreno</strong> con mezzi ad alta operatività.</li>
+          <li><strong>Gestione inerti e materiali di fondazione</strong> prodotti internamente dal gruppo.</li>
+          <li><strong>Fornitura e posa del calcestruzzo</strong> per le strutture portanti dai nostri impianti.</li>
+          <li><strong>Stesura dell'asfalto</strong> con macchinari professionali e controllo qualità.</li>
+          <li><strong>Rimozione e recupero asfalto preesistente</strong> per il ripristino del piano stradale.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <!-- ══════════════════ SOSTENIBILITÀ ══════════════════ -->
