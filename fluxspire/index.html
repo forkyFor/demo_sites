@@ -1,10 +1,114 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FluxSpire — Automazione Workflow per PMI</title>
-  <meta name="description" content="Automazione dei workflow per PMI con AI e tecnologie avanzate. Progettiamo e integriamo piattaforme che collegano sistemi e dati, digitalizzano attività operative e abilitano decisioni più rapide." />
+
+  <!-- ── SEO BASE ── -->
+  <title>FluxSpire | Automazione Workflow e AI per PMI — Italia</title>
+  <meta name="description" content="FluxSpire progetta e integra soluzioni di automazione workflow, integrazione sistemi e AI per PMI italiane. Riduci errori, tempi e costi operativi con tecnologie avanzate." />
+  <meta name="keywords" content="automazione workflow, workflow automation, integrazione sistemi API, AI per PMI, digitalizzazione processi, osservabilità analytics, sicurezza governance, consulenza IT Italia" />
+  <meta name="author" content="FluxSpire" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://www.fluxspire.it/" />
+
+  <!-- ── FAVICON ── -->
+  <link rel="icon" type="image/png" href="https://www.fluxspire.it/wp-content/uploads/2025/12/cropped-fluxspire_icon-32x32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="https://www.fluxspire.it/wp-content/uploads/2025/12/cropped-fluxspire_icon-180x180.png" />
+
+  <!-- ── OPEN GRAPH ── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.fluxspire.it/" />
+  <meta property="og:site_name" content="FluxSpire" />
+  <meta property="og:title" content="FluxSpire | Automazione Workflow e AI per PMI" />
+  <meta property="og:description" content="Progettiamo e integriamo piattaforme che collegano sistemi e dati, digitalizzano attività operative e abilitano decisioni più rapide. Operiamo in tutta Italia." />
+  <meta property="og:image" content="https://www.fluxspire.it/wp-content/uploads/2025/12/io-e-davide-al-pc_v2.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="it_IT" />
+
+  <!-- ── TWITTER CARD ── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FluxSpire | Automazione Workflow e AI per PMI" />
+  <meta name="twitter:description" content="Progettiamo e integriamo piattaforme che collegano sistemi e dati, digitalizzano attività operative e abilitano decisioni più rapide." />
+  <meta name="twitter:image" content="https://www.fluxspire.it/wp-content/uploads/2025/12/io-e-davide-al-pc_v2.jpg" />
+
+  <!-- ── JSON-LD SCHEMA ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.fluxspire.it/#organization",
+        "name": "FluxSpire",
+        "url": "https://www.fluxspire.it/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.fluxspire.it/wp-content/uploads/2025/12/fluxspire_logo_horizontal_transparent_tagline_cropped.svg"
+        },
+        "description": "Automazione dei workflow per PMI con AI e tecnologie avanzate. Progettiamo e integriamo piattaforme che collegano sistemi e dati.",
+        "email": "contacts@fluxspire.it",
+        "areaServed": "IT",
+        "founder": [
+          { "@type": "Person", "name": "Davide Forletta", "jobTitle": "Software Engineer & Solution Architect" },
+          { "@type": "Person", "name": "Marco Bramato",   "jobTitle": "Software Engineer & Digital Transformation" }
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/davide-forletta/",
+          "https://www.linkedin.com/in/marco-bramato-a086445"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.fluxspire.it/#website",
+        "url": "https://www.fluxspire.it/",
+        "name": "FluxSpire",
+        "publisher": { "@id": "https://www.fluxspire.it/#organization" },
+        "inLanguage": "it-IT"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.fluxspire.it/#webpage",
+        "url": "https://www.fluxspire.it/",
+        "name": "FluxSpire | Automazione Workflow e AI per PMI — Italia",
+        "description": "FluxSpire progetta e integra soluzioni di automazione workflow, integrazione sistemi e AI per PMI italiane.",
+        "isPartOf": { "@id": "https://www.fluxspire.it/#website" },
+        "about": { "@id": "https://www.fluxspire.it/#organization" },
+        "inLanguage": "it-IT"
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Automazione Workflow",
+        "provider": { "@id": "https://www.fluxspire.it/#organization" },
+        "areaServed": "IT",
+        "description": "Progettazione di flussi di lavoro automatizzati che eliminano attività manuali e ripetitive, riducendo errori, tempi e costi operativi."
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Integrazione Sistemi & API",
+        "provider": { "@id": "https://www.fluxspire.it/#organization" },
+        "areaServed": "IT",
+        "description": "Connessione di sistemi eterogenei — ERP, CRM, database, SaaS — attraverso API robuste e middleware scalabili."
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Osservabilità & Analytics",
+        "provider": { "@id": "https://www.fluxspire.it/#organization" },
+        "areaServed": "IT",
+        "description": "Dashboard in tempo reale, logging strutturato e alerting proattivo per trasformare dati operativi in insight azionabili."
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Sicurezza & Governance",
+        "provider": { "@id": "https://www.fluxspire.it/#organization" },
+        "areaServed": "IT",
+        "description": "Soluzioni con sicurezza by-design: controllo accessi, audit trail, crittografia e conformità normativa."
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
