@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gruppo Trio S.p.A. — Costruiamo il Futuro, Insieme.</title>
   <meta name="description" content="Soluzioni avanzate nell'edilizia civile, infrastrutture stradali e settore inerti. Dal 1980 nel Salento." />
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="shortcut icon" href="logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -92,7 +94,7 @@
     /* ── HERO ── */
     .hero {
       background: linear-gradient(160deg, rgba(30,64,175,0.88) 0%, rgba(37,99,235,0.82) 45%, rgba(59,130,246,0.76) 100%),
-                  url('https://images.cdn-files-a.com/uploads/4182421/2000_5f9c558f00f06.jpg') center/cover no-repeat;
+                  url('images/2000_5f9c558f00f06.jpg') center/cover no-repeat;
       min-height: 520px;
       display: flex; align-items: center; justify-content: center;
       text-align: center;
@@ -622,6 +624,32 @@
       .footer-top { grid-template-columns: 1fr; gap: 32px; }
     }
 
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .nav-hamburger:hover { background: var(--blue-pale); }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--mid);
+      border-radius: 2px;
+      transition: all 0.25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     @media (max-width: 640px) {
       .hide-mobile { display: none !important; }
       .grid-full-mobile { grid-template-columns: 1fr !important; }
@@ -629,27 +657,121 @@
       .eccellenza-img { width: 110px !important; height: auto !important; min-height: 100px; flex-shrink: 0; object-fit: cover; }
       .eccellenza-body { padding: 16px !important; }
       .eccellenza-grid { grid-template-columns: 1fr !important; }
-      nav { padding: 0 4%; }
-      .nav-links { display: none; }
+      nav { padding: 0 4%; flex-wrap: wrap; height: auto; min-height: 64px; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        border-top: 1px solid var(--border);
+        padding: 8px 0 12px;
+        order: 3;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { list-style: none; }
+      .nav-links a {
+        display: block;
+        padding: 10px 4%;
+        border-bottom: none;
+        font-size: 15px;
+      }
       section { padding: 56px 4%; }
       .servizi-grid { grid-template-columns: 1fr; }
       .hero-btns { flex-direction: column; align-items: center; }
+    }
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(15,23,42,0.6);
+      backdrop-filter: blur(4px);
+      align-items: center; justify-content: center;
+      padding: 16px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--white);
+      border-radius: 16px;
+      width: 100%; max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      animation: modal-in 0.22s ease;
+    }
+    @keyframes modal-in {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to   { opacity: 1; transform: none; }
+    }
+    .modal-img {
+      width: 100%; height: 260px;
+      object-fit: cover;
+      border-radius: 16px 16px 0 0;
+      display: block;
+    }
+    .modal-body { padding: 28px 32px 32px; }
+    .modal-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--blue);
+      background: var(--blue-pale);
+      display: inline-block; padding: 3px 10px;
+      border-radius: 4px; margin-bottom: 10px;
+    }
+    .modal-title { font-size: 22px; font-weight: 800; color: var(--dark); margin-bottom: 14px; }
+    .modal-desc { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 20px; }
+    .modal-features { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+    .modal-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 13px; color: var(--mid);
+    }
+    .modal-features li::before {
+      content: "✓";
+      flex-shrink: 0; width: 18px; height: 18px;
+      background: var(--blue-pale); color: var(--blue);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; margin-top: 1px;
+    }
+    .modal-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(255,255,255,0.9); border: 1px solid var(--border);
+      cursor: pointer; font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .modal-close:hover { background: var(--blue-pale); }
+    .modal-image-wrap { position: relative; }
+    .modal-footer { display: flex; gap: 12px; flex-wrap: wrap; }
+    .modal-footer .btn-cta {
+      padding: 11px 24px; border-radius: 8px; font-size: 14px; font-weight: 600;
+      cursor: pointer; border: none; text-decoration: none; display: inline-block;
+    }
+    .btn-primary-cta { background: var(--blue); color: #fff; }
+    .btn-primary-cta:hover { background: var(--blue-d); }
+    .btn-outline-cta { background: transparent; color: var(--blue); border: 1.5px solid var(--blue) !important; }
+    .btn-outline-cta:hover { background: var(--blue-pale); }
+    @media (max-width: 640px) {
+      .modal-body { padding: 20px 20px 24px; }
+      .modal-img { height: 200px; }
     }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
+<nav id="main-nav">
   <a href="#" class="nav-logo" onclick="showPage('home')">
-    <img src="logo.png" alt="Gruppo Trio" />
+    <img src="logo.svg" alt="Gruppo Trio" />
     <span class="nav-logo-name">Gruppo Trio</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
-    <li><a href="#" onclick="showPage('azienda')" id="nav-azienda">Chi Siamo</a></li>
-    <li><a href="#" onclick="showPage('servizi')" id="nav-servizi">Soluzioni e Servizi</a></li>
-    <li><a href="#" onclick="showPage('sost')" id="nav-sost">Sostenibilità</a></li>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Apri menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#" onclick="showPage('home');closeMenu()" id="nav-home" class="active">Home</a></li>
+    <li><a href="#" onclick="showPage('azienda');closeMenu()" id="nav-azienda">Chi Siamo</a></li>
+    <li><a href="#" onclick="showPage('servizi');closeMenu()" id="nav-servizi">Soluzioni e Servizi</a></li>
+    <li><a href="#" onclick="showPage('sost');closeMenu()" id="nav-sost">Sostenibilità</a></li>
   </ul>
 </nav>
 
@@ -674,7 +796,7 @@
 
     <div class="eccellenza-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px;max-width:960px;margin-left:auto;margin-right:auto">
       <div class="eccellenza-card" style="text-align:left;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55b34bdcd.jpg" alt="Inerti e Materiali" class="eccellenza-img" style="width:100%;height:180px;object-fit:cover;display:block" />
+        <img src="images/2000_5f9c55b34bdcd.jpg" alt="Inerti e Materiali" class="eccellenza-img" style="width:100%;height:180px;object-fit:cover;display:block" />
         <div class="eccellenza-body" style="padding:24px">
           <div style="font-size:24px;margin-bottom:10px">⛏️</div>
           <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Inerti &amp; Materiali</h3>
@@ -682,7 +804,7 @@
         </div>
       </div>
       <div class="eccellenza-card" style="text-align:left;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55ce8ad6b.jpg" alt="Costruzioni Civili" class="eccellenza-img" style="width:100%;height:180px;object-fit:cover;display:block" />
+        <img src="images/2000_5f9c55ce8ad6b.jpg" alt="Costruzioni Civili" class="eccellenza-img" style="width:100%;height:180px;object-fit:cover;display:block" />
         <div class="eccellenza-body" style="padding:24px">
           <div style="font-size:24px;margin-bottom:10px">🏗️</div>
           <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Costruzioni Civili</h3>
@@ -690,7 +812,7 @@
         </div>
       </div>
       <div class="eccellenza-card" style="text-align:left;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55d41dc6d.jpg" alt="Logistica Integrata" class="eccellenza-img" style="width:100%;height:180px;object-fit:cover;display:block" />
+        <img src="images/2000_5f9c55d41dc6d.jpg" alt="Logistica Integrata" class="eccellenza-img" style="width:100%;height:180px;object-fit:cover;display:block" />
         <div class="eccellenza-body" style="padding:24px">
           <div style="font-size:24px;margin-bottom:10px">🚛</div>
           <h3 style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">Logistica Integrata</h3>
@@ -728,7 +850,7 @@
         <a href="#" class="btn-solid" onclick="showPage('sost')">Approfondisci Sostenibilità</a>
       </div>
       <div class="sost-photo" style="background:none">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c56b22c172.jpg" alt="Impegno ambientale Gruppo Trio" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:var(--radius)" />
+        <img src="images/2000_5f9c56b22c172.jpg" alt="Impegno ambientale Gruppo Trio" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:var(--radius)" />
       </div>
     </div>
   </section>
@@ -756,7 +878,7 @@
       </div>
       <div>
         <div class="chi-img">
-          <img src="https://images.cdn-files-a.com/uploads/4182421/800_5f9c4c27bacfc_filter_61685505b6e7f.jpg" alt="Impianto Gruppo Trio" />
+          <img src="images/800_5f9c4c27bacfc_filter_61685505b6e7f.jpg" alt="Impianto Gruppo Trio" />
         </div>
 
         <!-- Timeline -->
@@ -784,9 +906,9 @@
 
   <!-- Galleria immagini -->
   <div style="padding:0 6% 56px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-    <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5fa58fc2dd4d6.jpg" alt="Gruppo Trio cantiere" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius)" />
-    <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5fa58fe3f4151.jpg" alt="Gruppo Trio impianto" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius)" />
-    <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5fa58fe70a844.jpg" alt="Gruppo Trio lavorazione" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius)" />
+    <img src="images/2000_5fa58fc2dd4d6.jpg" alt="Gruppo Trio cantiere" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius)" />
+    <img src="images/2000_5fa58fe3f4151.jpg" alt="Gruppo Trio impianto" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius)" />
+    <img src="images/2000_5fa58fe70a844.jpg" alt="Gruppo Trio lavorazione" style="width:100%;height:200px;object-fit:cover;border-radius:var(--radius)" />
   </div>
 
   <!-- Numeri su Azienda -->
@@ -817,93 +939,93 @@
     <div class="servizi-grid" id="servizi-grid">
 
       <div class="service-card" data-cat="inerti">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55d5bffff.jpg" alt="Settore Inerti" style="width:100%;height:140px;object-fit:cover" />
+        <img src="images/2000_5f9c55d5bffff.jpg" alt="Settore Inerti" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Settore Inerti</h4>
           <p>Include la produzione di diverse granulometrie: sabbia (0–4 mm), risetta (4–8 mm), graniglia (8–13 mm), breccia (15–30 mm), pietrisco (40–70 mm), pietra vagliata (7–20 cm) e stabilizzato.</p>
         </div>
-        <button class="service-card-btn">Dettagli Servizio</button>
+        <button class="service-card-btn" onclick="openServiceModal('settore-inerti')">Dettagli Servizio</button>
       </div>
 
       <div class="service-card" data-cat="logistica">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55fd3913a.jpg" alt="Carico e Trasporto Inerti" style="width:100%;height:140px;object-fit:cover" />
+        <img src="images/2000_5f9c55fd3913a.jpg" alt="Carico e Trasporto Inerti" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Carico e Trasporto Inerti</h4>
           <p>Carico effettuato tramite motopala; l'azienda offre anche il servizio di trasporto diretto su richiesta del cliente su tutto il territorio salentino.</p>
         </div>
-        <button class="service-card-btn">Dettagli Servizio</button>
+        <button class="service-card-btn" onclick="openServiceModal('carico-trasporto')">Dettagli Servizio</button>
       </div>
 
       <div class="service-card" data-cat="costruzioni">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c55fee9424.jpg" alt="Produzione Calcestruzzo" style="width:100%;height:140px;object-fit:cover" />
+        <img src="images/2000_5f9c55fee9424.jpg" alt="Produzione Calcestruzzo" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Produzione Calcestruzzo</h4>
           <p>Calcestruzzo preconfezionato prodotto nei quattro impianti del gruppo, disponibile nelle principali classi di resistenza. Un'offerta completa che garantisce qualità costante, tempi certi e piena tracciabilità del prodotto.</p>
         </div>
-        <button class="service-card-btn">Dettagli Servizio</button>
+        <button class="service-card-btn" onclick="openServiceModal('produzione-calcestruzzo')">Dettagli Servizio</button>
       </div>
 
       <div class="service-card" data-cat="logistica">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9c5609bb9f6.jpg" alt="Trasporto e Pompaggio Calcestruzzo" style="width:100%;height:140px;object-fit:cover" />
+        <img src="images/2000_5f9c5609bb9f6.jpg" alt="Trasporto e Pompaggio Calcestruzzo" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Trasporto e Pompaggio Calcestruzzo</h4>
           <p>Utilizzo di betoniere, pompe (da 32, 36 o 47 metri) o beton pompe (per forniture &lt; 10 m³ o spazi ristretti). Ogni pompa include un operatore qualificato.</p>
         </div>
-        <button class="service-card-btn">Dettagli Servizio</button>
+        <button class="service-card-btn" onclick="openServiceModal('trasporto-pompaggio')">Dettagli Servizio</button>
       </div>
 
       <div class="service-card" data-cat="costruzioni">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5fa58fea645e9.jpg" alt="Produzione Manufatti in Cemento" style="width:100%;height:140px;object-fit:cover" />
+        <img src="images/2000_5fa58fea645e9.jpg" alt="Produzione Manufatti in Cemento" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Produzione Manufatti in Cemento</h4>
           <p>Disponibili in misure dai 10 ai 35 cm, in versioni portanti o leggere. Produzione interna per blocchi, cordoli, pozzetti e manufatti su specifica del cliente.</p>
         </div>
-        <button class="service-card-btn">Dettagli Servizio</button>
+        <button class="service-card-btn" onclick="openServiceModal('manufatti-cemento')">Dettagli Servizio</button>
       </div>
 
       <div class="service-card" data-cat="logistica">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9d7685c3ec7.jpg" alt="Trasporto Manufatti con Gru" style="width:100%;height:140px;object-fit:cover" />
+        <img src="images/2000_5f9d7685c3ec7.jpg" alt="Trasporto Manufatti con Gru" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Trasporto Manufatti con Gru</h4>
           <p>Camion con gru (fino a 10–20 balle) o solo trasporto per carichi maggiori (fino a 35 balle senza gru). Consegna diretta e posizionamento in cantiere.</p>
         </div>
-        <button class="service-card-btn">Dettagli Servizio</button>
+        <button class="service-card-btn" onclick="openServiceModal('trasporto-gru')">Dettagli Servizio</button>
       </div>
 
       <div class="service-card" data-cat="costruzioni">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5fa58fed7852c.jpg" alt="Costruzioni Stradali e Civili" style="width:100%;height:140px;object-fit:cover" />
+        <img src="images/2000_5fa58fed7852c.jpg" alt="Costruzioni Stradali e Civili" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Costruzioni Stradali e Civili</h4>
           <p>Servizio completo per la realizzazione di infrastrutture stradali: dalla preparazione del terreno alla stesura dell'asfalto, con gestione di tutte le fasi operative per garantire qualità, sicurezza e durata nel tempo.</p>
         </div>
-        <button class="service-card-btn">Dettagli Servizio</button>
+        <button class="service-card-btn" onclick="openServiceModal('costruzioni-stradali')">Dettagli Servizio</button>
       </div>
 
       <div class="service-card" data-cat="costruzioni">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5fa58fed88f32.jpg" alt="Sviluppo Immobiliare" style="width:100%;height:140px;object-fit:cover" />
+        <img src="images/2000_5fa58fed88f32.jpg" alt="Sviluppo Immobiliare" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Sviluppo Immobiliare</h4>
           <p>Gestione completa del ciclo edilizio: dalla progettazione alla consegna dell'immobile. Edilizia civile e industriale con standard costruttivi elevati.</p>
         </div>
-        <button class="service-card-btn">Dettagli Servizio</button>
+        <button class="service-card-btn" onclick="openServiceModal('sviluppo-immobiliare')">Dettagli Servizio</button>
       </div>
 
       <div class="service-card" data-cat="inerti">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9d7f95b29d6.jpg" alt="Fornitura Aggregati per Calcestruzzo" style="width:100%;height:140px;object-fit:cover" />
+        <img src="images/2000_5f9d7f95b29d6.jpg" alt="Fornitura Aggregati per Calcestruzzo" style="width:100%;height:140px;object-fit:cover" />
         <div class="service-card-tag">Servizio Corporate</div>
         <div class="service-card-body">
           <h4>Fornitura Aggregati per Calcestruzzo</h4>
           <p>Inerti certificati per la produzione di calcestruzzo strutturale conforme alle norme EN 12620. Granulometrie selezionate e controllate in laboratorio.</p>
         </div>
-        <button class="service-card-btn">Dettagli Servizio</button>
+        <button class="service-card-btn" onclick="openServiceModal('fornitura-aggregati')">Dettagli Servizio</button>
       </div>
 
     </div>
@@ -916,7 +1038,7 @@
     <div class="grid-full-mobile" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
 
       <div class="hide-mobile" style="border-radius:var(--radius);overflow:hidden;aspect-ratio:16/10;position:relative">
-        <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5fa58fed7852c.jpg" alt="Infrastrutture stradali Gruppo Trio" style="width:100%;height:100%;object-fit:cover;display:block" />
+        <img src="images/2000_5fa58fed7852c.jpg" alt="Infrastrutture stradali Gruppo Trio" style="width:100%;height:100%;object-fit:cover;display:block" />
       </div>
 
       <div>
@@ -951,7 +1073,7 @@
     <div style="max-width:1100px;margin:0 auto">
       <div class="sost-cava-grid">
         <div class="sost-cava-photo" style="background:none">
-          <img src="https://images.cdn-files-a.com/uploads/4182421/2000_5f9d74590a4bd.jpg" alt="Cava a impatto mitigato" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:var(--radius)" />
+          <img src="images/2000_5f9d74590a4bd.jpg" alt="Cava a impatto mitigato" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:var(--radius)" />
         </div>
 
         <div class="sost-cava-text">
@@ -989,23 +1111,91 @@
         <p style="font-size:13px;color:var(--muted);line-height:1.65">Impianti fono-assorbenti per contenere l'inquinamento acustico nelle aree di lavorazione e logistica.</p>
       </div>
     </div>
-    <div style="text-align:center;margin-top:36px">
-      <a href="#" class="btn-solid" onclick="showPage('sost')">Approfondisci Sostenibilità</a>
-    </div>
   </section>
 </div>
 
-<!-- ══════════════════ DOVE SIAMO ══════════════════ -->
-<section style="background:var(--light);padding:80px 6%">
-  <span class="section-label center"></span>
-  <h2 class="section-h" style="text-align:center;margin-bottom:8px">Dove Siamo</h2>
-  <p class="section-sub center" style="margin-bottom:40px">Sede operativa: Via Nazario Sauro, 51 — 73100 Lecce (LE)</p>
-  <div style="border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.1)">
-    <iframe
-      src="https://maps.google.com/maps?q=Via+Nazario+Sauro+51+Lecce+73100&t=&z=15&ie=UTF8&iwloc=&output=embed"
-      width="100%" height="420" style="border:0;display:block" allowfullscreen loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"></iframe>
+<!-- ══════════════════ INFO E CONTATTI ══════════════════ -->
+<section style="background:var(--white);padding:80px 6%">
+  <h2 class="section-h" style="text-align:center;margin-bottom:8px">Info e Contatti</h2>
+  <p class="section-sub center" style="margin-bottom:48px">Siamo a tua disposizione per qualsiasi informazione</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;max-width:960px;margin:0 auto 48px">
+
+    <!-- Colonna sinistra: dati contatto -->
+    <div>
+      <!-- Indirizzo -->
+      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:24px">
+        <div style="width:40px;height:40px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);margin-bottom:4px">Sede Operativa</div>
+          <div style="font-size:15px;font-weight:600;color:var(--dark);line-height:1.5">Via N. Sauro, 51<br>73100 Lecce (LE), Italia</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:2px">GRUPPO TRIO S.p.A</div>
+        </div>
+      </div>
+
+      <!-- Telefoni -->
+      <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:24px">
+        <div style="width:40px;height:40px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);margin-bottom:2px">Telefono</div>
+          <a href="tel:+390832362171" style="font-size:14px;font-weight:600;color:var(--blue);text-decoration:none;display:flex;align-items:center;gap:6px">
+            <span>+39-0832 362171</span>
+            <span style="font-size:11px;font-weight:500;color:var(--muted);background:var(--blue-pale);padding:1px 7px;border-radius:4px">Amministrazione</span>
+          </a>
+          <a href="tel:+390832786404" style="font-size:14px;font-weight:600;color:var(--blue);text-decoration:none;display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+            <span>+39-0832 786404</span>
+            <span style="font-size:11px;font-weight:500;color:var(--muted);background:var(--blue-pale);padding:1px 7px;border-radius:4px">Stab. Calcestruzzi</span>
+          </a>
+          <a href="tel:+393336251372" style="font-size:14px;font-weight:600;color:var(--blue);text-decoration:none;display:flex;align-items:center;gap:6px">
+            <span>+39-333 6251372</span>
+            <span style="font-size:11px;font-weight:500;color:var(--muted);background:var(--blue-pale);padding:1px 7px;border-radius:4px">Mobile commerciale</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Email e Orari -->
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="width:40px;height:40px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);margin-bottom:3px">Email</div>
+            <a href="mailto:gruppotriospa@gmail.com" style="font-size:14px;font-weight:600;color:var(--blue);text-decoration:none">gruppotriospa@gmail.com</a>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="width:40px;height:40px;border-radius:10px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);margin-bottom:3px">Orari</div>
+            <div style="font-size:14px;font-weight:600;color:var(--dark)">06:00 – 18:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colonna destra: mappa -->
+    <div style="border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.1);height:380px">
+      <iframe
+        src="https://maps.google.com/maps?q=Via+Nazario+Sauro+51+Lecce+73100&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        width="100%" height="100%" style="border:0;display:block" allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
   </div>
+
+  <!-- Responsive mobile: stack colonne -->
+  <style>
+    @media(max-width:768px){
+      .contatti-grid{grid-template-columns:1fr !important;}
+    }
+  </style>
 </section>
 
 <!-- ══════════════════ FOOTER ══════════════════ -->
@@ -1013,7 +1203,7 @@
   <div class="footer-top">
     <div>
       <div class="footer-brand">
-        <img src="logo.png" alt="Gruppo Trio" />
+        <img src="logo.svg" alt="Gruppo Trio" />
         <span class="footer-brand-name">Gruppo Trio</span>
       </div>
       <p class="footer-desc">Eccellenza industriale, affidabilità e concretezza. Forniamo soluzioni avanzate per costruzioni stradali, edilizia civile e produzione di materiali edili offrendo un servizio "chiavi in mano" con i più alti standard di sostenibilità.</p>
@@ -1030,9 +1220,11 @@
     <div class="footer-col">
       <h4>Contatti</h4>
       <ul>
-        <li><span>Sede Operativa</span></li>
-        <li><span>info@gruppotrio.it</span></li>
-        <li><span>+39 0123 456789</span></li>
+        <li><span>Via N. Sauro, 51 — 73100 Lecce (LE)</span></li>
+        <li><a href="tel:+390832362171">+39-0832 362171</a></li>
+        <li><a href="tel:+393336251372">+39-333 6251372</a></li>
+        <li><a href="mailto:gruppotriospa@gmail.com">gruppotriospa@gmail.com</a></li>
+        <li><span>Orari: 06:00 – 18:00</span></li>
       </ul>
     </div>
   </div>
@@ -1045,12 +1237,46 @@
   </div>
 </footer>
 
+<!-- MODAL SERVIZIO -->
+<div class="modal-overlay" id="serviceModal" onclick="if(event.target===this)closeServiceModal()">
+  <div class="modal-box">
+    <div class="modal-image-wrap">
+      <img id="modalImg" src="" alt="" class="modal-img" />
+      <button class="modal-close" onclick="closeServiceModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <span class="modal-tag" id="modalTag"></span>
+      <h3 class="modal-title" id="modalTitle"></h3>
+      <p class="modal-desc" id="modalDesc"></p>
+      <ul class="modal-features" id="modalFeatures"></ul>
+      <div class="modal-footer">
+        <a href="#" class="btn-cta btn-primary-cta" onclick="showPage('contatti');closeServiceModal();return false">Richiedi Preventivo</a>
+        <button class="btn-cta btn-outline-cta" onclick="closeServiceModal()">Chiudi</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+  /* ── NAV HAMBURGER ── */
+  function toggleMenu() {
+    var btn = document.getElementById('nav-hamburger');
+    var links = document.getElementById('nav-links');
+    btn.classList.toggle('open');
+    links.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('nav-hamburger').classList.remove('open');
+    document.getElementById('nav-links').classList.remove('open');
+  }
+
+  /* ── PAGE NAVIGATION ── */
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
     document.getElementById('page-' + id).classList.add('active');
-    document.getElementById('nav-' + id).classList.add('active');
+    var navEl = document.getElementById('nav-' + id);
+    if (navEl) navEl.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     return false;
   }
@@ -1066,6 +1292,164 @@
       }
     });
   }
+
+  /* ── SERVICE MODAL ── */
+  var SERVICE_DATA = {
+    'settore-inerti': {
+      tag: 'Inerti & Materiali',
+      title: 'Settore Inerti',
+      img: 'images/2000_5f9c55d5bffff.jpg',
+      desc: 'Il settore inerti di Gruppo Trio rappresenta il cuore produttivo dell\'azienda. Grazie alle cave di proprietà e agli impianti di frantumazione e vagliatura all\'avanguardia, garantiamo materiali di qualità certificata per ogni esigenza costruttiva, dal piccolo cantiere privato alla grande infrastruttura pubblica.',
+      features: [
+        'Sabbia 0–4 mm e risetta 4–8 mm per intonaci e malte',
+        'Graniglia 8–13 mm e breccia 15–30 mm per sottofondi',
+        'Pietrisco 40–70 mm per drenaggi e riempimenti',
+        'Pietra vagliata 7–20 cm e stabilizzato per viabilità',
+        'Certificazioni di conformità EN 12620 su richiesta',
+        'Consegna in cantiere con flotta propria'
+      ]
+    },
+    'carico-trasporto': {
+      tag: 'Logistica',
+      title: 'Carico e Trasporto Inerti',
+      img: 'images/2000_5f9c55fd3913a.jpg',
+      desc: 'Il servizio di carico e trasporto inerti di Gruppo Trio garantisce tempestività e affidabilità su tutto il territorio salentino. Le operazioni di carico vengono eseguite con motopale di ultima generazione, mentre la flotta di autocarri aziendali assicura consegne puntuali anche per grandi volumi.',
+      features: [
+        'Carico con motopale ad alta capacità operativa',
+        'Flotta propria di autocarri ribaltabili da 10 a 26 t',
+        'Copertura su tutto il territorio della provincia di Lecce',
+        'Disponibilità di autocarri con sponde per carichi speciali',
+        'Pianificazione logistica dedicata per grandi cantieri',
+        'Servizio di pronto intervento per urgenze'
+      ]
+    },
+    'produzione-calcestruzzo': {
+      tag: 'Costruzioni',
+      title: 'Produzione Calcestruzzo',
+      img: 'images/2000_5f9c55fee9424.jpg',
+      desc: 'Gruppo Trio produce calcestruzzo preconfezionato in quattro impianti distribuiti sul territorio, garantendo copertura capillare e continuità nelle forniture. Ogni mix design è sviluppato internamente e verificato in laboratorio per soddisfare le più stringenti normative europee.',
+      features: [
+        'Classi di resistenza da C8/10 a C45/55',
+        'Calcestruzzo per esposizione XC, XD, XS, XF, XA',
+        'Quattro impianti produttivi a copertura provinciale',
+        'Laboratorio interno per controllo qualità continuo',
+        'Documentazione di conformità EN 206 inclusa',
+        'Forniture programmate e in pronto intervento'
+      ]
+    },
+    'trasporto-pompaggio': {
+      tag: 'Logistica',
+      title: 'Trasporto e Pompaggio Calcestruzzo',
+      img: 'images/2000_5f9c5609bb9f6.jpg',
+      desc: 'Il servizio di pompaggio di Gruppo Trio è pensato per rispondere a ogni scenario di cantiere: dalle consegne standard con betoniera alle situazioni più complesse che richiedono getti in quota o in spazi ristretti. Ogni mezzo è affidato a un operatore specializzato.',
+      features: [
+        'Betoniere da 6 e 8 m³ per forniture standard',
+        'Pompe autocarrate con bracci da 32, 36 e 47 m',
+        'Beton-pompe per forniture < 10 m³ o accessi stretti',
+        'Operatore qualificato incluso nel servizio di pompaggio',
+        'Getti in quota fino a 15° piano',
+        'Coordinamento diretto con il DL di cantiere'
+      ]
+    },
+    'manufatti-cemento': {
+      tag: 'Costruzioni',
+      title: 'Produzione Manufatti in Cemento',
+      img: 'images/2000_5fa58fea645e9.jpg',
+      desc: 'Lo stabilimento di manufatti in cemento di Gruppo Trio produce elementi prefabbricati per edilizia civile e industriale. La produzione interna permette di offrire tempi rapidi, personalizzazione su specifica e prezzi competitivi rispetto al mercato.',
+      features: [
+        'Blocchi portanti e forati da 10 a 35 cm di spessore',
+        'Cordoli stradali e cunette per infrastrutture',
+        'Pozzetti prefabbricati per fognature e impianti',
+        'Elementi su specifica tecnica del committente',
+        'Produzione in ciclo continuo con impianti automatizzati',
+        'Stock permanente per consegne immediate'
+      ]
+    },
+    'trasporto-gru': {
+      tag: 'Logistica',
+      title: 'Trasporto Manufatti con Gru',
+      img: 'images/2000_5f9d7685c3ec7.jpg',
+      desc: 'Il servizio di trasporto con gru di Gruppo Trio consente il posizionamento preciso dei manufatti direttamente in cantiere, eliminando la necessità di gru fisse o carrelli elevatori. Un\'operazione che riduce i tempi di posa e i costi accessori.',
+      features: [
+        'Camion con gru fino a 10–20 balle per cantieri standard',
+        'Trasporto senza gru fino a 35 balle per carichi elevati',
+        'Posizionamento millimetrico direttamente in opera',
+        'Operatore gruista con patentino incluso nel servizio',
+        'Disponibilità di bracci telescopici per aree difficili',
+        'Pianificazione oraria per non intralciare il cantiere'
+      ]
+    },
+    'costruzioni-stradali': {
+      tag: 'Costruzioni',
+      title: 'Costruzioni Stradali e Civili',
+      img: 'images/2000_5fa58fed7852c.jpg',
+      desc: 'Il comparto costruzioni di Gruppo Trio esegue lavori stradali e civili chiavi in mano, gestendo ogni fase del processo: dalla progettazione esecutiva alla direzione lavori, fino al collaudo finale. Un interlocutore unico per interventi di qualsiasi entità.',
+      features: [
+        'Progettazione esecutiva e calcolo strutturale',
+        'Movimenti terra, scavi e preparazione del piano di posa',
+        'Stesa di conglomerato bituminoso con finitrice a controllo laser',
+        'Opere d\'arte: tombini, cunette, guard-rail e segnaletica',
+        'Interventi su strade provinciali, comunali e private',
+        'Gestione pratiche autorizzative presso enti pubblici'
+      ]
+    },
+    'sviluppo-immobiliare': {
+      tag: 'Costruzioni',
+      title: 'Sviluppo Immobiliare',
+      img: 'images/2000_5fa58fed88f32.jpg',
+      desc: 'Gruppo Trio gestisce l\'intero ciclo di sviluppo immobiliare, dalla ricerca del lotto alla consegna delle chiavi. La sinergia con le altre divisioni del gruppo permette di ottimizzare costi e tempi, garantendo edifici di alta qualità sia per uso residenziale che commerciale.',
+      features: [
+        'Ricerca e acquisizione aree edificabili nel Salento',
+        'Progettazione architettonica e strutturale integrata',
+        'Edilizia residenziale, commerciale e industriale',
+        'Supervisione di cantiere con geometra dedicato',
+        'Fornitura interna di calcestruzzo, inerti e manufatti',
+        'Pratiche edilizie e collaudi statici inclusi'
+      ]
+    },
+    'fornitura-aggregati': {
+      tag: 'Inerti & Materiali',
+      title: 'Fornitura Aggregati per Calcestruzzo',
+      img: 'images/2000_5f9d7f95b29d6.jpg',
+      desc: 'Gli aggregati forniti da Gruppo Trio per la produzione di calcestruzzo strutturale rispettano i requisiti della norma EN 12620 e vengono sottoposti a controlli sistematici in laboratorio. Una garanzia di conformità che tutela le responsabilità del produttore e del progettista.',
+      features: [
+        'Inerti certificati EN 12620 per calcestruzzo strutturale',
+        'Granulometrie 0/4, 4/8, 8/16, 16/31.5 mm disponibili',
+        'Analisi granulometriche e prove Los Angeles in laboratorio',
+        'Dichiarazione di prestazione (DoP) allegata ad ogni fornitura',
+        'Tracciabilità completa dalla cava alla consegna',
+        'Forniture minime da 5 t, grandi volumi con contratto dedicato'
+      ]
+    }
+  };
+
+  function openServiceModal(id) {
+    var d = SERVICE_DATA[id];
+    if (!d) return;
+    document.getElementById('modalImg').src = d.img;
+    document.getElementById('modalImg').alt = d.title;
+    document.getElementById('modalTag').textContent = d.tag;
+    document.getElementById('modalTitle').textContent = d.title;
+    document.getElementById('modalDesc').textContent = d.desc;
+    var ul = document.getElementById('modalFeatures');
+    ul.innerHTML = '';
+    d.features.forEach(function(f) {
+      var li = document.createElement('li');
+      li.textContent = f;
+      ul.appendChild(li);
+    });
+    document.getElementById('serviceModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeServiceModal() {
+    document.getElementById('serviceModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeServiceModal();
+  });
 </script>
 
 </body>
