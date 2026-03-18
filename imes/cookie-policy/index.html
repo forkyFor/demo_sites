@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Policy | Imes Ascensori</title>
+  <meta name="description" content="Cookie Policy di Imes di Scarfone Stefano S.r.l. Informazioni sull'utilizzo dei cookie e gestione del consenso su www.imesascensori.it." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://www.imesascensori.it/cookie-policy/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --blue:#1383B4;--blue-d:#2977A6;--blue-dark:#0d5f87;
+      --white:#ffffff;--gray-50:#F2F5F7;--gray-100:#e8edf2;
+      --gray-200:#d0d8e4;--gray-500:#67768e;--gray-700:#3d4f6e;
+      --dark:#1e293b;--border:#d0d8e4;--radius:12px;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--dark);background:#fff;overflow-x:hidden;line-height:1.6}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:#fff;box-shadow:0 1px 12px rgba(0,0,0,.10);padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;text-decoration:none}
+    .nav-logo img{height:52px;width:auto}
+    .nav-links{display:flex;gap:24px;list-style:none}
+    .nav-links a{font-size:13px;font-weight:500;color:var(--gray-500);text-decoration:none;transition:color .2s}
+    .nav-links a:hover{color:var(--blue)}
+    .breadcrumb{margin-top:72px;background:var(--gray-50);border-bottom:1px solid var(--gray-200);padding:12px 5%;font-size:13px;color:var(--gray-500)}
+    .breadcrumb a{color:var(--gray-500);text-decoration:none;transition:color .2s}
+    .breadcrumb a:hover{color:var(--blue)}
+    .breadcrumb span{margin:0 8px}
+    .page-header{padding:56px 5% 36px;background:var(--gray-50);border-bottom:1px solid var(--gray-200)}
+    .page-header h1{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-.03em;margin-bottom:10px;color:var(--dark)}
+    .page-header p{font-size:.95rem;color:var(--gray-500)}
+    .content{max-width:860px;margin:0 auto;padding:56px 5%}
+    .content h2{font-size:1.2rem;font-weight:700;letter-spacing:-.02em;margin-bottom:14px;margin-top:44px;color:var(--dark);padding-bottom:10px;border-bottom:2px solid var(--gray-100)}
+    .content h2:first-child{margin-top:0}
+    .content h3{font-size:.95rem;font-weight:700;color:var(--blue);margin-bottom:8px;margin-top:22px}
+    .content p{color:var(--gray-700);margin-bottom:14px;font-size:.95rem;line-height:1.75}
+    .content ul{list-style:none;padding:0;margin-bottom:16px}
+    .content ul li{color:var(--gray-700);padding:7px 0 7px 20px;position:relative;border-bottom:1px solid var(--gray-100);font-size:.95rem;line-height:1.65}
+    .content ul li::before{content:'›';position:absolute;left:0;color:var(--blue);font-weight:700;font-size:1.1rem}
+    .content a{color:var(--blue);text-decoration:none}
+    .content a:hover{text-decoration:underline}
+    .cookie-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:.88rem}
+    .cookie-table th{background:var(--gray-50);color:var(--dark);font-weight:700;padding:10px 14px;text-align:left;border-bottom:2px solid var(--gray-200)}
+    .cookie-table td{padding:10px 14px;color:var(--gray-700);border-bottom:1px solid var(--gray-100)}
+    .cookie-table tr:last-child td{border-bottom:none}
+    .tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.4px}
+    .tag-tecnico{background:#dcfce7;color:#166534}
+    .tag-terze{background:#fef9c3;color:#854d0e}
+    .info-box{background:var(--gray-50);border:1px solid var(--gray-200);border-left:3px solid var(--blue);border-radius:var(--radius);padding:20px 24px;margin-bottom:16px}
+    .info-box p{margin-bottom:6px;font-size:.9rem;color:var(--gray-700)}
+    .info-box p:last-child{margin-bottom:0}
+    .consent-box{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:24px;margin:20px 0}
+    .consent-box p{font-size:.9rem;color:var(--gray-700);margin-bottom:14px}
+    .consent-btn{display:inline-flex;align-items:center;background:var(--blue);color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;margin-right:10px;margin-bottom:8px;transition:background .2s}
+    .consent-btn:hover{background:var(--blue-d)}
+    .consent-btn-out{background:transparent;color:var(--gray-500);border:1px solid var(--gray-200)}
+    .consent-btn-out:hover{background:var(--gray-100);color:var(--dark)}
+    .consent-status{font-size:13px;color:var(--gray-500);margin-top:12px;padding:10px 14px;background:#fff;border:1px solid var(--gray-200);border-radius:8px;display:none}
+    .consent-status.visible{display:block}
+    footer{background:var(--dark);padding:40px 5% 24px}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:18px}
+    .footer-logo img{height:36px;filter:brightness(10);opacity:.9}
+    .footer-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+    .footer-links a{font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+    .footer-links a:hover{color:#fff}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:12px;color:rgba(255,255,255,.35)}
+    @media(max-width:768px){nav{padding:0 4%}.nav-links{display:none}.page-header{padding:48px 4% 28px}.content{padding:36px 4%}.cookie-table{font-size:.8rem}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../" class="nav-logo">
+    <img src="../img/logo_main.jpg" alt="Imes Ascensori" onerror="this.src='../img/logo.svg'" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="../#chi-siamo">Chi Siamo</a></li>
+    <li><a href="../#servizi">Servizi</a></li>
+    <li><a href="../#contatti">Contatti</a></li>
+  </ul>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../">Home</a><span>›</span><span>Cookie Policy</span>
+</div>
+
+<div class="page-header">
+  <h1>Cookie Policy</h1>
+  <p>Informazioni sull'utilizzo dei cookie su www.imesascensori.it — Ultimo aggiornamento: 18 marzo 2026</p>
+</div>
+
+<div class="content">
+
+  <h2>1. Cosa Sono i Cookie</h2>
+  <p>I cookie sono piccoli file di testo salvati sul tuo dispositivo (computer, smartphone, tablet) quando visiti un sito web. Permettono al sito di ricordare le tue azioni e preferenze nel corso del tempo.</p>
+  <ul>
+    <li><strong>Cookie di sessione:</strong> temporanei, eliminati automaticamente alla chiusura del browser</li>
+    <li><strong>Cookie persistenti:</strong> rimangono sul dispositivo per un periodo definito o fino all'eliminazione manuale</li>
+    <li><strong>Cookie di prima parte:</strong> impostati direttamente dal sito visitato</li>
+    <li><strong>Cookie di terze parti:</strong> impostati da domini esterni (es. Google)</li>
+  </ul>
+
+  <h2>2. Cookie Utilizzati da Questo Sito</h2>
+
+  <table class="cookie-table">
+    <thead>
+      <tr>
+        <th>Nome / Servizio</th>
+        <th>Tipo</th>
+        <th>Durata</th>
+        <th>Finalità</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>imes_cookie_v1</code></td>
+        <td><span class="tag tag-tecnico">Tecnico</span></td>
+        <td>Persistente (localStorage)</td>
+        <td>Memorizza la scelta di consenso cookie dell'utente</td>
+      </tr>
+      <tr>
+        <td>Google Maps</td>
+        <td><span class="tag tag-terze">Terze parti</span></td>
+        <td>Variabile (definita da Google LLC)</td>
+        <td>Visualizzazione della mappa interattiva — <strong>solo previo consenso</strong></td>
+      </tr>
+      <tr>
+        <td>Google Fonts</td>
+        <td><span class="tag tag-terze">Terze parti</span></td>
+        <td>Sessione / CDN</td>
+        <td>Caricamento dei font tipografici dal CDN di Google</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Cookie Tecnici</h2>
+  <p>Il sito utilizza cookie tecnici strettamente necessari al funzionamento, che non richiedono il consenso dell'utente ai sensi dell'art. 122, comma 1 del D.Lgs. 196/2003 (Codice Privacy) e del Provvedimento del Garante dell'8 maggio 2014. In questa categoria rientra il cookie che memorizza la tua scelta relativa al consenso cookie.</p>
+
+  <h2>4. Cookie di Terze Parti — Google Maps</h2>
+  <p>La sezione Contatti del sito include una mappa interattiva fornita da Google Maps (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). <strong>Questa mappa viene caricata solo se l'utente esprime il proprio consenso</strong> tramite il banner presentato al primo accesso.</p>
+  <p>Quando la mappa è attivata, Google può ricevere e trattare dati quali l'indirizzo IP, il browser utilizzato, il sistema operativo e la pagina visitata. Il trasferimento dei dati può avvenire anche verso server negli Stati Uniti; Google è certificata ai sensi del Data Privacy Framework UE-USA.</p>
+  <p>Per informazioni complete sul trattamento dei dati da parte di Google consulta:</p>
+  <ul>
+    <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy di Google</a></li>
+    <li><a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">Cookie Policy di Google</a></li>
+  </ul>
+
+  <h2>5. Google Fonts</h2>
+  <p>Il sito utilizza Google Fonts per il caricamento dei caratteri tipografici. Quando il browser richiede i font al CDN di Google, Google può ricevere informazioni tecniche quali l'indirizzo IP e il browser. Questa operazione avviene tramite connessione cifrata (HTTPS) e non imposta cookie di profilazione sul dispositivo dell'utente.</p>
+
+  <h2>6. Gestione del Consenso</h2>
+  <p>Al primo accesso al sito viene mostrato un banner che ti permette di scegliere:</p>
+  <ul>
+    <li><strong>Accetta tutti:</strong> attiva i cookie tecnici e i cookie di terze parti (Google Maps); la mappa diventa interattiva</li>
+    <li><strong>Solo necessari:</strong> attiva solo i cookie tecnici strettamente necessari; Google Maps non verrà caricato</li>
+  </ul>
+  <p>Puoi modificare la tua scelta in qualsiasi momento tramite i pulsanti qui sotto:</p>
+
+  <div class="consent-box">
+    <p><strong>Stato attuale del tuo consenso:</strong></p>
+    <p id="consent-status-text" style="font-size:.9rem;color:var(--gray-500);margin-bottom:16px">Caricamento...</p>
+    <button class="consent-btn" onclick="imesAccept()">Accetta tutti i cookie</button>
+    <button class="consent-btn consent-btn-out" onclick="imesReject()">Solo necessari</button>
+  </div>
+
+  <h2>7. Come Disabilitare i Cookie dal Browser</h2>
+  <p>Puoi gestire o disabilitare i cookie anche tramite le impostazioni del tuo browser. Tieni presente che disabilitare i cookie tecnici potrebbe compromettere il corretto funzionamento del sito.</p>
+  <ul>
+    <li><strong>Google Chrome:</strong> Impostazioni → Privacy e sicurezza → Cookie e altri dati dei siti</li>
+    <li><strong>Mozilla Firefox:</strong> Impostazioni → Privacy e sicurezza → Cookie e dati del sito</li>
+    <li><strong>Safari:</strong> Preferenze → Privacy → Gestisci dati sito web</li>
+    <li><strong>Microsoft Edge:</strong> Impostazioni → Cookie e autorizzazioni del sito → Cookie e dati archiviati</li>
+    <li><strong>Opera:</strong> Impostazioni → Privacy e sicurezza → Cookie</li>
+  </ul>
+  <p>Per ulteriori informazioni consulta <a href="https://www.aboutcookies.org" target="_blank" rel="noopener">www.aboutcookies.org</a>.</p>
+
+  <h2>8. Modifiche alla Cookie Policy</h2>
+  <p>Imes di Scarfone Stefano S.r.l. si riserva il diritto di aggiornare la presente Cookie Policy in qualsiasi momento, in particolare in seguito a modifiche normative o tecniche. Le modifiche saranno pubblicate su questa pagina con indicazione della data di aggiornamento.</p>
+
+  <h2>9. Contatti</h2>
+  <div class="info-box">
+    <p><strong>Titolare del trattamento:</strong> Imes di Scarfone Stefano S.r.l.</p>
+    <p><strong>Email:</strong> <a href="mailto:imessrl@live.it">imessrl@live.it</a></p>
+    <p><strong>PEC:</strong> <a href="mailto:imessrl@mypec.eu">imessrl@mypec.eu</a></p>
+  </div>
+  <p>Per informazioni più complete consulta la nostra <a href="../privacy-policy/">Privacy Policy</a>.</p>
+
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo">
+      <img src="../img/logo_bg.png" alt="Imes Ascensori" />
+    </div>
+    <div class="footer-links">
+      <a href="../">Home</a>
+      <a href="../#chi-siamo">Chi Siamo</a>
+      <a href="../#servizi">Servizi</a>
+      <a href="../#contatti">Contatti</a>
+      <a href="../privacy-policy/">Privacy Policy</a>
+      <a href="../cookie-policy/">Cookie Policy</a>
+      <a onclick="localStorage.removeItem('imes_cookie_v1');location.reload();" style="cursor:pointer">Gestisci preferenze</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Imes Ascensori — Tutti i diritti riservati</span>
+    <span>Via dei Platani, 191A — 00172 Roma RM — <a href="tel:+390623233684" style="color:var(--blue)">06 23.23.36.84</a></span>
+  </div>
+</footer>
+
+<!-- ══════════════════ COOKIE BANNER ══════════════════ -->
+<div id="imes-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(13,95,135,0.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:2px solid #1383B4;padding:20px 5%;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+  <div style="max-width:700px">
+    <p style="font-size:14px;color:#ffffff;margin:0 0 6px;font-weight:600">Informativa sui Cookie</p>
+    <p style="font-size:13px;color:rgba(255,255,255,0.72);margin:0;line-height:1.6">
+      Utilizziamo cookie tecnici (necessari) e cookie di terze parti (Google Maps). Puoi accettare solo i necessari oppure tutti i cookie.
+      <a href="../cookie-policy/" style="color:#7dd3fc;text-decoration:none;margin-left:4px">Cookie Policy</a>
+      <span style="color:rgba(255,255,255,0.3);margin:0 4px">&middot;</span>
+      <a href="../privacy-policy/" style="color:#7dd3fc;text-decoration:none">Privacy Policy</a>
+    </p>
+  </div>
+  <div style="display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap">
+    <button onclick="imesCookieReject()" style="background:transparent;color:rgba(255,255,255,0.72);border:1px solid rgba(255,255,255,0.3);padding:9px 18px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer">Solo necessari</button>
+    <button onclick="imesCookieAccept()" style="background:#ffffff;color:#0d5f87;border:none;padding:9px 22px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer">Accetta tutti</button>
+  </div>
+</div>
+<script>
+(function(){
+  var K='imes_cookie_v1';
+  function hideBanner(){var b=document.getElementById('imes-cookie-banner');if(b)b.style.display='none';}
+  window.imesCookieAccept=function(){localStorage.setItem(K,'accepted');hideBanner();updateStatus();};
+  window.imesCookieReject=function(){localStorage.setItem(K,'rejected');hideBanner();updateStatus();};
+  // Alias per i pulsanti nella pagina
+  window.imesAccept=function(){localStorage.setItem(K,'accepted');hideBanner();updateStatus();alert('Preferenza salvata: cookie di terze parti accettati.');};
+  window.imesReject=function(){localStorage.setItem(K,'rejected');hideBanner();updateStatus();alert('Preferenza salvata: solo cookie necessari attivi.');};
+  function updateStatus(){
+    var el=document.getElementById('consent-status-text');
+    if(!el)return;
+    var v=localStorage.getItem(K);
+    if(v==='accepted')el.textContent='Cookie di terze parti accettati (Google Maps attivo).';
+    else if(v==='rejected')el.textContent='Solo cookie necessari attivi (Google Maps non caricato).';
+    else el.textContent='Nessuna scelta ancora effettuata — il banner è attivo.';
+  }
+  var consent=localStorage.getItem(K);
+  if(!consent){var b=document.getElementById('imes-cookie-banner');if(b)b.style.display='flex';}
+  updateStatus();
+})();
+</script>
+
+</body>
+</html>
