@@ -117,4 +117,5 @@ curl -T nomecartella/index.html \
 |---------------|---------------------|-------|-----------|
 | `riwatch/`    | Riwatch             | Demo  | utente `riwatch` |
 | `gruppotrio/` | Gruppo Trio S.p.A.  | Demo  | utente `trio` |
+| `imesa/`      | Imes Ascensori      | Demo  | utente `imesa` → password `imesa2026` |
 | DDD Reader    | (esterno)           | Live  | utente `ddd` → `http://89.46.70.88` |
