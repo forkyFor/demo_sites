@@ -661,6 +661,10 @@
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+    @media (max-width: 768px) {
+      .env-cards-grid { grid-template-columns: 1fr !important; }
+    }
+
     @media (max-width: 640px) {
       .hide-mobile { display: none !important; }
       .grid-full-mobile { grid-template-columns: 1fr !important; }
@@ -1060,11 +1064,11 @@
         <p style="font-size:15px;color:var(--mid);line-height:1.85;margin-bottom:28px">Quando necessario, l'intervento può includere anche la rimozione e il recupero dello strato di asfalto preesistente, al fine di ripristinare correttamente il piano stradale e garantire una nuova pavimentazione efficiente e duratura.</p>
 
         <ul class="check-list">
-          <li><strong>Spianamento e preparazione del terreno</strong> con mezzi ad alta operatività.</li>
-          <li><strong>Gestione inerti e materiali di fondazione</strong> prodotti internamente dal gruppo.</li>
-          <li><strong>Fornitura e posa del calcestruzzo</strong> per le strutture portanti dai nostri impianti.</li>
-          <li><strong>Stesura dell'asfalto</strong> con macchinari professionali e controllo qualità.</li>
-          <li><strong>Rimozione e recupero asfalto preesistente</strong> per il ripristino del piano stradale.</li>
+          <li><strong>Spianamento e preparazione del terreno</strong><span>con mezzi ad alta operatività.</span></li>
+          <li><strong>Gestione inerti e materiali di fondazione</strong><span>prodotti internamente dal gruppo.</span></li>
+          <li><strong>Fornitura e posa del calcestruzzo</strong><span>per le strutture portanti dai nostri impianti.</span></li>
+          <li><strong>Stesura dell'asfalto</strong><span>con macchinari professionali e controllo qualità.</span></li>
+          <li><strong>Rimozione e recupero asfalto preesistente</strong><span>per il ripristino del piano stradale.</span></li>
         </ul>
       </div>
 
@@ -1092,9 +1096,9 @@
           <p>Nei siti estrattivi implementiamo rigorosi processi per limitare la diffusione delle polveri e contenere il consumo idrico attraverso vasche di riciclo dedicate per il lavaggio macchinari.</p>
           <p>Il rinverdimento progressivo delle aree di scavo esaurite permette il sereno ripristino morfologico a vantaggio delle comunità.</p>
           <ul class="check-list">
-            <li><strong>Riciclo delle acque di lavorazione</strong> con impianti a circuito chiuso.</li>
-            <li><strong>Calcestruzzi Basso-Emissivi:</strong> formulazioni evolute con additivi green.</li>
-            <li><strong>Impianti fono-assorbenti</strong> per abbattimento inquinamento acustico logistico.</li>
+            <li><strong>Riciclo delle acque di lavorazione</strong><span>con impianti a circuito chiuso.</span></li>
+            <li><strong>Calcestruzzi Basso-Emissivi</strong><span>formulazioni evolute con additivi green.</span></li>
+            <li><strong>Impianti fono-assorbenti</strong><span>per abbattimento inquinamento acustico logistico.</span></li>
           </ul>
         </div>
       </div>
@@ -1105,7 +1109,7 @@
   <section style="background:var(--white);padding:80px 6%">
     <h2 class="section-h" style="text-align:center;margin-bottom:12px">Il nostro impegno per l'ambiente</h2>
     <p class="section-sub center" style="margin-bottom:48px">La sostenibilità è al centro della nostra filosofia industriale. Riduciamo l'impatto ambientale ottimizzando il riutilizzo dei materiali di scarto, investendo in soluzioni a bassa emissione.</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto">
+    <div class="env-cards-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto">
       <div style="padding:28px;border:1px solid var(--border);border-radius:var(--radius);border-top:3px solid var(--blue)">
         <div style="font-size:28px;margin-bottom:14px">🌱</div>
         <h4 style="font-size:15px;font-weight:700;color:var(--dark);margin-bottom:8px">Ripristino Paesaggistico</h4>
@@ -1130,7 +1134,7 @@
   <h2 class="section-h" style="text-align:center;margin-bottom:8px">Info e Contatti</h2>
   <p class="section-sub center" style="margin-bottom:48px">Siamo a tua disposizione per qualsiasi informazione</p>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;max-width:960px;margin:0 auto 48px">
+  <div class="contatti-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;max-width:960px;margin:0 auto 48px">
 
     <!-- Colonna sinistra: dati contatto -->
     <div>
@@ -1205,6 +1209,7 @@
   <style>
     @media(max-width:768px){
       .contatti-grid{grid-template-columns:1fr !important;}
+      .contatti-grid > div:last-child{display:none;}
     }
   </style>
 </section>
