@@ -1198,10 +1198,10 @@
 
     <!-- Colonna destra: mappa -->
     <div style="border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.1);height:380px">
-      <iframe
-        src="https://maps.google.com/maps?q=Via+Nazario+Sauro+51+Lecce+73100&t=&z=15&ie=UTF8&iwloc=&output=embed"
-        width="100%" height="100%" style="border:0;display:block" allowfullscreen loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div id="gt-map-placeholder" data-map-src="https://maps.google.com/maps?q=Via+Nazario+Sauro+51+Lecce+73100&t=&z=15&ie=UTF8&iwloc=&output=embed" style="width:100%;height:100%;background:#e8edf2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;cursor:pointer" onclick="gtCookieAccept()" title="Clicca per accettare i cookie e visualizzare la mappa">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <p style="font-size:13px;color:#64748b;text-align:center;max-width:220px;margin:0;line-height:1.5">Clicca per visualizzare la mappa<br><span style="font-size:11px;color:#94a3b8">(richiede accettazione cookie Google Maps)</span></p>
+      </div>
     </div>
   </div>
 
@@ -1247,8 +1247,8 @@
   <div class="footer-bottom">
     <span>© 2026 Gruppo Trio. Tutti i diritti riservati.</span>
     <div style="display:flex;gap:20px">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Cookie Policy</a>
+      <a href="privacy-policy/">Privacy Policy</a>
+      <a href="cookie-policy/">Cookie Policy</a>
     </div>
   </div>
 </footer>
@@ -1465,6 +1465,47 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeServiceModal();
   });
+</script>
+
+
+<!-- ══════════════════ COOKIE BANNER ══════════════════ -->
+<div id="gt-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(29,41,61,0.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:2px solid #2563eb;padding:20px 6%;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+  <div style="max-width:700px">
+    <p style="font-size:14px;color:#e2e8f0;margin:0 0 6px;font-weight:600">Informativa sui Cookie</p>
+    <p style="font-size:13px;color:#94a3b8;margin:0;line-height:1.6">
+      Utilizziamo cookie tecnici (necessari) e cookie di terze parti (Google Maps). Puoi scegliere di accettare solo i cookie necessari oppure tutti i cookie.
+      <a href="cookie-policy/" style="color:#60a5fa;text-decoration:none;margin-left:4px">Cookie Policy</a>
+      <span style="color:#475569;margin:0 4px">&middot;</span>
+      <a href="privacy-policy/" style="color:#60a5fa;text-decoration:none">Privacy Policy</a>
+    </p>
+  </div>
+  <div style="display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap">
+    <button onclick="gtCookieReject()" style="background:transparent;color:#94a3b8;border:1px solid #475569;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer">Solo necessari</button>
+    <button onclick="gtCookieAccept()" style="background:#2563eb;color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">Accetta tutti</button>
+  </div>
+</div>
+<script>
+(function(){
+  var K='gt_cookie_v1';
+  var MAP_SRC='https://maps.google.com/maps?q=Via+Nazario+Sauro+51+Lecce+73100&t=&z=15&ie=UTF8&iwloc=&output=embed';
+  function loadMap(){
+    var ph=document.getElementById('gt-map-placeholder');
+    if(ph){
+      var ifrm=document.createElement('iframe');
+      ifrm.src=MAP_SRC;ifrm.width='100%';ifrm.height='100%';
+      ifrm.style.cssText='border:0;display:block';
+      ifrm.allowFullscreen=true;ifrm.loading='lazy';
+      ifrm.referrerPolicy='no-referrer-when-downgrade';
+      ph.parentNode.replaceChild(ifrm,ph);
+    }
+  }
+  function hideBanner(){var b=document.getElementById('gt-cookie-banner');if(b)b.style.display='none';}
+  window.gtCookieAccept=function(){localStorage.setItem(K,'accepted');hideBanner();loadMap();};
+  window.gtCookieReject=function(){localStorage.setItem(K,'rejected');hideBanner();};
+  var consent=localStorage.getItem(K);
+  if(!consent){var b=document.getElementById('gt-cookie-banner');if(b)b.style.display='flex';}
+  else if(consent==='accepted'){loadMap();}
+})();
 </script>
 
 </body>
