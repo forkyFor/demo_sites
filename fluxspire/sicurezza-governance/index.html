@@ -246,5 +246,22 @@
   </div>
 </footer>
 
+
+<!-- ══════════════════ COOKIE BANNER ══════════════════ -->
+<div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(22,27,34,0.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(77,217,232,0.2);padding:18px 6%;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+  <p style="font-size:13px;color:#7d8590;margin:0;max-width:740px;line-height:1.65">
+    Questo sito utilizza esclusivamente <strong style="color:#e6edf3">cookie tecnici</strong> necessari al funzionamento. Non usiamo cookie di profilazione o tracciamento.
+    <a href="/cookie-policy/" style="color:#4dd9e8;text-decoration:none;margin-left:6px">Cookie Policy</a><span style="color:#3d4d5c;margin:0 4px">&middot;</span><a href="/privacy-policy/" style="color:#4dd9e8;text-decoration:none">Privacy Policy</a>
+  </p>
+  <button onclick="fsCookieDismiss()" style="background:#4dd9e8;color:#0d1117;border:none;padding:9px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0">Ho capito</button>
+</div>
+<script>
+(function(){
+  var K='fs_cookie_v1';
+  if(!localStorage.getItem(K)){var b=document.getElementById('cookie-banner');if(b)b.style.display='flex';}
+  window.fsCookieDismiss=function(){localStorage.setItem('fs_cookie_v1','ok');var b=document.getElementById('cookie-banner');if(b)b.style.display='none';};
+})();
+</script>
+
 </body>
 </html>
