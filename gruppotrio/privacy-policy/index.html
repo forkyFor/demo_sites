@@ -197,5 +197,31 @@
   </div>
 </footer>
 
+<!-- ══════════════════ COOKIE BANNER ══════════════════ -->
+<div id="gt-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(29,41,61,0.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:2px solid #2563eb;padding:20px 6%;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+  <div style="max-width:700px">
+    <p style="font-size:14px;color:#e2e8f0;margin:0 0 6px;font-weight:600">Informativa sui Cookie</p>
+    <p style="font-size:13px;color:#94a3b8;margin:0;line-height:1.6">
+      Utilizziamo cookie tecnici (necessari) e cookie di terze parti (Google Maps). Puoi scegliere di accettare solo i necessari oppure tutti i cookie.
+      <a href="../cookie-policy/" style="color:#60a5fa;text-decoration:none;margin-left:4px">Cookie Policy</a>
+      <span style="color:#475569;margin:0 4px">&middot;</span>
+      <a href="../privacy-policy/" style="color:#60a5fa;text-decoration:none">Privacy Policy</a>
+    </p>
+  </div>
+  <div style="display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap">
+    <button onclick="gtCookieReject()" style="background:transparent;color:#94a3b8;border:1px solid #475569;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer">Solo necessari</button>
+    <button onclick="gtCookieAccept()" style="background:#2563eb;color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">Accetta tutti</button>
+  </div>
+</div>
+<script>
+(function(){
+  var K='gt_cookie_v1';
+  function hideBanner(){var b=document.getElementById('gt-cookie-banner');if(b)b.style.display='none';}
+  window.gtCookieAccept=function(){localStorage.setItem(K,'accepted');hideBanner();};
+  window.gtCookieReject=function(){localStorage.setItem(K,'rejected');hideBanner();};
+  var consent=localStorage.getItem(K);
+  if(!consent){var b=document.getElementById('gt-cookie-banner');if(b)b.style.display='flex';}
+})();
+</script>
 </body>
 </html>
