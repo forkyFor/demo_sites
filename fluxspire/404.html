@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Pagina Non Trovata | FluxSpire</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/png" href="https://www.fluxspire.it/wp-content/uploads/2025/12/cropped-fluxspire_icon-32x32.png" sizes="32x32" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0d1117;--bg2:#161b22;--bg3:#1c2230;--cyan:#4dd9e8;--cyan-d:#22b5c4;--cyan-gl:rgba(77,217,232,0.12);--text:#e6edf3;--muted:#7d8590;--border:rgba(77,217,232,0.15);--border2:rgba(255,255,255,0.06);--radius:14px;--sans:'Inter',sans-serif}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--sans);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.65;min-height:100vh;display:flex;flex-direction:column}
+    ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--cyan-d);border-radius:3px}
+    nav{position:fixed;top:0;left:0;right:0;z-index:500;height:68px;display:flex;align-items:center;padding:0 6%;justify-content:space-between;background:rgba(13,17,23,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo img{height:30px;width:auto}
+    .nav-links{display:flex;gap:36px;list-style:none}
+    .nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:.3px;transition:color .2s}
+    .nav-links a:hover{color:var(--text)}
+    .nav-cta{background:var(--cyan);color:#0d1117!important;padding:8px 18px;border-radius:8px;font-weight:600!important;font-size:13px!important;transition:background .2s,transform .2s!important}
+    .nav-cta:hover{background:#6ee7f5!important;transform:translateY(-1px)}
+    .main{flex:1;display:flex;align-items:center;justify-content:center;padding:120px 6% 80px;text-align:center}
+    .main-inner{max-width:640px}
+    .error-code{font-size:clamp(80px,15vw,160px);font-weight:900;line-height:1;letter-spacing:-4px;background:linear-gradient(135deg,var(--cyan),rgba(77,217,232,0.3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:24px}
+    .main h1{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;letter-spacing:-.03em;margin-bottom:16px;color:var(--text)}
+    .main p{font-size:1rem;color:var(--muted);line-height:1.75;margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--cyan);color:#0d1117;padding:14px 28px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;transition:background .2s,transform .2s}
+    .btn-primary:hover{background:#6ee7f5;transform:translateY(-2px)}
+    .btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border);color:var(--text);padding:14px 28px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;margin-left:16px;transition:border-color .2s,color .2s}
+    .btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+    .services-links{margin-top:56px;padding-top:40px;border-top:1px solid var(--border2)}
+    .services-links h2{font-size:1rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+    .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:500px;margin:0 auto}
+    .service-link{display:flex;align-items:center;gap:10px;padding:14px 18px;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);text-decoration:none;color:var(--muted);font-size:.88rem;font-weight:500;transition:border-color .2s,color .2s,background .2s}
+    .service-link:hover{border-color:var(--border);color:var(--cyan);background:var(--cyan-gl)}
+    .service-link-icon{font-size:1.1rem;flex-shrink:0}
+    footer{background:var(--bg2);border-top:1px solid var(--border2);padding:40px 6% 0}
+    .footer-bottom{padding:24px 0;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+    .footer-bottom a{color:var(--muted);text-decoration:none;transition:color .2s}
+    .footer-bottom a:hover{color:var(--cyan)}
+    @media(max-width:640px){nav{padding:0 4%}.nav-links{display:none}.main{padding:100px 4% 60px}.btn-ghost{margin-left:0;margin-top:12px}.services-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="https://www.fluxspire.it/" class="nav-logo">
+    <img src="https://www.fluxspire.it/wp-content/uploads/2025/12/fluxspire_logo_horizontal_transparent_tagline_cropped.svg" alt="FluxSpire" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'" />
+    <span style="display:none;font-size:18px;font-weight:800;letter-spacing:-0.5px;color:#4dd9e8">FluxSpire</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://www.fluxspire.it/#chi_siamo">Chi Siamo</a></li>
+    <li><a href="https://www.fluxspire.it/#servizi">Servizi</a></li>
+    <li><a href="https://www.fluxspire.it/#contatti" class="nav-cta">Contattaci</a></li>
+  </ul>
+</nav>
+
+<div class="main">
+  <div class="main-inner">
+    <div class="error-code">404</div>
+    <h1>Pagina Non Trovata</h1>
+    <p>La pagina che cerchi non esiste o è stata spostata. Usa i link qui sotto per tornare alla homepage o scoprire i nostri servizi.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+      <a href="https://www.fluxspire.it/" class="btn-primary">Torna alla Homepage</a>
+      <a href="https://www.fluxspire.it/#contatti" class="btn-ghost">Contattaci</a>
+    </div>
+
+    <div class="services-links">
+      <h2>Esplora i Servizi</h2>
+      <div class="services-grid">
+        <a href="/automazione-workflow/" class="service-link">
+          <span class="service-link-icon">⚡</span>
+          Automazione Workflow
+        </a>
+        <a href="/integrazione-sistemi/" class="service-link">
+          <span class="service-link-icon">🔗</span>
+          Integrazione Sistemi
+        </a>
+        <a href="/ai-per-pmi/" class="service-link">
+          <span class="service-link-icon">🤖</span>
+          AI per PMI
+        </a>
+        <a href="/osservabilita-analytics/" class="service-link">
+          <span class="service-link-icon">📊</span>
+          Osservabilità &amp; Analytics
+        </a>
+        <a href="/sicurezza-governance/" class="service-link" style="grid-column:span 2">
+          <span class="service-link-icon">🔒</span>
+          Sicurezza &amp; Governance
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <span>© 2026 FluxSpire. Tutti i diritti riservati.</span>
+    <div style="display:flex;gap:20px">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/cookie-policy/">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

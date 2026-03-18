@@ -1,0 +1,118 @@
+# ══════════════════════════════════════════════════════
+#  FluxSpire — .htaccess
+#  Ultimo aggiornamento: 2026-03-16
+# ══════════════════════════════════════════════════════
+
+# ── REDIRECT HTTP → HTTPS ──────────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Forza HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # Forza www → non-www (coerente con canonical)
+  # Se il canonical è https://www.fluxspire.it/ lascia stare.
+  # Se vuoi non-www decommenta le righe seguenti:
+  # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  # RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  # Gestisci directory: /percorso/ cerca /percorso/index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !\.
+  RewriteRule ^(.+[^/])$ /$1/ [R=301,L]
+
+</IfModule>
+
+# ── SECURITY HEADERS ──────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set X-XSS-Protection "1; mode=block"
+
+  # Rimuovi header che espongono informazioni server
+  Header unset X-Powered-By
+  Header always unset X-Powered-By
+</IfModule>
+
+# ── CACHE HEADERS ─────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Immagini: 1 anno
+  ExpiresByType image/jpeg          "access plus 1 year"
+  ExpiresByType image/png           "access plus 1 year"
+  ExpiresByType image/gif           "access plus 1 year"
+  ExpiresByType image/webp          "access plus 1 year"
+  ExpiresByType image/svg+xml       "access plus 1 year"
+  ExpiresByType image/x-icon        "access plus 1 year"
+
+  # Font: 1 anno
+  ExpiresByType font/woff           "access plus 1 year"
+  ExpiresByType font/woff2          "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+
+  # CSS e JS: 1 anno
+  ExpiresByType text/css            "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript     "access plus 1 year"
+
+  # HTML: no cache
+  ExpiresByType text/html           "access plus 0 seconds"
+
+  # XML (sitemap): 1 giorno
+  ExpiresByType application/xml     "access plus 1 day"
+  ExpiresByType text/xml            "access plus 1 day"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # HTML: no cache
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # Risorse statiche: cache immutabile
+  <FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|svg|ico|woff|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# ── COMPRESSIONE GZIP ─────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml
+  AddOutputFilterByType DEFLATE text/css application/javascript
+  AddOutputFilterByType DEFLATE application/json application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ── BLOCCO FILE SENSIBILI ─────────────────────────────
+<FilesMatch "\.(env|log|bak|sql|conf|ini|sh|git)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Proteggi .htaccess
+<Files ".htaccess">
+  Order allow,deny
+  Deny from all
+</Files>
+
+# mail.php: solo POST (blocca accesso diretto GET)
+<Files "mail.php">
+  <LimitExcept POST>
+    Order allow,deny
+    Deny from all
+  </LimitExcept>
+</Files>
+
+# ── PAGINE ERRORE ─────────────────────────────────────
+ErrorDocument 404 /404.html
+ErrorDocument 403 /index.html
+
+# ── CHARSET DEFAULT ───────────────────────────────────
+AddDefaultCharset UTF-8

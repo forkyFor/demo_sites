@@ -519,12 +519,15 @@
 
     .check-list {
       list-style: none;
-      display: flex; flex-direction: column; gap: 12px;
+      display: flex; flex-direction: column; gap: 10px;
       margin-top: 20px;
     }
 
     .check-list li {
-      display: flex; align-items: flex-start; gap: 10px;
+      display: grid;
+      grid-template-columns: 18px minmax(160px, 1fr) 1.4fr;
+      align-items: baseline;
+      gap: 0 14px;
       font-size: 14px;
       color: var(--mid);
       line-height: 1.6;
@@ -534,11 +537,19 @@
       content: '✓';
       color: var(--blue);
       font-weight: 700;
-      flex-shrink: 0;
-      margin-top: 1px;
     }
 
     .check-list li strong { color: var(--dark); }
+    .check-list li span { color: var(--muted); }
+
+    @media (max-width: 640px) {
+      .check-list li {
+        grid-template-columns: 18px 1fr;
+      }
+      .check-list li span {
+        grid-column: 2;
+      }
+    }
 
     /* ── FOOTER ── */
     footer {
