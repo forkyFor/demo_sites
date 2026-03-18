@@ -824,12 +824,10 @@
     </div>
 
     <div class="map-wrap">
-      <iframe
-        src="https://maps.google.com/maps?q=Via+dei+Platani+191A,+00172+Roma+RM&output=embed"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Posizione Imes Ascensori — Via dei Platani 191A, Roma">
-      </iframe>
+      <div id="imes-map-placeholder" data-map-src="https://maps.google.com/maps?q=Via+dei+Platani+191A,+00172+Roma+RM&output=embed" style="width:100%;height:100%;background:#e8edf2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;cursor:pointer;min-height:340px" onclick="imesCookieAccept()" title="Clicca per accettare i cookie e visualizzare la mappa">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#67768e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <p style="font-size:13px;color:#67768e;text-align:center;max-width:220px;margin:0;line-height:1.5">Clicca per visualizzare la mappa<br><span style="font-size:11px;color:#94a3b8">(richiede accettazione cookie Google Maps)</span></p>
+      </div>
     </div>
   </div>
 </section>
@@ -903,6 +901,47 @@
       }
     });
   });
+</script>
+
+
+<!-- ══════════════════ COOKIE BANNER ══════════════════ -->
+<div id="imes-cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(13,95,135,0.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:2px solid #1383B4;padding:20px 6%;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+  <div style="max-width:700px">
+    <p style="font-size:14px;color:#ffffff;margin:0 0 6px;font-weight:600">Informativa sui Cookie</p>
+    <p style="font-size:13px;color:rgba(255,255,255,0.72);margin:0;line-height:1.6">
+      Utilizziamo cookie tecnici (necessari) e cookie di terze parti (Google Maps). Puoi accettare solo i necessari oppure tutti i cookie.
+      <a href="https://www.imesascensori.it/cookie-policy/" target="_blank" rel="noopener" style="color:#7dd3fc;text-decoration:none;margin-left:4px">Cookie Policy</a>
+      <span style="color:rgba(255,255,255,0.3);margin:0 4px">&middot;</span>
+      <a href="https://www.imesascensori.it/privacy-policy/" target="_blank" rel="noopener" style="color:#7dd3fc;text-decoration:none">Privacy Policy</a>
+    </p>
+  </div>
+  <div style="display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap">
+    <button onclick="imesCookieReject()" style="background:transparent;color:rgba(255,255,255,0.72);border:1px solid rgba(255,255,255,0.3);padding:9px 18px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer">Solo necessari</button>
+    <button onclick="imesCookieAccept()" style="background:#ffffff;color:#0d5f87;border:none;padding:9px 22px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer">Accetta tutti</button>
+  </div>
+</div>
+<script>
+(function(){
+  var K='imes_cookie_v1';
+  var MAP_SRC='https://maps.google.com/maps?q=Via+dei+Platani+191A,+00172+Roma+RM&output=embed';
+  function loadMap(){
+    var ph=document.getElementById('imes-map-placeholder');
+    if(ph){
+      var ifrm=document.createElement('iframe');
+      ifrm.src=MAP_SRC;ifrm.width='100%';ifrm.height='100%';
+      ifrm.style.cssText='border:0;display:block';
+      ifrm.loading='lazy';ifrm.referrerPolicy='no-referrer-when-downgrade';
+      ifrm.title='Posizione Imes Ascensori — Via dei Platani 191A, Roma';
+      ph.parentNode.replaceChild(ifrm,ph);
+    }
+  }
+  function hideBanner(){var b=document.getElementById('imes-cookie-banner');if(b)b.style.display='none';}
+  window.imesCookieAccept=function(){localStorage.setItem(K,'accepted');hideBanner();loadMap();};
+  window.imesCookieReject=function(){localStorage.setItem(K,'rejected');hideBanner();};
+  var consent=localStorage.getItem(K);
+  if(!consent){var b=document.getElementById('imes-cookie-banner');if(b)b.style.display='flex';}
+  else if(consent==='accepted'){loadMap();}
+})();
 </script>
 
 </body>
