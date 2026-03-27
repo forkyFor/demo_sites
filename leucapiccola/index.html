@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azienda Le Ucapiccola — Agricoltura Biologica · Morciano di Leuca</title>
+  <meta name="description" content="Azienda agricola biologica dal 2018 a Morciano di Leuca (LE). Carni bio, orto e frutteto certificati, uova fresche e Masseria Didattica nel cuore del Salento." />
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde:   #2d5a27;
+      --verde-l: #7ab648;
+      --terra:   #c8a96e;
+      --terra-l: #e8d5b0;
+      --bianco:  #faf8f5;
+      --mid:     #4a5240;
+      --muted:   #7a8270;
+      --border:  #ddd8cc;
+      --radius:  12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--mid);
+      background: var(--bianco);
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(250,248,245,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      height: 68px;
+      display: flex; align-items: center;
+      padding: 0 5%;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img { height: 52px; width: auto; object-fit: contain; }
+
+    .nav-links {
+      display: flex; gap: 28px; list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--mid);
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      text-transform: uppercase;
+      font-size: 11.5px;
+      letter-spacing: 1.2px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--verde);
+      border-bottom-color: var(--verde-l);
+    }
+
+    .nav-cta {
+      background: var(--verde);
+      color: #fff !important;
+      border: none !important;
+      padding: 8px 18px !important;
+      border-radius: 20px !important;
+    }
+
+    .nav-cta:hover { background: #3d7033 !important; color: #fff !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--verde);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── PAGES ── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 88vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 80px 6%;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(175deg, rgba(20,50,15,0.82) 0%, rgba(35,70,25,0.70) 50%, rgba(45,90,39,0.55) 100%),
+        url('img/hero-campo.jpg') center/cover no-repeat;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 15% 85%, rgba(200,169,110,0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 15%, rgba(122,182,72,0.2) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    /* Decorative leaves */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20px; right: -40px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(122,182,72,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 780px;
+      position: relative; z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 30px;
+      padding: 6px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 28px;
+    }
+
+    .hero-badge::before {
+      content: '🌿';
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 6vw, 72px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--terra);
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 18px);
+      color: rgba(255,255,255,0.85);
+      font-weight: 300;
+      line-height: 1.75;
+      max-width: 580px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-btns {
+      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .btn-primary {
+      background: var(--terra);
+      color: #fff;
+      padding: 14px 34px;
+      border-radius: 40px;
+      font-size: 14px; font-weight: 700;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.3px;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: #b8965e; transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: rgba(255,255,255,0.9);
+      padding: 13px 34px;
+      border-radius: 40px;
+      font-size: 14px; font-weight: 700;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.5);
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { border-color: #fff; color: #fff; }
+
+    .hero-stats {
+      display: flex; gap: 0; justify-content: center;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    .hero-stat {
+      padding: 18px 32px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-stat + .hero-stat::before {
+      content: '';
+      position: absolute; left: 0; top: 20%; height: 60%;
+      width: 1px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--terra);
+      display: block;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .hero-stat-lbl {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 6%; }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--verde-l);
+      margin-bottom: 16px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 28px; height: 2px;
+      background: var(--verde-l);
+      border-radius: 2px;
+    }
+
+    h2.section-h {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 700;
+      color: var(--verde);
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    p.section-sub {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 640px;
+    }
+
+    /* ── HOME: PRODOTTI ANTEPRIMA ── */
+    .prodotti-preview {
+      background: var(--bianco);
+    }
+
+    .prodotti-preview-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .prodotti-preview-header p.section-sub { margin: 0 auto; }
+
+    .prodotti-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 44px;
+    }
+
+    .prodotto-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      text-align: center;
+      border: 1px solid var(--border);
+      background: #fff;
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+
+    .prodotto-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(45,90,39,0.12);
+    }
+
+    .prodotto-img {
+      height: 160px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 52px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .prodotto-img.carni { background: linear-gradient(135deg, #f5ede8 0%, #e8d5cc 100%); }
+    .prodotto-img.orto  { background: linear-gradient(135deg, #e8f5e4 0%, #d0e8c8 100%); }
+    .prodotto-img.frutteto { background: linear-gradient(135deg, #fdf5e6 0%, #f5e6c8 100%); }
+    .prodotto-img.uova  { background: linear-gradient(135deg, #fef9e7 0%, #fae8b0 100%); }
+
+    .prodotto-body { padding: 20px 16px 24px; }
+
+    .prodotto-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--verde);
+      margin-bottom: 8px;
+    }
+
+    .prodotto-body p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .prodotto-tag {
+      display: inline-block;
+      background: rgba(122,182,72,0.1);
+      color: var(--verde-l);
+      border: 1px solid rgba(122,182,72,0.25);
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      margin-bottom: 10px;
+    }
+
+    .home-cta-center { text-align: center; }
+
+    .btn-verde {
+      background: var(--verde);
+      color: #fff;
+      padding: 13px 32px;
+      border-radius: 40px;
+      font-size: 14px; font-weight: 700;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-verde:hover { background: #3d7033; transform: translateY(-2px); }
+
+    /* ── HOME: MASSERIA TEASER ── */
+    .masseria-teaser {
+      background: var(--terra-l);
+    }
+
+    .masseria-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .masseria-visual {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #c8a96e 0%, #9a7a48 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 80px;
+      position: relative;
+    }
+
+    .masseria-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(45,90,39,0.3) 100%);
+    }
+
+    .masseria-text h2 { margin-bottom: 20px; }
+    .masseria-text p { margin-bottom: 20px; }
+
+    /* ── CHI SIAMO ── */
+    .page-chi {
+      padding: 0;
+    }
+
+    .page-hero-inner {
+      padding: 80px 6% 60px;
+      background: linear-gradient(135deg, #f0f7ec 0%, var(--bianco) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .chi-intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      padding: 80px 6%;
+    }
+
+    .chi-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--verde);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .chi-text p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    .chi-highlight {
+      background: #f0f7ec;
+      border-left: 4px solid var(--verde-l);
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin-top: 24px;
+    }
+
+    .chi-highlight strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--verde);
+      margin-bottom: 6px;
+    }
+
+    .chi-highlight p { font-size: 14px; color: var(--muted); margin: 0; }
+
+    .chi-visual {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+
+    .chi-img-main {
+      border-radius: 16px;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #c8e6b4 0%, #7ab648 50%, #2d5a27 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 72px;
+      overflow: hidden;
+    }
+
+    .chi-img-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+
+    .chi-img-small {
+      border-radius: 12px;
+      aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px;
+    }
+
+    .chi-img-small.a { background: linear-gradient(135deg, #f5ede8 0%, #e8d5cc 100%); }
+    .chi-img-small.b { background: linear-gradient(135deg, #fdf5e6 0%, #f5e6c8 100%); }
+
+    /* VALORI */
+    .valori {
+      background: var(--verde);
+      padding: 80px 6%;
+    }
+
+    .valori-header { text-align: center; margin-bottom: 56px; }
+
+    .valori-header h2 { color: #fff; }
+    .valori-header .section-label { color: var(--terra); }
+    .valori-header .section-label::before { background: var(--terra); }
+    .valori-header p { color: rgba(255,255,255,0.75); margin: 0 auto; }
+
+    .valori-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .valore-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .valore-icon {
+      font-size: 44px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .valore-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .valore-card p {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+    }
+
+    /* TIMELINE */
+    .timeline-section {
+      padding: 80px 6%;
+      background: #f4f0ea;
+    }
+
+    .timeline-header { margin-bottom: 56px; }
+
+    .timeline {
+      max-width: 700px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px; top: 6px; bottom: 6px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--verde-l), var(--terra));
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 28px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .timeline-dot {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--verde);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 4px #f4f0ea;
+    }
+
+    .timeline-content {
+      padding-top: 8px;
+    }
+
+    .timeline-year {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--verde-l);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .timeline-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--verde);
+      margin-bottom: 6px;
+    }
+
+    .timeline-content p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── PRODOTTI ── */
+    .page-prodotti { padding: 0; }
+
+    .prodotti-header {
+      padding: 80px 6% 60px;
+      background: linear-gradient(135deg, #f0f7ec 0%, var(--bianco) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .prodotti-section {
+      padding: 72px 6%;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .prodotti-section:last-child { border-bottom: none; }
+
+    .prodotti-section:nth-child(even) {
+      background: #f7f5f0;
+    }
+
+    .prodotto-section-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .prodotto-section-inner.reverse { direction: rtl; }
+    .prodotto-section-inner.reverse > * { direction: ltr; }
+
+    .prodotto-section-img {
+      border-radius: 16px;
+      aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 80px;
+      overflow: hidden;
+    }
+
+    .prodotto-section-img.carni   { background: linear-gradient(135deg, #f5ede8 0%, #d4a090 100%); }
+    .prodotto-section-img.orto    { background: linear-gradient(135deg, #e0f0d8 0%, #8bc45c 100%); }
+    .prodotto-section-img.frutteto { background: linear-gradient(135deg, #fef3d8 0%, #e8c060 100%); }
+    .prodotto-section-img.uova    { background: linear-gradient(135deg, #fef9e7 0%, #f0d060 100%); }
+
+    .prodotto-section-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--verde);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .prodotto-section-text p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+
+    .prodotto-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .prodotto-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--mid);
+    }
+
+    .prodotto-list li::before {
+      content: '✓';
+      color: var(--verde-l);
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .prodotto-list li:last-child { border-bottom: none; }
+
+    .macellazione-banner {
+      background: var(--verde);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 20px 28px;
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .macellazione-banner span:first-child { font-size: 28px; }
+
+    .macellazione-banner div strong {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .macellazione-banner div p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      margin: 0;
+    }
+
+    /* ── MASSERIA ── */
+    .page-masseria { padding: 0; }
+
+    .masseria-header {
+      padding: 80px 6% 60px;
+      background: linear-gradient(135deg, #fdf5e6 0%, var(--bianco) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .masseria-attivita {
+      padding: 80px 6%;
+      background: var(--bianco);
+    }
+
+    .attivita-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .attivita-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .attivita-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(45,90,39,0.1);
+    }
+
+    .attivita-icon {
+      font-size: 44px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .attivita-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--verde);
+      margin-bottom: 10px;
+    }
+
+    .attivita-card p {
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* FORM PRENOTAZIONE */
+    .form-prenotazione {
+      padding: 80px 6%;
+      background: #f4f0ea;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .form-text p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .form-info-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .form-info-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--mid);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-info-list li:last-child { border-bottom: none; }
+    .form-info-list li span:first-child { font-size: 18px; }
+
+    .form-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px 36px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    .form-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--verde);
+      margin-bottom: 28px;
+    }
+
+    .form-row { margin-bottom: 18px; }
+
+    .form-row label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      width: 100%;
+      background: var(--bianco);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 11px 14px;
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      color: var(--mid);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-row input:focus,
+    .form-row select:focus,
+    .form-row textarea:focus {
+      border-color: var(--verde-l);
+    }
+
+    .form-row textarea { height: 100px; resize: vertical; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--verde);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 40px;
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover { background: #3d7033; transform: translateY(-1px); }
+
+    /* ── GALLERIA ── */
+    .page-galleria { padding: 0; }
+
+    .galleria-header {
+      padding: 80px 6% 60px;
+      background: linear-gradient(135deg, #f0f7ec 0%, var(--bianco) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .galleria-grid {
+      padding: 60px 6%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .galleria-item {
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .galleria-item:hover { transform: scale(1.03); }
+
+    .galleria-item:nth-child(3n+1) { grid-row: span 2; aspect-ratio: auto; min-height: 280px; }
+
+    .gi-1  { background: linear-gradient(135deg, #d0e8b8 0%, #7ab648 100%); }
+    .gi-2  { background: linear-gradient(135deg, #f5ede8 0%, #c8906a 100%); }
+    .gi-3  { background: linear-gradient(135deg, #fdf5e6 0%, #e8b848 100%); }
+    .gi-4  { background: linear-gradient(135deg, #c8e6b4 0%, #4a8a28 100%); }
+    .gi-5  { background: linear-gradient(135deg, #f5ede8 0%, #d4a090 100%); }
+    .gi-6  { background: linear-gradient(135deg, #fef9e7 0%, #f0d060 100%); }
+    .gi-7  { background: linear-gradient(135deg, #e0f0d8 0%, #5a9a38 100%); }
+    .gi-8  { background: linear-gradient(135deg, #fef3d8 0%, #d8a030 100%); }
+    .gi-9  { background: linear-gradient(135deg, #f0f7ec 0%, #2d5a27 100%); }
+    .gi-10 { background: linear-gradient(135deg, #e8d5b0 0%, #c8a96e 100%); }
+    .gi-11 { background: linear-gradient(135deg, #d0f0e8 0%, #48a880 100%); }
+    .gi-12 { background: linear-gradient(135deg, #f5e8d0 0%, #c89040 100%); }
+    .gi-13 { background: linear-gradient(135deg, #dce8d4 0%, #5a7a48 100%); }
+    .gi-14 { background: linear-gradient(135deg, #f0e8d8 0%, #b89060 100%); }
+    .gi-15 { background: linear-gradient(135deg, #d8ead0 0%, #6aaa50 100%); }
+    .gi-16 { background: linear-gradient(135deg, #fce8dc 0%, #c07858 100%); }
+
+    .galleria-caption {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 0 6% 20px;
+      font-style: italic;
+    }
+
+    /* ── CONTATTI ── */
+    .page-contatti { padding: 0; }
+
+    .contatti-header {
+      padding: 80px 6% 60px;
+      background: linear-gradient(135deg, #f0f7ec 0%, var(--bianco) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contatti-grid {
+      padding: 80px 6%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contatti-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--verde);
+      margin-bottom: 24px;
+    }
+
+    .info-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .info-card-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .info-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(122,182,72,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .info-card-header strong {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .info-card p {
+      font-size: 14.5px;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    .info-card a { color: var(--verde); text-decoration: none; }
+    .info-card a:hover { text-decoration: underline; }
+
+    .orari-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .orari-item {
+      background: var(--bianco);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+
+    .orari-item strong { display: block; color: var(--verde); font-size: 12px; }
+
+    .contatti-form-wrap h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--verde);
+      margin-bottom: 24px;
+    }
+
+    .mappa-placeholder {
+      margin-top: 32px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .mappa-consent {
+      background: var(--terra-l);
+      padding: 32px;
+      text-align: center;
+    }
+
+    .mappa-consent p {
+      font-size: 14px;
+      color: var(--mid);
+      margin-bottom: 16px;
+    }
+
+    .mappa-consent button {
+      background: var(--verde);
+      color: #fff;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .mappa-iframe { display: none; width: 100%; height: 260px; border: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--verde);
+      color: rgba(255,255,255,0.8);
+    }
+
+    .footer-top {
+      padding: 60px 6% 40px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .footer-brand img {
+      height: 48px; filter: brightness(0) invert(1) brightness(1.2);
+      margin-bottom: 16px; display: block;
+    }
+
+    .footer-brand p {
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .footer-brand .cert-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--terra);
+    }
+
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+
+    .footer-col ul li a:hover { color: #fff; }
+
+    .footer-col p {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+    }
+
+    .footer-bottom {
+      padding: 20px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .footer-bottom a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover { color: rgba(255,255,255,0.9); }
+
+    .footer-bottom-links { display: flex; gap: 20px; }
+
+    /* ── COOKIE BANNER ── */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(26, 40, 20, 0.97);
+      backdrop-filter: blur(12px);
+      color: #fff;
+      padding: 20px 6%;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid rgba(122,182,72,0.3);
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+
+    #cookie-banner.show { transform: translateY(0); }
+
+    #cookie-banner p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+      max-width: 700px;
+    }
+
+    #cookie-banner a { color: var(--verde-l); text-decoration: none; }
+
+    .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; }
+
+    .cookie-accept {
+      background: var(--verde-l);
+      color: #fff;
+      border: none;
+      padding: 9px 22px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      white-space: nowrap;
+    }
+
+    .cookie-reject {
+      background: transparent;
+      color: rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      white-space: nowrap;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .prodotti-grid { grid-template-columns: 1fr 1fr; }
+      .valori-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--bianco);
+        border-bottom: 1px solid var(--border);
+        padding: 20px 5%;
+        gap: 0;
+      }
+      .nav-links.open a {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .masseria-inner,
+      .chi-intro-grid,
+      .prodotto-section-inner,
+      .prodotto-section-inner.reverse,
+      .contatti-grid,
+      .form-grid { grid-template-columns: 1fr; direction: ltr; }
+      .prodotti-grid { grid-template-columns: 1fr 1fr; }
+      .valori-grid { grid-template-columns: 1fr 1fr; }
+      .attivita-grid { grid-template-columns: 1fr; }
+      .galleria-grid { grid-template-columns: 1fr 1fr; }
+      .galleria-item:nth-child(3n+1) { grid-row: span 1; min-height: auto; }
+      .hero-stats { flex-direction: column; }
+      .hero-stat + .hero-stat::before { display: none; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      #cookie-banner { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .prodotti-grid { grid-template-columns: 1fr; }
+      .valori-grid { grid-template-columns: 1fr; }
+      .galleria-grid { grid-template-columns: 1fr; }
+      .orari-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── UTILS ── */
+    .text-center { text-align: center; }
+    .mt-8 { margin-top: 8px; }
+    .mt-16 { margin-top: 16px; }
+    .mt-24 { margin-top: 24px; }
+    .mt-32 { margin-top: 32px; }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a class="nav-logo" href="#" onclick="showPage('home');return false;">
+    <img src="img/logo.svg" alt="Le Ucapiccola — Azienda Agricola Biologica" />
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#" onclick="showPage('home');return false;" data-page="home">Home</a></li>
+    <li><a href="#" onclick="showPage('chi-siamo');return false;" data-page="chi-siamo">Chi Siamo</a></li>
+    <li><a href="#" onclick="showPage('prodotti');return false;" data-page="prodotti">Prodotti</a></li>
+    <li><a href="#" onclick="showPage('masseria');return false;" data-page="masseria">Masseria</a></li>
+    <li><a href="#" onclick="showPage('galleria');return false;" data-page="galleria">Galleria</a></li>
+    <li><a href="#" onclick="showPage('contatti');return false;" class="nav-cta" data-page="contatti">Contatti</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     PAGE: HOME
+═══════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Azienda Biologica dal 2018</div>
+      <h1>La Terra che <em>Nutre</em><br>con Passione</h1>
+      <p class="hero-sub">Nell'angolo più bello del Salento, allieviamo con cura carni pregiate e coltiviamo orto e frutteto biologico certificato. Una storia di famiglia che affonda le radici nell'Ottocento.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-primary" onclick="showPage('prodotti');return false;">Scopri i Prodotti</a>
+        <a href="#" class="btn-outline" onclick="showPage('masseria');return false;">Masseria Didattica</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">2018</span>
+          <span class="hero-stat-lbl">Certificazione Bio</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">4</span>
+          <span class="hero-stat-lbl">Filiere Biologiche</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">Km 0</span>
+          <span class="hero-stat-lbl">Filiera Corta</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">100%</span>
+          <span class="hero-stat-lbl">Benessere Animale</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODOTTI PREVIEW -->
+  <section class="prodotti-preview">
+    <div class="prodotti-preview-header">
+      <div class="section-label">I Nostri Prodotti</div>
+      <h2 class="section-h">Dalla Terra alla Tavola</h2>
+      <p class="section-sub">Tutto ciò che produciamo nasce nel rispetto della natura, degli animali e delle stagioni. Nessun compromesso sulla qualità.</p>
+    </div>
+
+    <div class="prodotti-grid">
+      <div class="prodotto-card" onclick="showPage('prodotti')">
+        <div class="prodotto-img carni"><img src="img/carni-mucche.jpg" alt="Carni biologiche" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div class="prodotto-body">
+          <div class="prodotto-tag">Bio · Km 0</div>
+          <h3>Carni Biologiche</h3>
+          <p>Vitello, suino e pollo allevati liberi in ampi spazi. Macellazione mensile con selezione qualitativa.</p>
+        </div>
+      </div>
+      <div class="prodotto-card" onclick="showPage('prodotti')">
+        <div class="prodotto-img orto"><img src="img/orto-pomodori.jpg" alt="Orto biologico" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div class="prodotto-body">
+          <div class="prodotto-tag">Certificato Bio</div>
+          <h3>Orto Biologico</h3>
+          <p>Verdure di stagione raccolte ogni venerdì. Lattuga, peperoni, melanzane, pomodori, cipolle e altro.</p>
+        </div>
+      </div>
+      <div class="prodotto-card" onclick="showPage('prodotti')">
+        <div class="prodotto-img frutteto"><img src="img/frutteto-aranci.jpg" alt="Frutteto biologico" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div class="prodotto-body">
+          <div class="prodotto-tag">Certificato Bio</div>
+          <h3>Frutteto Biologico</h3>
+          <p>Cachi e melograni biologici, coltivati senza prodotti chimici nel sole del Salento.</p>
+        </div>
+      </div>
+      <div class="prodotto-card" onclick="showPage('prodotti')">
+        <div class="prodotto-img uova"><img src="img/uova.jpg" alt="Uova fresche" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div class="prodotto-body">
+          <div class="prodotto-tag">Allevamento Bio</div>
+          <h3>Uova Fresche</h3>
+          <p>Ovaiole allevate libere in ampi spazi. Uova genuine raccolte ogni giorno con cura.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-cta-center">
+      <a href="#" class="btn-verde" onclick="showPage('prodotti');return false;">Vedi tutti i prodotti →</a>
+    </div>
+  </section>
+
+  <!-- MASSERIA TEASER -->
+  <section class="masseria-teaser">
+    <div class="masseria-inner">
+      <div class="masseria-visual" style="padding:0;overflow:hidden"><img src="img/masseria-trattore.jpg" alt="Masseria didattica" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      <div class="masseria-text">
+        <div class="section-label">Masseria Didattica</div>
+        <h2 class="section-h">Un'Esperienza<br>da Vivere</h2>
+        <p>Vieni a scoprire la nostra masseria nel cuore del Salento. Osserva gli animali nel loro ambiente naturale, partecipa alle attività agricole e porta con te il profumo autentico della campagna salentina.</p>
+        <p>Accogliamo scolaresche, gruppi, famiglie e appassionati del mondo rurale per esperienze educative indimenticabili.</p>
+        <a href="#" class="btn-verde" onclick="showPage('masseria');return false;">Prenota una Visita →</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE: CHI SIAMO
+═══════════════════════════════════════════ -->
+<div class="page" id="page-chi-siamo">
+
+  <div class="page-hero-inner">
+    <div class="section-label">La Nostra Storia</div>
+    <h2 class="section-h">Chi Siamo</h2>
+    <p class="section-sub">L'Azienda Biologica Le Ucapiccola è la storia di una passione per l'allevamento che ha radici profonde, trasmessa nel tempo attraverso diverse generazioni.</p>
+  </div>
+
+  <div class="chi-intro-grid">
+    <div class="chi-text">
+      <h3>Una Passione di Famiglia<br>che Viene da Lontano</h3>
+      <p>La nostra storia affonda le radici nella famiglia Carbone, che iniziò ad allevare bestiame nelle pianure del sud Italia alla fine dell'Ottocento. Già allora suini, polli e vitelli erano la loro passione: un'eredità tramandata di generazione in generazione che oggi si esprime nell'Azienda Le Ucapiccola, a Morciano di Leuca.</p>
+      <p>Il nome "Leuca Piccola" viene dal vicino complesso architettonico che nei secoli passati offriva rifugio ai pellegrini in viaggio verso Santa Maria di Leuca. Sorgendo su quel percorso antico, la nostra azienda vuole essere ancora oggi <em>un luogo di ristoro</em>, dove ritrovare sapori autentici e un contatto genuino con la terra.</p>
+      <p>Polli, ovaiole, vitelli e suini sono liberi di muoversi e crescere in spazi ampi e luminosi, nel rispetto dei tempi naturali della crescita animale. Nel 2018 abbiamo ottenuto la <strong>certificazione biologica</strong> per tutti i prodotti dell'orto e del frutteto, coronando anni di lavoro nel segno della sostenibilità.</p>
+      <p>Il fitto bosco aziendale, con i suoi sentieri che si inerpicano sulla montagnola, è un luogo dove sperimentare un contatto pieno con un territorio ancora vergine: richiami variopinti degli uccelli, pajare di pietra che spuntano fra la rigogliosa vegetazione, piante rare e profumi antichi.</p>
+      <div class="chi-highlight">
+        <strong>🌿 Produzione biologica certificata dal 2018</strong>
+        <p>Tutti i nostri prodotti vegetali sono coltivati senza alcun uso di prodotti chimici, con tecniche agronomiche tradizionali e rispettose dell'ambiente.</p>
+      </div>
+    </div>
+
+    <div class="chi-visual">
+      <div class="chi-img-main" style="padding:0"><img src="img/chi-siamo-campo.jpg" alt="Campo biologico" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      <div class="chi-img-row">
+        <div class="chi-img-small a" style="padding:0;overflow:hidden"><img src="img/chi-siamo-agricoltore.jpg" alt="Agricoltore" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+        <div class="chi-img-small b" style="padding:0;overflow:hidden"><img src="img/territorio-ulivi.jpg" alt="Olio d'oliva e ulivi" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALORI -->
+  <div class="valori">
+    <div class="valori-header">
+      <div class="section-label">I Nostri Valori</div>
+      <h2 class="section-h">Il Cuore di Tutto Ciò che Facciamo</h2>
+      <p class="section-sub">Quattro principi guidano ogni nostra scelta, dal campo alla tavola.</p>
+    </div>
+    <div class="valori-grid">
+      <div class="valore-card">
+        <span class="valore-icon">🐄</span>
+        <h3>Benessere Animale</h3>
+        <p>I nostri animali crescono liberi, in spazi ampi e luminosi, con attenzione costante alla loro alimentazione e salute. Visite veterinarie regolari e zero stress da allevamento intensivo.</p>
+      </div>
+      <div class="valore-card">
+        <span class="valore-icon">🌍</span>
+        <h3>Rispetto del Territorio</h3>
+        <p>Coltiviamo il suolo salentino con tecniche sostenibili: rotazione colturale, sovescio, consociazione tra piante e irrigazione a goccia per ridurre il consumo d'acqua.</p>
+      </div>
+      <div class="valore-card">
+        <span class="valore-icon">🌿</span>
+        <h3>Certificazione Bio</h3>
+        <p>Dal 2018 i nostri prodotti vegetali sono certificati biologici. Nessun prodotto chimico di sintesi, solo fertilizzanti organici e metodi naturali per la difesa delle colture.</p>
+      </div>
+      <div class="valore-card">
+        <span class="valore-icon">🚜</span>
+        <h3>Filiera Km 0</h3>
+        <p>Produciamo e vendiamo direttamente in azienda. La filiera corta garantisce massima freschezza, sostiene l'economia locale e riduce l'impatto ambientale dei trasporti.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline-section">
+    <div class="timeline-header">
+      <div class="section-label">Il Nostro Percorso</div>
+      <h2 class="section-h">Tappe Importanti</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">🌾</div>
+        <div class="timeline-content">
+          <div class="timeline-year">Fine '800</div>
+          <h3>Le Origini della Famiglia Carbone</h3>
+          <p>La famiglia Carbone inizia ad allevare bestiame nelle pianure del sud Italia. Una passione nata dalla terra che diventerà il fulcro di una tradizione secolare.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">🏡</div>
+        <div class="timeline-content">
+          <div class="timeline-year">Anni '90</div>
+          <h3>Fondazione dell'Azienda a Morciano di Leuca</h3>
+          <p>L'azienda si consolida a Morciano di Leuca, in Via Voccole Falitte Barbarano. Si avviano gli allevamenti di suini, vitelli, polli e ovaiole in ciclo chiuso.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">🌱</div>
+        <div class="timeline-content">
+          <div class="timeline-year">2016</div>
+          <h3>Primo Evento Didattico</h3>
+          <p>La masseria ospita il laboratorio didattico "Una vita da ape" e accoglie 80 giovani scout per un'esperienza educativa nella campagna salentina.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">✅</div>
+        <div class="timeline-content">
+          <div class="timeline-year">2018</div>
+          <h3>Certificazione Biologica</h3>
+          <p>Traguardo fondamentale: l'azienda ottiene la certificazione di produzione biologica per orto e frutteto, coronando anni di impegno verso l'agricoltura sostenibile.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">🚀</div>
+        <div class="timeline-content">
+          <div class="timeline-year">Oggi</div>
+          <h3>Masseria Didattica & Vendita Diretta</h3>
+          <p>Progettiamo di diventare Masseria Didattica ufficiale, ampliando le attività educative e continuando a offrire prodotti biologici di eccellenza direttamente in azienda.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE: PRODOTTI
+═══════════════════════════════════════════ -->
+<div class="page" id="page-prodotti">
+
+  <div class="prodotti-header">
+    <div class="section-label">Cosa Produciamo</div>
+    <h2 class="section-h">I Nostri Prodotti</h2>
+    <p class="section-sub">Ogni prodotto nasce nel rispetto della natura e degli animali. Dalla macellazione mensile di carni selezionate ai raccolti settimanali dell'orto biologico.</p>
+  </div>
+
+  <!-- CARNI BIO -->
+  <div class="prodotti-section">
+    <div class="prodotto-section-inner">
+      <div class="prodotto-section-img carni" style="padding:0"><img src="img/carni-vitello.jpg" alt="Vitelli al pascolo" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:16px"></div>
+      <div class="prodotto-section-text">
+        <div class="section-label">Allevamento Bio</div>
+        <h2>Carni Biologiche</h2>
+        <p>Alleviamo con cura e dedizione suini, vitelli e polli in ciclo chiuso. Gli animali crescono liberi, in ampi spazi all'aperto, con un'alimentazione naturale e senza l'uso di ormoni o antibiotici di crescita.</p>
+        <p>Prestiamo grande attenzione al benessere animale e effettuiamo costanti visite veterinarie di controllo. La macellazione dei capi avviene <strong>mensilmente</strong>, garantendo carni fresche e di altissima qualità.</p>
+        <ul class="prodotto-list">
+          <li><strong>Vitello Bio</strong> — razze Limousine, Pezzata Rossa Italiana e Charolaise. Pascolo all'aperto tutto l'anno in ampi recinti, età 12–18 mesi. Un capo al mese per garantire qualità e giusto equilibrio nella mandria.</li>
+          <li><strong>Suino Bio</strong> — allevamento a ciclo chiuso. Attenzione massima all'alimentazione e al benessere; visite veterinarie costanti. Il letame viene riciclato come concime naturale.</li>
+          <li><strong>Pollo Bio</strong> — metodo estensivo all'aperto, tra alberi di olivo e fico. Mai macellati prima di 80–85 giorni. Carotenoidi, vitamina E, polifenoli e omega-3 superiori grazie al pascolo libero.</li>
+        </ul>
+        <div class="macellazione-banner">
+          <span>📅</span>
+          <div>
+            <strong>Macellazione mensile</strong>
+            <p>Vitello, suino e pollo — prodotto fresco disponibile ogni mese. Contattaci per disponibilità.</p>
+          </div>
+        </div>
+        <div style="margin-top:20px;padding:18px 22px;background:#f0f7ec;border-radius:var(--radius);border:1px solid rgba(122,182,72,0.25)">
+          <p style="font-size:13px;color:var(--muted);line-height:1.75;margin:0"><strong style="color:var(--verde);display:block;margin-bottom:6px">🌍 Perché scegliere carne di qualità?</strong>
+          Con l'allevamento intensivo, produrre 1 kg di manzo immette nell'atmosfera 36,4 kg di CO₂ e consuma ~15.500 litri d'acqua. Non è necessario smettere di mangiare carne: basta sceglierne <em>meno, ma di qualità</em>, da allevamenti attenti al benessere animale e a ciclo chiuso — come il nostro, dove il letame diventa concime naturale.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORTO BIO -->
+  <div class="prodotti-section">
+    <div class="prodotto-section-inner reverse">
+      <div class="prodotto-section-img orto" style="padding:0"><img src="img/orto-verdure.jpg" alt="Verdure biologiche" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:16px"></div>
+      <div class="prodotto-section-text">
+        <div class="section-label">Certificato Bio</div>
+        <h2>Orto Biologico</h2>
+        <p>Il nostro orto biologico certificato produce verdure di stagione con <strong>raccolta ogni venerdì</strong>. Coltiviamo senza alcun uso di prodotti chimici di sintesi, nel pieno rispetto della certificazione biologica ottenuta nel 2018.</p>
+        <p>Impieghiamo tecniche agronomiche sostenibili per preservare la fertilità del suolo e ottenere prodotti sani e genuini.</p>
+        <ul class="prodotto-list">
+          <li>Lattuga · Cipolle · Peperoni dolci e piccanti</li>
+          <li>Melanzane · Pomodori invernali</li>
+          <li>Patate novelle · Verdure di stagione</li>
+          <li>Rotazione colturale per migliorare la qualità del suolo</li>
+          <li>Sovescio e consociazione tra piante</li>
+          <li>Irrigazione a goccia per ridurre il consumo d'acqua</li>
+          <li>Erbe aromatiche come repellenti naturali</li>
+          <li>Pacciamatura biodegradabile anti-infestante</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRUTTETO BIO -->
+  <div class="prodotti-section">
+    <div class="prodotto-section-inner">
+      <div class="prodotto-section-img frutteto" style="padding:0"><img src="img/frutteto-aranci.jpg" alt="Frutteto biologico" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:16px"></div>
+      <div class="prodotto-section-text">
+        <div class="section-label">Certificato Bio</div>
+        <h2>Frutteto Biologico</h2>
+        <p>Il nostro frutteto biologico è coltivato con la stessa filosofia dell'orto: nessun prodotto chimico, solo la forza della terra salentina e il sole del Salento. Abbiamo ottenuto la certificazione di prodotto di origine biologica.</p>
+        <p>I frutti maturano secondo i ritmi naturali delle stagioni, sviluppando sapori autentici e valori nutrizionali superiori rispetto alla produzione convenzionale.</p>
+        <ul class="prodotto-list">
+          <li>Cachi biologici — varietà selezionate del Salento</li>
+          <li>Melograni biologici — produzione stagionale</li>
+          <li>Frutti di stagione in aggiornamento</li>
+          <li>Zero prodotti chimici di sintesi</li>
+          <li>Certificazione di origine biologica</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- UOVA -->
+  <div class="prodotti-section">
+    <div class="prodotto-section-inner reverse">
+      <div class="prodotto-section-img uova" style="padding:0"><img src="img/polli-gallina.jpg" alt="Ovaiole allevate libere" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:16px"></div>
+      <div class="prodotto-section-text">
+        <div class="section-label">Allevamento Bio</div>
+        <h2>Uova Fresche</h2>
+        <p>Alleviamo ovaiole di razza <strong>Livornese</strong> e <strong>ISA Brown</strong> con metodo estensivo all'aperto: ampi recinti tra alberi di olivo e gelsi dove razzolare liberamente. Un ricovero al riparo dalle intemperie, dotato di mangiatoie, abbeveratoi, nidi e posatoi completa la loro casa.</p>
+        <p>Rispettiamo rigorosamente i normali cicli luce/buio stagionali per una vita il più naturale possibile. Le galline si nutrono di mangimi controllati e, razzolando, integrano la dieta con semi, insetti e lombrichi — esattamente come farebbero in natura.</p>
+        <ul class="prodotto-list">
+          <li>Razze Livornese e ISA Brown — selezione di qualità</li>
+          <li>Allevamento estensivo all'aperto — ampi spazi, olivi e gelsi</li>
+          <li>Raccolta giornaliera — massima freschezza</li>
+          <li>Mangimi controllati + integrazione naturale da pascolo</li>
+          <li>Cicli luce/buio rispettati — crescita naturale</li>
+        </ul>
+        <div class="macellazione-banner" style="background:var(--terra)">
+          <span>🛒</span>
+          <div>
+            <strong>Disponibili anche nei negozi convenzionati</strong>
+            <p>Le nostre uova si trovano in supermercati e macellerie selezionate nel basso Salento — da Ugento a Santa Maria di Leuca.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PUNTI VENDITA UOVA -->
+  <div class="prodotti-section" style="background:#f7f5f0">
+    <div class="section-label">Distribuzione</div>
+    <h2 class="section-h" style="margin-bottom:12px">Dove Trovare le Nostre Uova</h2>
+    <p class="section-sub" style="margin-bottom:36px">Le uova Le Ucapiccola sono disponibili anche in una selezione di negozi e supermercati nel basso Salento, oltre che direttamente in azienda.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px">
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 20px">
+        <div style="font-weight:700;color:var(--verde);margin-bottom:4px">Frutta&amp;Frutta di Roberto Molle</div>
+        <div style="font-size:13px;color:var(--muted)">Via Napoli 15, Ugento</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 20px">
+        <div style="font-weight:700;color:var(--verde);margin-bottom:4px">Scarlino Supermercati</div>
+        <div style="font-size:13px;color:var(--muted)">Via 2 Giugno, Gagliano del Capo</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 20px">
+        <div style="font-weight:700;color:var(--verde);margin-bottom:4px">Maruccio Supermercati</div>
+        <div style="font-size:13px;color:var(--muted)">Via Q. Ennio 5, Santa Maria di Leuca</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 20px">
+        <div style="font-weight:700;color:var(--verde);margin-bottom:4px">Supermercato Adriana</div>
+        <div style="font-size:13px;color:var(--muted)">Corso Uxentum 83, Torre San Giovanni</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 20px">
+        <div style="font-weight:700;color:var(--verde);margin-bottom:4px">Do.F srl</div>
+        <div style="font-size:13px;color:var(--muted)">Via Vigna la Corte, Alessano</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 20px">
+        <div style="font-weight:700;color:var(--verde);margin-bottom:4px">Macelleria Albano</div>
+        <div style="font-size:13px;color:var(--muted)">Piazza Immacolata 3, Gagliano del Capo</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 20px">
+        <div style="font-weight:700;color:var(--verde);margin-bottom:4px">Scarlino Supermercati</div>
+        <div style="font-size:13px;color:var(--muted)">Via Roma, Castrignano del Capo</div>
+      </div>
+      <div style="background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 20px">
+        <div style="font-weight:700;color:var(--verde);margin-bottom:4px">Cooperativa</div>
+        <div style="font-size:13px;color:var(--muted)">Piazza San Lorenzo, Barbarano del Capo</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE: MASSERIA
+═══════════════════════════════════════════ -->
+<div class="page" id="page-masseria">
+
+  <div class="masseria-header">
+    <div class="section-label">Esperienze Educative</div>
+    <h2 class="section-h">Masseria Didattica</h2>
+    <p class="section-sub">Un luogo dove l'agricoltura biologica diventa esperienza. Scolaresche, gruppi, famiglie e appassionati del mondo rurale sono i benvenuti nella nostra masseria nel cuore del Salento.</p>
+  </div>
+
+  <div class="masseria-attivita">
+    <div class="section-label">Le Nostre Attività</div>
+    <h2 class="section-h">Cosa Puoi Fare in Masseria</h2>
+    <p class="section-sub">Ogni visita è un'opportunità per avvicinarsi alla natura, imparare il rispetto per gli animali e scoprire come nasce il cibo che mettiamo in tavola.</p>
+
+    <div class="attivita-grid">
+      <div class="attivita-card">
+        <span class="attivita-icon">🐄</span>
+        <h3>Visite agli Animali</h3>
+        <p>Incontra da vicino i nostri vitelli, suini, polli e ovaiole. Scopri come vivono e come ci prendiamo cura del loro benessere quotidiano. Un'esperienza emozionante per grandi e piccini.</p>
+      </div>
+      <div class="attivita-card">
+        <span class="attivita-icon">🌱</span>
+        <h3>Laboratori di Agricoltura</h3>
+        <p>Partecipa attivamente alla vita dell'orto e del frutteto biologico. Semina, trapianta, raccogli e comprendi le tecniche dell'agricoltura sostenibile in modo pratico e coinvolgente.</p>
+      </div>
+      <div class="attivita-card">
+        <span class="attivita-icon">🍽️</span>
+        <h3>Degustazioni Bio</h3>
+        <p>Assaggia i prodotti freschi dell'azienda: verdure appena raccolte, uova del mattino, frutta di stagione. Il sapore autentico del biologico a Km 0 direttamente dal campo.</p>
+      </div>
+      <div class="attivita-card">
+        <span class="attivita-icon" style="display:block;width:100%;height:140px;border-radius:10px;overflow:hidden;margin-bottom:16px"><img src="img/masseria-bambino.jpg" alt="Fattoria per bambini" style="width:100%;height:100%;object-fit:cover"></span>
+        <h3>Fattoria per Bambini</h3>
+        <p>Un programma speciale pensato per i più piccoli: raccogliere le uova, dare da mangiare agli animali, esplorare l'orto. Momenti formativi e divertenti per avvicinarsi alla natura.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM PRENOTAZIONE -->
+  <div class="form-prenotazione">
+    <div class="form-grid">
+      <div class="form-text">
+        <div class="section-label">Prenota una Visita</div>
+        <h2 class="section-h">Vieni a Trovarci</h2>
+        <p>Organizziamo visite guidate per scolaresche, gruppi aziendali, famiglie e appassionati di agricoltura biologica. Contattateci per concordare data, orario e programma della visita.</p>
+        <p>In passato abbiamo già accolto scout, scolaresche e gruppi di appassionati per laboratori didattici come <em>"Una vita da ape"</em> e sfide all'aperto nel bosco aziendale.</p>
+        <ul class="form-info-list">
+          <li><span>📍</span> Via Voccole Falitte Barbarano, 73040 Morciano di Leuca (LE)</li>
+          <li><span>🕐</span> 9:30–12:30 e 16:00–18:00</li>
+          <li><span>📞</span> +39 393 835 2322 / +39 347 954 4501</li>
+          <li><span>✉️</span> info@aziendaleucapiccola.it</li>
+          <li><span>👥</span> Scolaresche, famiglie, gruppi, aziende</li>
+        </ul>
+      </div>
+
+      <div class="form-card">
+        <h3>Richiedi una Visita</h3>
+        <form onsubmit="submitForm(event)">
+          <div class="form-row">
+            <label>Nome e Cognome *</label>
+            <input type="text" placeholder="Mario Rossi" required />
+          </div>
+          <div class="form-row">
+            <label>Email *</label>
+            <input type="email" placeholder="mario@esempio.it" required />
+          </div>
+          <div class="form-row">
+            <label>Telefono</label>
+            <input type="tel" placeholder="+39 333 1234567" />
+          </div>
+          <div class="form-row">
+            <label>Tipo di Gruppo</label>
+            <select>
+              <option value="">Seleziona...</option>
+              <option>Scuola / Scolaresche</option>
+              <option>Famiglia</option>
+              <option>Gruppo di adulti</option>
+              <option>Azienda / Team Building</option>
+              <option>Associazione / Scout</option>
+              <option>Altro</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>Numero di Partecipanti</label>
+            <input type="number" placeholder="es. 25" min="1" />
+          </div>
+          <div class="form-row">
+            <label>Messaggio</label>
+            <textarea placeholder="Descrivi la visita che hai in mente, le date preferite e qualsiasi esigenza specifica..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Invia Richiesta →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE: GALLERIA
+═══════════════════════════════════════════ -->
+<div class="page" id="page-galleria">
+
+  <div class="galleria-header">
+    <div class="section-label">Immagini dall'Azienda</div>
+    <h2 class="section-h">Galleria</h2>
+    <p class="section-sub">Scorci di vita quotidiana in masseria: gli animali, l'orto, il frutteto, le stagioni che si susseguono nel cuore del Salento.</p>
+  </div>
+
+  <div class="galleria-grid">
+    <div class="galleria-item gi-1"><img src="img/campo-filari.jpg" alt="Campo biologico" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-2"><img src="img/carni-vitello.jpg" alt="Vitelli al pascolo" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-3"><img src="img/orto-pomodori.jpg" alt="Pomodori biologici" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-4"><img src="img/polli-gallina.jpg" alt="Gallina rossa" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-5"><img src="img/uova.jpg" alt="Uova fresche" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-6"><img src="img/frutteto-aranci.jpg" alt="Aranci biologici" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-7"><img src="img/chi-siamo-campo.jpg" alt="Campagna salentina" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-8"><img src="img/orto-verdure.jpg" alt="Verdure biologiche" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-9"><img src="img/masseria-trattore.jpg" alt="Masseria al tramonto" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-10"><img src="img/territorio-ulivi.jpg" alt="Olio d'oliva salentino" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-11"><img src="img/chi-siamo-agricoltore.jpg" alt="Agricoltore al lavoro" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-12"><img src="img/frutteto-mele.jpg" alt="Frutta biologica" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-13"><img src="img/carni-mucche.jpg" alt="Bovini al pascolo" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-14"><img src="img/orto-piantine.jpg" alt="Piantine nell'orto" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-15"><img src="img/masseria-bambino.jpg" alt="Attività didattiche" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+    <div class="galleria-item gi-16"><img src="img/chi-siamo-semenzali.jpg" alt="Semenzali" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+  </div>
+
+  <p class="galleria-caption">Foto Unsplash (CC0) — verranno sostituite con foto reali dell'azienda.</p>
+
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE: CONTATTI
+═══════════════════════════════════════════ -->
+<div class="page" id="page-contatti">
+
+  <div class="contatti-header">
+    <div class="section-label">Dove Siamo</div>
+    <h2 class="section-h">Contatti</h2>
+    <p class="section-sub">Siamo a Morciano di Leuca, nel cuore del Salento. Vieni a trovarci in azienda o contattaci per qualsiasi informazione sui nostri prodotti e le visite in masseria.</p>
+  </div>
+
+  <div class="contatti-grid">
+    <div class="contatti-info">
+      <h3>Informazioni</h3>
+
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-icon">📍</div>
+          <strong>Indirizzo</strong>
+        </div>
+        <p>Via Voccole Falitte Barbarano<br>73040 Morciano di Leuca (LE)<br>Puglia, Italia</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-icon">📞</div>
+          <strong>Telefono</strong>
+        </div>
+        <p>
+          <a href="tel:+393938352322">+39 393 835 2322</a><br>
+          <a href="tel:+393479544501">+39 347 954 4501</a>
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-icon">✉️</div>
+          <strong>Email</strong>
+        </div>
+        <p><a href="mailto:info@aziendaleucapiccola.it">info@aziendaleucapiccola.it</a></p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-icon">🕐</div>
+          <strong>Orari di Apertura</strong>
+        </div>
+        <div class="orari-grid">
+          <div class="orari-item">
+            <strong>Mattina</strong>
+            9:30 – 12:30
+          </div>
+          <div class="orari-item">
+            <strong>Pomeriggio</strong>
+            16:00 – 18:00
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-icon">🏢</div>
+          <strong>Dati Aziendali</strong>
+        </div>
+        <p>Azienda Agricola Le Ucapiccola<br>P.IVA: 03728190756</p>
+      </div>
+    </div>
+
+    <div class="contatti-form-wrap">
+      <h3>Scrivici</h3>
+      <div class="form-card" style="box-shadow:none;padding:0;background:transparent">
+        <form onsubmit="submitForm(event)" style="background:#fff;border:1px solid var(--border);border-radius:16px;padding:36px">
+          <div class="form-row">
+            <label>Nome e Cognome *</label>
+            <input type="text" placeholder="Mario Rossi" required />
+          </div>
+          <div class="form-row">
+            <label>Email *</label>
+            <input type="email" placeholder="mario@esempio.it" required />
+          </div>
+          <div class="form-row">
+            <label>Oggetto</label>
+            <select>
+              <option value="">Seleziona...</option>
+              <option>Informazioni sui prodotti</option>
+              <option>Prenotazione masseria</option>
+              <option>Acquisto carni</option>
+              <option>Acquisto verdure/frutta bio</option>
+              <option>Altro</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>Messaggio *</label>
+            <textarea placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Invia Messaggio →</button>
+        </form>
+      </div>
+
+      <!-- MAPPA -->
+      <div class="mappa-placeholder">
+        <div class="mappa-consent" id="mappa-consent">
+          <p>Per visualizzare la mappa di Google Maps, accetta i cookie di terze parti.<br>
+          <a href="cookie-policy/" style="color:var(--verde)">Informativa Cookie</a></p>
+          <button onclick="loadMappa()">Mostra Mappa</button>
+        </div>
+        <iframe class="mappa-iframe" id="mappa-iframe"
+          src=""
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="img/logo.svg" alt="Le Ucapiccola" />
+      <p>Azienda agricola biologica nel cuore del Salento. Carni bio, orto e frutteto certificati, uova fresche e Masseria Didattica a Morciano di Leuca.</p>
+      <span class="cert-badge">🌿 Bio dal 2018</span>
+    </div>
+    <div class="footer-col">
+      <h4>Navigazione</h4>
+      <ul>
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('chi-siamo')">Chi Siamo</a></li>
+        <li><a onclick="showPage('prodotti')">Prodotti</a></li>
+        <li><a onclick="showPage('masseria')">Masseria</a></li>
+        <li><a onclick="showPage('galleria')">Galleria</a></li>
+        <li><a onclick="showPage('contatti')">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Prodotti</h4>
+      <ul>
+        <li><a onclick="showPage('prodotti')">Carni Biologiche</a></li>
+        <li><a onclick="showPage('prodotti')">Orto Biologico</a></li>
+        <li><a onclick="showPage('prodotti')">Frutteto Biologico</a></li>
+        <li><a onclick="showPage('prodotti')">Uova Fresche</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contatti</h4>
+      <p>Via Voccole Falitte Barbarano<br>73040 Morciano di Leuca (LE)</p>
+      <p style="margin-top:10px"><a href="tel:+393938352322" style="color:rgba(255,255,255,0.75)">+39 393 835 2322</a></p>
+      <p><a href="mailto:info@aziendaleucapiccola.it" style="color:rgba(255,255,255,0.75)">info@aziendaleucapiccola.it</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Azienda Le Ucapiccola — P.IVA 03728190756</span>
+    <div class="footer-bottom-links">
+      <a href="privacy-policy/">Privacy Policy</a>
+      <a href="cookie-policy/">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ COOKIE BANNER ═══ -->
+<div id="cookie-banner">
+  <p>Utilizziamo cookie tecnici necessari al funzionamento del sito. Con il tuo consenso, utilizziamo anche cookie analitici e di terze parti (Google Maps) per migliorare la tua esperienza.
+  <a href="cookie-policy/">Leggi la Cookie Policy</a> · <a href="privacy-policy/">Privacy Policy</a></p>
+  <div class="cookie-btns">
+    <button class="cookie-reject" onclick="rejectCookies()">Solo necessari</button>
+    <button class="cookie-accept" onclick="acceptCookies()">Accetta tutti</button>
+  </div>
+</div>
+
+<script>
+  /* ── NAVIGATION ── */
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.classList.toggle('active', a.dataset.page === id);
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // close mobile menu
+    document.getElementById('nav-links').classList.remove('open');
+  }
+
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('open');
+  }
+
+  /* ── FORM ── */
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = '✓ Messaggio inviato!';
+    btn.style.background = '#4a8a28';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Invia →';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 3000);
+  }
+
+  /* ── MAPPA ── */
+  function loadMappa() {
+    document.getElementById('mappa-consent').style.display = 'none';
+    const iframe = document.getElementById('mappa-iframe');
+    iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.2!2d18.3466!3d39.8469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDI2JzI2LjkiTiAxOMKwMjAnNDcuOCJF!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit';
+    iframe.style.display = 'block';
+  }
+
+  /* ── COOKIE BANNER ── */
+  function acceptCookies() {
+    localStorage.setItem('luc_cookie_consent', 'accepted');
+    hideBanner();
+  }
+
+  function rejectCookies() {
+    localStorage.setItem('luc_cookie_consent', 'rejected');
+    hideBanner();
+  }
+
+  function hideBanner() {
+    document.getElementById('cookie-banner').classList.remove('show');
+  }
+
+  (function initCookie() {
+    if (!localStorage.getItem('luc_cookie_consent')) {
+      setTimeout(() => {
+        document.getElementById('cookie-banner').classList.add('show');
+      }, 800);
+    }
+  })();
+</script>
+
+</body>
+</html>

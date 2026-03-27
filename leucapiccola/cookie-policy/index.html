@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Policy | Azienda Le Ucapiccola</title>
+  <meta name="description" content="Cookie Policy di Azienda Le Ucapiccola ai sensi del D.Lgs. 196/2003 e del GDPR UE 2016/679." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/svg+xml" href="../img/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --verde:#2d5a27;--verde-l:#7ab648;--terra:#c8a96e;--terra-l:#e8d5b0;
+      --bianco:#faf8f5;--mid:#4a5240;--muted:#7a8270;--border:#ddd8cc;--radius:12px
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Lato',sans-serif;color:var(--mid);background:var(--bianco);overflow-x:hidden;line-height:1.65}
+    nav{position:sticky;top:0;z-index:200;background:rgba(250,248,245,0.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);height:68px;display:flex;align-items:center;padding:0 5%;justify-content:space-between}
+    .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-brand img{height:50px;width:auto}
+    .nav-back{font-size:13px;font-weight:700;color:var(--verde);text-decoration:none;display:flex;align-items:center;gap:6px;letter-spacing:0.3px;padding:8px 18px;border:1.5px solid var(--verde);border-radius:20px;transition:background 0.2s,color 0.2s}
+    .nav-back:hover{background:var(--verde);color:#fff}
+    .breadcrumb{background:#f0f7ec;border-bottom:1px solid var(--border);padding:12px 5%;font-size:13px;color:var(--muted)}
+    .breadcrumb a{color:var(--muted);text-decoration:none;transition:color .2s}
+    .breadcrumb a:hover{color:var(--verde)}
+    .breadcrumb span{margin:0 8px;color:var(--terra)}
+    .page-header{padding:60px 5% 40px;background:linear-gradient(135deg,#f0f7ec 0%,var(--bianco) 100%);border-bottom:1px solid var(--border)}
+    .page-header .label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--verde-l);margin-bottom:12px}
+    .page-header .label::before{content:'';display:inline-block;width:24px;height:2px;background:var(--verde-l);border-radius:2px}
+    .page-header h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--verde);margin-bottom:10px;letter-spacing:-0.5px}
+    .page-header p{font-size:.95rem;color:var(--muted)}
+    .content{max-width:860px;margin:0 auto;padding:60px 5%}
+    .content h2{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--verde);margin-bottom:14px;margin-top:52px;padding-bottom:10px;border-bottom:2px solid var(--terra-l)}
+    .content h2:first-child{margin-top:0}
+    .content h3{font-size:.95rem;font-weight:700;color:var(--verde-l);margin-bottom:8px;margin-top:24px}
+    .content p{color:var(--mid);margin-bottom:14px;font-size:.95rem;line-height:1.8}
+    .content ul{list-style:none;padding:0;margin-bottom:16px}
+    .content ul li{color:var(--mid);padding:7px 0 7px 22px;position:relative;border-bottom:1px solid var(--border);font-size:.95rem;line-height:1.65}
+    .content ul li::before{content:'›';position:absolute;left:0;color:var(--verde-l);font-weight:700;font-size:1.2rem;line-height:1.4}
+    .content ul li:last-child{border-bottom:none}
+    .content a{color:var(--verde);text-decoration:none}
+    .content a:hover{text-decoration:underline}
+    .info-box{background:#f0f7ec;border:1px solid rgba(122,182,72,0.3);border-radius:var(--radius);padding:20px 24px;margin-bottom:16px}
+    .info-box p{margin-bottom:6px;font-size:.9rem;color:var(--mid)}
+    .info-box p:last-child{margin-bottom:0}
+    .cookie-table{width:100%;border-collapse:collapse;margin-bottom:24px;font-size:.9rem}
+    .cookie-table th{background:var(--verde);color:#fff;padding:12px 14px;text-align:left;font-weight:700;font-size:.85rem;letter-spacing:.5px}
+    .cookie-table td{padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--mid)}
+    .cookie-table tr:last-child td{border-bottom:none}
+    .cookie-table tr:nth-child(even) td{background:rgba(122,182,72,0.04)}
+    .cookie-badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:.8rem;font-weight:700}
+    .badge-tecnico{background:rgba(122,182,72,0.12);color:var(--verde);border:1px solid rgba(122,182,72,0.25)}
+    .badge-terze{background:rgba(200,169,110,0.15);color:#8a6a30;border:1px solid rgba(200,169,110,0.3)}
+    .consent-panel{background:#f0f7ec;border:1px solid rgba(122,182,72,0.3);border-radius:var(--radius);padding:24px 28px;margin-top:24px;text-align:center}
+    .consent-panel p{margin-bottom:16px;font-size:.95rem;color:var(--mid)}
+    .consent-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn-accept{background:var(--verde);color:#fff;border:none;padding:10px 26px;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif}
+    .btn-reject{background:transparent;color:var(--verde);border:1.5px solid var(--verde);padding:9px 24px;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Lato',sans-serif}
+    .consent-status{margin-top:12px;font-size:12px;color:var(--muted);font-style:italic}
+    footer{background:var(--verde);padding:32px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .footer-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .footer-brand img{height:36px;filter:brightness(0) invert(1)}
+    .footer-links{display:flex;gap:20px}
+    .footer-links a{font-size:12px;color:rgba(255,255,255,0.65);text-decoration:none;transition:color .2s}
+    .footer-links a:hover{color:#fff}
+    .footer-copy{font-size:12px;color:rgba(255,255,255,0.45);width:100%;text-align:center;border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;margin-top:8px}
+    @media(max-width:640px){footer{flex-direction:column;text-align:center}.footer-links{justify-content:center}.cookie-table{font-size:.82rem}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="../">
+    <img src="../img/logo.svg" alt="Le Ucapiccola" />
+  </a>
+  <a class="nav-back" href="../">← Torna al sito</a>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../">Home</a><span>›</span> Cookie Policy
+</div>
+
+<div class="page-header">
+  <div class="label">Informativa Cookie</div>
+  <h1>Cookie Policy</h1>
+  <p>Informativa sull'uso dei cookie ai sensi dell'art. 122 del D.Lgs. 196/2003 e del Regolamento UE 2016/679 (GDPR) — Ultimo aggiornamento: Gennaio 2026</p>
+</div>
+
+<div class="content">
+
+  <h2>1. Cosa sono i cookie</h2>
+  <p>I cookie sono piccoli file di testo che i siti web visitati dall'utente inviano al suo terminale (computer, tablet, smartphone), dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla visita successiva. I cookie permettono al sito di riconoscere il browser dell'utente e offrire un'esperienza personalizzata.</p>
+  <p>I cookie non contengono informazioni che identificano direttamente l'utente, ma tramite questi dati è possibile identificare la persona attraverso informazioni aggiuntive.</p>
+
+  <h2>2. Tipologie di cookie utilizzati</h2>
+
+  <h3>Cookie tecnici (sempre attivi)</h3>
+  <p>I cookie tecnici sono necessari per il corretto funzionamento del sito. Non richiedono il consenso dell'utente e non possono essere disabilitati senza compromettere la fruibilità del sito.</p>
+
+  <table class="cookie-table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Durata</th>
+        <th>Finalità</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>luc_cookie_consent</code></td>
+        <td><span class="cookie-badge badge-tecnico">Tecnico</span></td>
+        <td>12 mesi</td>
+        <td>Memorizza la preferenza dell'utente riguardo ai cookie (accettazione o rifiuto)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Cookie di terze parti (solo con consenso)</h3>
+  <p>Il sito può integrare servizi di terze parti che installano cookie propri. Questi cookie sono attivati solo previo esplicito consenso dell'utente.</p>
+
+  <table class="cookie-table">
+    <thead>
+      <tr>
+        <th>Servizio</th>
+        <th>Tipo</th>
+        <th>Finalità</th>
+        <th>Privacy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Google Maps</td>
+        <td><span class="cookie-badge badge-terze">Terze parti</span></td>
+        <td>Visualizzazione mappa interattiva nella pagina Contatti. Attivato solo su richiesta dell'utente.</td>
+        <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Google</a></td>
+      </tr>
+      <tr>
+        <td>Google Fonts</td>
+        <td><span class="cookie-badge badge-terze">Terze parti</span></td>
+        <td>Caricamento dei font tipografici (Playfair Display, Lato) necessari alla resa grafica del sito.</td>
+        <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Google</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Gestire il consenso</h2>
+  <p>Puoi gestire le tue preferenze sui cookie direttamente da qui. Tieni presente che disabilitare i cookie di terze parti potrebbe impedire la visualizzazione di alcune funzionalità (come la mappa).</p>
+
+  <div class="consent-panel">
+    <p>Stato attuale del tuo consenso:</p>
+    <div class="consent-btns">
+      <button class="btn-accept" onclick="acceptCookies()">Accetta tutti i cookie</button>
+      <button class="btn-reject" onclick="rejectCookies()">Solo cookie tecnici</button>
+    </div>
+    <div class="consent-status" id="consent-status"></div>
+  </div>
+
+  <h2>4. Come disabilitare i cookie dal browser</h2>
+  <p>Puoi bloccare o eliminare i cookie attraverso le impostazioni del tuo browser. Di seguito i link alle istruzioni dei principali browser:</p>
+  <ul>
+    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+    <li><a href="https://support.mozilla.org/it/kb/protezione-antitracciamento-avanzata-firefox-desktop" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+    <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Apple Safari</a></li>
+    <li><a href="https://support.microsoft.com/it-it/microsoft-edge" target="_blank" rel="noopener">Microsoft Edge</a></li>
+  </ul>
+  <p>Tieni presente che la disabilitazione dei cookie potrebbe influire sulla corretta visualizzazione e funzionamento del sito web.</p>
+
+  <h2>5. Cookie di profilazione e marketing</h2>
+  <p>Il sito <strong>non utilizza</strong> cookie di profilazione o di marketing. Non vengono tracciati comportamenti di navigazione dell'utente per finalità pubblicitarie, né vengono ceduti dati a reti pubblicitarie di terze parti.</p>
+
+  <h2>6. Trasferimento dati extra-UE</h2>
+  <p>Google Maps e Google Fonts sono servizi di Google LLC, con sede negli Stati Uniti. Google aderisce al Data Privacy Framework EU-USA, che garantisce un livello di protezione adeguato ai sensi dell'art. 45 GDPR. Per maggiori informazioni: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+
+  <h2>7. Aggiornamenti della Cookie Policy</h2>
+  <p>La presente Cookie Policy può essere aggiornata periodicamente. Ti invitiamo a consultarla regolarmente. La data di ultimo aggiornamento è indicata in cima alla pagina.</p>
+
+  <h2>8. Contatti</h2>
+  <p>Per qualsiasi domanda relativa all'uso dei cookie o alla tutela dei tuoi dati personali, puoi contattarci:</p>
+  <ul>
+    <li>Email: <a href="mailto:info@aziendaleucapiccola.it">info@aziendaleucapiccola.it</a></li>
+    <li>Telefono: +39 393 835 2322 / +39 347 954 4501</li>
+    <li>Indirizzo: Via Voccole Falitte Barbarano, 73040 Morciano di Leuca (LE)</li>
+  </ul>
+  <p>Per approfondire il trattamento dei tuoi dati personali, consulta la nostra <a href="../privacy-policy/">Privacy Policy</a>.</p>
+
+</div>
+
+<footer>
+  <a class="footer-brand" href="../">
+    <img src="../img/logo.svg" alt="Le Ucapiccola" />
+  </a>
+  <div class="footer-links">
+    <a href="../privacy-policy/">Privacy Policy</a>
+    <a href="../cookie-policy/">Cookie Policy</a>
+    <a href="../">← Torna al sito</a>
+  </div>
+  <div class="footer-copy">© 2026 Azienda Agricola Le Ucapiccola — P.IVA 03728190756 · Morciano di Leuca (LE)</div>
+</footer>
+
+<script>
+  function updateStatus() {
+    const consent = localStorage.getItem('luc_cookie_consent');
+    const el = document.getElementById('consent-status');
+    if (consent === 'accepted') el.textContent = '✓ Hai accettato tutti i cookie.';
+    else if (consent === 'rejected') el.textContent = '✓ Hai selezionato solo i cookie tecnici.';
+    else el.textContent = 'Nessuna preferenza ancora salvata.';
+  }
+
+  function acceptCookies() {
+    localStorage.setItem('luc_cookie_consent', 'accepted');
+    updateStatus();
+  }
+
+  function rejectCookies() {
+    localStorage.setItem('luc_cookie_consent', 'rejected');
+    updateStatus();
+  }
+
+  updateStatus();
+</script>
+
+</body>
+</html>

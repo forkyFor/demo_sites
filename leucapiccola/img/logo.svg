@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 80" width="260" height="80">
+  <!-- Foglia stilizzata -->
+  <g transform="translate(10, 8)">
+    <!-- Corpo foglia -->
+    <path d="M30 60 C10 45, 2 25, 18 8 C28 0, 42 0, 50 10 C60 22, 58 42, 40 55 Z"
+          fill="#7ab648" opacity="0.95"/>
+    <!-- Venatura centrale -->
+    <path d="M30 60 C32 42, 36 25, 32 8"
+          stroke="#2d5a27" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <!-- Venature laterali sx -->
+    <path d="M28 45 C20 40, 12 36, 10 30" stroke="#2d5a27" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <path d="M30 32 C22 28, 15 22, 14 16" stroke="#2d5a27" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <!-- Venature laterali dx -->
+    <path d="M32 40 C40 36, 46 32, 48 26" stroke="#2d5a27" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <path d="M31 26 C38 22, 44 18, 44 12" stroke="#2d5a27" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.7"/>
+  </g>
+  <!-- Testo principale -->
+  <text x="78" y="36" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="bold" fill="#2d5a27" letter-spacing="0.5">Le Ucapiccola</text>
+  <!-- Sottotitolo -->
+  <text x="79" y="54" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="600" fill="#7ab648" letter-spacing="2.5">AZIENDA AGRICOLA BIOLOGICA</text>
+  <!-- Linea decorativa -->
+  <line x1="79" y1="60" x2="240" y2="60" stroke="#c8a96e" stroke-width="1" opacity="0.6"/>
+  <!-- Luogo -->
+  <text x="79" y="72" font-family="Arial, Helvetica, sans-serif" font-size="8.5" fill="#c8a96e" letter-spacing="1">Morciano di Leuca · Salento</text>
+</svg>
